@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="GrabAndGo.DataAccess/GrabAndGo.DataAccess.csproj" />
+  <Project Path="GrabAndGo.Models/GrabAndGo.Models.csproj" />
+  <Project Path="GrabAndGo.Services/GrabAndGo.Services.csproj" />
+  <Project Path="GrabAndGo/GrabAndGo.Api.csproj" />
+</Solution>
