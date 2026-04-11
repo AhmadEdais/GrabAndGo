@@ -1,7 +1,7 @@
 ﻿using GrabAndGo.DataAccess.Core;
 using GrabAndGo.DataAccess.Interfaces;
-using GrabAndGo.Models.Requests;
-using GrabAndGo.Models.Responses;
+using GrabAndGo.Models.Requests.Users;
+using GrabAndGo.Models.Responses.Users;
 using System.Threading.Tasks;
 
 namespace GrabAndGo.DataAccess.Repositories
@@ -28,6 +28,12 @@ namespace GrabAndGo.DataAccess.Repositories
         {
             // Sends the anonymous object as parameters, expects a single JSON object back
             return await _executor.ExecuteReaderAsync<AuthResponseDto>("sp_GetUserById_JSON", new { UserId = userId });
+        }
+        // Add this method to your existing UserRepository class
+        public async Task<UserAuthLookupDto?> GetUserAuthByEmailAsync(string email)
+        {
+            // Executes the JSON GET and maps strictly to our internal lookup DTO
+            return await _executor.ExecuteReaderAsync<UserAuthLookupDto>("sp_GetUserByEmail_JSON", new { Email = email });
         }
     }
 

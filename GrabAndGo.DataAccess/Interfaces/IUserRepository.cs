@@ -1,5 +1,5 @@
-﻿using GrabAndGo.Models.Requests;
-using GrabAndGo.Models.Responses;
+﻿using GrabAndGo.Models.Requests.Users;
+using GrabAndGo.Models.Responses.Users;
 using System.Threading.Tasks;
 
 namespace GrabAndGo.DataAccess.Interfaces
@@ -11,5 +11,6 @@ namespace GrabAndGo.DataAccess.Interfaces
 
         // Executes the JSON GET and returns the user details
         Task<AuthResponseDto?> GetUserByIdAsync(int userId);
+        Task<UserAuthLookupDto?> GetUserAuthByEmailAsync(string email);
     }
 }

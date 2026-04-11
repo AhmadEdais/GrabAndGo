@@ -1,7 +1,12 @@
 ﻿using GrabAndGo.DataAccess.Interfaces;
-using GrabAndGo.Models.Requests;
-using GrabAndGo.Models.Responses;
+using GrabAndGo.Models.Requests.Users;
+using GrabAndGo.Models.Responses.Users;
 using GrabAndGo.Services.Interfaces;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace GrabAndGo.Services.Implementations
@@ -9,11 +14,12 @@ namespace GrabAndGo.Services.Implementations
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
-
+        private readonly IConfiguration _config; // Needed for JWT Secret
         // Constructor Injection
-        public UserService(IUserRepository userRepository)
+        public UserService(IUserRepository userRepository, IConfiguration config)
         {
             _userRepository = userRepository;
+            _config = config;
         }
 
         public async Task<AuthResponseDto> RegisterUserAsync(UserRegistrationDto dto)
@@ -45,7 +51,67 @@ namespace GrabAndGo.Services.Implementations
                 Token = null
             };
         }
+        public async Task<AuthResponseDto> LoginUserAsync(LoginRequestDto dto)
+        {
+            // 1. Ask DB for the user profile + password hash
+            var internalUser = await _userRepository.GetUserAuthByEmailAsync(dto.Email);
 
+            // 2. If null, the email doesn't exist. Fail generic.
+            if (internalUser == null)
+            {
+                throw new UnauthorizedAccessException("Invalid email or password.");
+            }
+
+            // 3. Let BCrypt mathematically verify the plain-text against the salt/hash
+            bool isPasswordValid = BCrypt.Net.BCrypt.Verify(dto.Password, internalUser.PasswordHash);
+
+            if (!isPasswordValid)
+            {
+                // Always use the exact same error message to prevent email enumeration attacks
+                throw new UnauthorizedAccessException("Invalid email or password.");
+            }
+
+            // 4. Generate the JWT Token
+            string token = GenerateJwtToken(internalUser);
+
+            // 5. Map safe data to the final Response DTO
+            return new AuthResponseDto
+            {
+                UserId = internalUser.UserId,
+                FirstName = internalUser.FirstName,
+                LastName = internalUser.LastName,
+                Email = internalUser.Email,
+                Token = token
+            };
+        }
+
+        // Private helper to mint the JWT
+        private string GenerateJwtToken(UserAuthLookupDto user)
+        {
+            // Get the secret key from appsettings.json
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["GRABANDGO_JWT_KEY"]));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+            // Create the payload (claims)
+            var claims = new[]
+            {
+                new Claim(JwtRegisteredClaimNames.Sub, user.UserId.ToString()), // Subject is the UserId
+                new Claim(JwtRegisteredClaimNames.Email, user.Email),
+                new Claim("FirstName", user.FirstName), // Custom claim
+                new Claim("LastName", user.LastName),   // Custom claim
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()) // Unique Token ID
+            };
+
+            // Assemble the token (valid for 7 days)
+            var token = new JwtSecurityToken(
+                issuer: _config["Jwt:Issuer"],
+                audience: _config["Jwt:Audience"],
+                claims: claims,
+                expires: DateTime.Now.AddDays(7),
+                signingCredentials: credentials);
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
         public async Task<AuthResponseDto?> GetUserByIdAsync(int userId)
         {
             // For simply getting a user, the Service layer acts as a pass-through

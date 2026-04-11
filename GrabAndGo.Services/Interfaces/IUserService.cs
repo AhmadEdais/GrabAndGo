@@ -1,5 +1,5 @@
-﻿using GrabAndGo.Models.Requests;
-using GrabAndGo.Models.Responses;
+﻿using GrabAndGo.Models.Requests.Users;
+using GrabAndGo.Models.Responses.Users;
 using System.Threading.Tasks;
 
 namespace GrabAndGo.Services.Interfaces
@@ -9,5 +9,6 @@ namespace GrabAndGo.Services.Interfaces
         Task<AuthResponseDto> RegisterUserAsync(UserRegistrationDto dto);
 
         Task<AuthResponseDto?> GetUserByIdAsync(int userId);
+        Task<AuthResponseDto> LoginUserAsync(LoginRequestDto dto);
     }
 }

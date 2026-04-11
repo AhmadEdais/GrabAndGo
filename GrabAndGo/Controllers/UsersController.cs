@@ -1,5 +1,5 @@
-﻿using GrabAndGo.Models.Requests;
-using GrabAndGo.Models.Responses;
+﻿using GrabAndGo.Models.Requests.Users;
+using GrabAndGo.Models.Responses.Users;
 using GrabAndGo.Services;
 using GrabAndGo.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -62,6 +62,33 @@ namespace GrabAndGo.Api.Controllers
             }
 
             return Ok(user);
+        }
+        // Add this inside your existing UsersController
+        [HttpPost("login")]
+        public async Task<ActionResult<AuthResponseDto>> Login([FromBody] LoginRequestDto dto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                // Pass off to the service layer
+                var response = await _userService.LoginUserAsync(dto);
+
+                // 200 OK + The AuthResponseDto (which now includes the JWT)
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                // 401 Unauthorized is the correct HTTP status for bad passwords
+                return Unauthorized(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An error occurred during login.", error = ex.Message });
+            }
         }
     }
 }
