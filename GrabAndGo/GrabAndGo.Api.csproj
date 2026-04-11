@@ -11,10 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\GrabAndGo.Models\GrabAndGo.Models.csproj" />
     <ProjectReference Include="..\GrabAndGo.Services\GrabAndGo.Services.csproj" />
   </ItemGroup>

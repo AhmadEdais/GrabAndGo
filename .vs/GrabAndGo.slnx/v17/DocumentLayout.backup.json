@@ -1,0 +1,192 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Vs\\GrabAndGo\\GrabAndGo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|solutionrelative:grabandgo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|solutionrelative:grabandgo\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.dataaccess\\core\\sqlexecutor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|solutionrelative:grabandgo.dataaccess\\core\\sqlexecutor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|solutionrelative:grabandgo\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.dataaccess\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|solutionrelative:grabandgo.dataaccess\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.services\\implementations\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|solutionrelative:grabandgo.services\\implementations\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.models\\responses\\authresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|solutionrelative:grabandgo.models\\responses\\authresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.models\\requests\\userregistrationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|solutionrelative:grabandgo.models\\requests\\userregistrationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.dataaccess\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|solutionrelative:grabandgo.dataaccess\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{089100B1-113F-4E66-888A-E83F3999EAFD}|Solution Items{089100B1-113F-4E66-888A-E83F3999EAFD}|C:\\Vs\\GrabAndGo\\GrabAndGo\\02_Architecture_Rules.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{089100B1-113F-4E66-888A-E83F3999EAFD}|Solution Items{089100B1-113F-4E66-888A-E83F3999EAFD}|solutionrelative:02_Architecture_Rules.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "GrabAndGo\\Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "GrabAndGo\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAYwBoAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T16:29:59.645Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\appsettings.json",
+              "RelativeDocumentMoniker": "GrabAndGo\\appsettings.json",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\appsettings.json",
+              "RelativeToolTip": "GrabAndGo\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-11T13:30:05.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.DataAccess\\Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "GrabAndGo.DataAccess\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAACUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T18:41:08.955Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AuthResponseDto.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\AuthResponseDto.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Models\\Responses\\AuthResponseDto.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\AuthResponseDto.cs",
+              "RelativeToolTip": "GrabAndGo.Models\\Responses\\AuthResponseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T18:38:49.083Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Program.cs",
+              "RelativeDocumentMoniker": "GrabAndGo\\Program.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Program.cs*",
+              "RelativeToolTip": "GrabAndGo\\Program.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T18:21:58.846Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UserRegistrationDto.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Requests\\UserRegistrationDto.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Models\\Requests\\UserRegistrationDto.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Requests\\UserRegistrationDto.cs",
+              "RelativeToolTip": "GrabAndGo.Models\\Requests\\UserRegistrationDto.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwBcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T18:37:24.428Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Interfaces\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.DataAccess\\Interfaces\\IUserRepository.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Interfaces\\IUserRepository.cs",
+              "RelativeToolTip": "GrabAndGo.DataAccess\\Interfaces\\IUserRepository.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAADgvwoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T18:40:39.649Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SqlExecutor.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Core\\SqlExecutor.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.DataAccess\\Core\\SqlExecutor.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Core\\SqlExecutor.cs",
+              "RelativeToolTip": "GrabAndGo.DataAccess\\Core\\SqlExecutor.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAIwBAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T16:26:58.948Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "02_Architecture_Rules.md",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\02_Architecture_Rules.md",
+              "RelativeDocumentMoniker": "02_Architecture_Rules.md",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\02_Architecture_Rules.md",
+              "RelativeToolTip": "02_Architecture_Rules.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-04-11T10:59:29.97Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Implementations\\UserService.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Services\\Implementations\\UserService.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Implementations\\UserService.cs",
+              "RelativeToolTip": "GrabAndGo.Services\\Implementations\\UserService.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAYwC4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T18:43:55.382Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo.Models\bin\Debug\net8.0\GrabAndGo.Models.deps.json
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo.Models\bin\Debug\net8.0\GrabAndGo.Models.dll
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo.Models\bin\Debug\net8.0\GrabAndGo.Models.pdb
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo.Models\obj\Debug\net8.0\GrabAndGo.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo.Models\obj\Debug\net8.0\GrabAndGo.Models.AssemblyInfoInputs.cache
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo.Models\obj\Debug\net8.0\GrabAndGo.Models.AssemblyInfo.cs
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo.Models\obj\Debug\net8.0\GrabAndGo.Models.csproj.CoreCompileInputs.cache
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo.Models\obj\Debug\net8.0\GrabAndGo.Models.sourcelink.json
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo.Models\obj\Debug\net8.0\GrabAndGo.Models.dll
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo.Models\obj\Debug\net8.0\refint\GrabAndGo.Models.dll
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo.Models\obj\Debug\net8.0\GrabAndGo.Models.pdb
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo.Models\obj\Debug\net8.0\ref\GrabAndGo.Models.dll

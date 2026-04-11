@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GrabAndGo.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b812364b1a8297a95a504ce84b0be3a648754ef0")]
 [assembly: System.Reflection.AssemblyProductAttribute("GrabAndGo.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GrabAndGo.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

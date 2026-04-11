@@ -1,0 +1,16 @@
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo.DataAccess\bin\Debug\net8.0\GrabAndGo.DataAccess.deps.json
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo.DataAccess\bin\Debug\net8.0\GrabAndGo.DataAccess.dll
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo.DataAccess\bin\Debug\net8.0\GrabAndGo.DataAccess.pdb
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo.DataAccess\bin\Debug\net8.0\GrabAndGo.Models.dll
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo.DataAccess\bin\Debug\net8.0\GrabAndGo.Models.pdb
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo.DataAccess\obj\Debug\net8.0\GrabAndGo.DataAccess.csproj.AssemblyReference.cache
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo.DataAccess\obj\Debug\net8.0\GrabAndGo.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo.DataAccess\obj\Debug\net8.0\GrabAndGo.DataAccess.AssemblyInfoInputs.cache
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo.DataAccess\obj\Debug\net8.0\GrabAndGo.DataAccess.AssemblyInfo.cs
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo.DataAccess\obj\Debug\net8.0\GrabAndGo.DataAccess.csproj.CoreCompileInputs.cache
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo.DataAccess\obj\Debug\net8.0\GrabAndGo.DataAccess.sourcelink.json
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo.DataAccess\obj\Debug\net8.0\GrabAndG.8A2AFE17.Up2Date
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo.DataAccess\obj\Debug\net8.0\GrabAndGo.DataAccess.dll
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo.DataAccess\obj\Debug\net8.0\refint\GrabAndGo.DataAccess.dll
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo.DataAccess\obj\Debug\net8.0\GrabAndGo.DataAccess.pdb
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo.DataAccess\obj\Debug\net8.0\ref\GrabAndGo.DataAccess.dll

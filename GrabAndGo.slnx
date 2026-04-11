@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="02_Architecture_Rules.md" />
+  </Folder>
   <Project Path="GrabAndGo.DataAccess/GrabAndGo.DataAccess.csproj" />
   <Project Path="GrabAndGo.Models/GrabAndGo.Models.csproj" />
   <Project Path="GrabAndGo.Services/GrabAndGo.Services.csproj" />

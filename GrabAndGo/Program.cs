@@ -1,9 +1,26 @@
+using GrabAndGo.DataAccess; // For SqlExecutor
+using GrabAndGo.DataAccess.Core;
+using GrabAndGo.DataAccess.Interfaces;
+using GrabAndGo.DataAccess.Repositories; // Adjust these based on your exact folder names
+using GrabAndGo.Services.Implementations;
+using GrabAndGo.Services.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// 1. Get the connection string from appsettings.json
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+// 2. Register SqlExecutor as a Singleton
+// This passes the connection string into the constructor we wrote earlier
+builder.Services.AddSingleton(new SqlExecutor(connectionString!));
 
+// 3. Register Repositories (DataAccess)
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+// 4. Register Services (Business Layer)
+builder.Services.AddScoped<IUserService, UserService>();
+
+// Standard Boilerplate
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -17,9 +34,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();
