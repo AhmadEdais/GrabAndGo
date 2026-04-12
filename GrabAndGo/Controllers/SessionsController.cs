@@ -35,5 +35,6 @@ namespace GrabAndGo.Api.Controllers
 
             return Ok(result);
         }
+
     }
 }

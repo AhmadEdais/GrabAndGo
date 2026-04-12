@@ -1,9 +1,10 @@
 ﻿using GrabAndGo.DataAccess.Core;
 using GrabAndGo.DataAccess.Interfaces;
+using GrabAndGo.Models.DTOs;
 
 namespace GrabAndGo.DataAccess.Repositories
 {
-    internal class SessionRepository : ISessionRepository
+    public class SessionRepository : ISessionRepository
     {
         private readonly SqlExecutor _executor;
 
@@ -12,14 +13,30 @@ namespace GrabAndGo.DataAccess.Repositories
             _executor = executor;
         }
 
-        public async Task<string> GenerateSecureTokenAsync(int userId, int storeId, string tokenHash)
+        public async Task<QrTokenResponseDto?> GenerateSecureTokenAsync(int userId, int storeId, string tokenHash)
         {
-            var token = await _executor.ExecuteScalarAsync<string>(
+            // FIX: Use ExecuteNonQueryAsync to utilize the JSON Output Parameter
+            return await _executor.ExecuteNonQueryAsync<QrTokenResponseDto>(
                 "SP_GenerateEntryQrToken",
                 new { UserId = userId, StoreId = storeId, TokenHash = tokenHash }
             );
-
-            return token ?? string.Empty;
+        }
+        public async Task<TokenVerificationDto?> GetTokenForVerificationAsync(int tokenId)
+        {
+            // Executes the GET SP and automatically deserializes the single JSON object
+            return await _executor.ExecuteReaderAsync<TokenVerificationDto>(
+                "SP_GetTokenForVerification",
+                new { TokenId = tokenId }
+            );
+        }
+        public async Task<GateEntryResponseDto?> ProcessEntryAsync(int tokenId, int userId, int storeId)
+        {
+            // The SqlExecutor will auto-serialize the anonymous object, 
+            // run the transaction, and deserialize the output JSON into our Response DTO!
+            return await _executor.ExecuteNonQueryAsync<GateEntryResponseDto>(
+                "SP_ProcessStoreEntry",
+                new { TokenId = tokenId, UserId = userId, StoreId = storeId }
+            );
         }
     }
 }

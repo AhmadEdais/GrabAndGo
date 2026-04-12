@@ -2,6 +2,7 @@
 using GrabAndGo.Models.Responses.Users;
 using GrabAndGo.Services;
 using GrabAndGo.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace GrabAndGo.Api.Controllers
         {
             _userService = userService;
         }
-
+        
         [HttpPost("register")]
         public async Task<ActionResult<AuthResponseDto>> Register([FromBody] UserRegistrationDto dto)
         {
@@ -64,6 +65,7 @@ namespace GrabAndGo.Api.Controllers
             return Ok(user);
         }
         // Add this inside your existing UsersController
+        
         [HttpPost("login")]
         public async Task<ActionResult<AuthResponseDto>> Login([FromBody] LoginRequestDto dto)
         {

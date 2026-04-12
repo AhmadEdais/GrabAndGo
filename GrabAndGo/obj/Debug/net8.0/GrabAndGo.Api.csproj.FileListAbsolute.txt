@@ -83,3 +83,4 @@ C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo\obj\Debug\net8.0\GrabAndGo.Api.genruntimecon
 C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo\obj\Debug\net8.0\ref\GrabAndGo.Api.dll
 C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

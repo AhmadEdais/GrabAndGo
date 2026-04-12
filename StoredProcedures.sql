@@ -157,7 +157,7 @@ BEGIN
     
     -- 4. Calculate exact UTC timestamps
     DECLARE @IssuedAt DATETIME2 = GETUTCDATE();
-    DECLARE @ExpiresAt DATETIME2 = DATEADD(second, 30, @IssuedAt); -- FIX: Corrected to ExpiresAt
+    DECLARE @ExpiresAt DATETIME2 = DATEADD(MINUTE, 30, @IssuedAt); -- FIX: Corrected to ExpiresAt
 
     BEGIN TRY
          -- 5. Insert
@@ -178,3 +178,174 @@ BEGIN
         ;THROW;
     END CATCH
 END
+--------------------------------------------------------------------------------------------------
+GO
+CREATE OR ALTER PROCEDURE [dbo].[SP_GetTokenForVerification]
+    @TokenId INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+        EntryQrTokenId AS TokenId,
+        UserId,
+        StoreId,
+        -- Convert VARBINARY(32) back to a 64-character Hex string for JSON transport
+        CONVERT(VARCHAR(64), TokenHash, 2) AS TokenHash,
+        IssuedAt,
+        ExpiresAt,
+        ConsumedAt
+    FROM EntryQrTokens
+    WHERE EntryQrTokenId = @TokenId
+    FOR JSON PATH, WITHOUT_ARRAY_WRAPPER, INCLUDE_NULL_VALUES;
+END
+--------------------------------------------------------------------------------------------------
+GO
+CREATE OR ALTER PROCEDURE [dbo].[SP_ProcessStoreEntry]
+    @P_JSON_REQUEST NVARCHAR(MAX),
+    @P_JSON_RESPONSE NVARCHAR(MAX) OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- 1. Declare variables
+    DECLARE @TokenId INT, 
+            @UserId INT, 
+            @StoreId INT;
+
+    -- 2. Extract from JSON
+    SELECT 
+        @TokenId = TokenId,
+        @UserId = UserId,
+        @StoreId = StoreId
+    FROM OPENJSON(@P_JSON_REQUEST)
+    WITH (
+        TokenId INT '$.TokenId',
+        UserId INT '$.UserId',
+        StoreId INT '$.StoreId'
+    );
+
+    BEGIN TRY
+        BEGIN TRANSACTION;
+
+        -- 3. Double-Entry Prevention
+        -- We check if the user is ALREADY in a session at ANY store
+        IF EXISTS (SELECT 1 FROM Sessions WHERE UserId = @UserId AND SessionStatusId = 1)
+        BEGIN
+            ;THROW 50001, 'User already has an active shopping session.', 1;
+        END
+        -- 4. Burn the Token
+        UPDATE EntryQrTokens 
+        SET ConsumedAt = GETUTCDATE() 
+        WHERE EntryQrTokenId = @TokenId;
+
+        -- 5. Create the Session
+        DECLARE @NewSessionId INT;
+        INSERT INTO Sessions (UserId, StoreId, EntryQrTokenId, SessionStatusId, StartedAt)
+        VALUES (@UserId, @StoreId, @TokenId, 1, GETUTCDATE());
+        
+        SET @NewSessionId = SCOPE_IDENTITY();
+        SELECT * FROM Carts
+        -- 6. Create the empty Cart
+        DECLARE @NewCartId INT;
+        INSERT INTO Carts (SessionId,UserId, CreatedAt, CartVersion)
+        VALUES (@NewSessionId,@UserId ,GETUTCDATE(), 0);
+        
+        SET @NewCartId = SCOPE_IDENTITY();
+
+        -- 7. Return the IDs for the system handshake
+        SET @P_JSON_RESPONSE = (
+            SELECT 
+                @NewSessionId AS SessionId,
+                @NewCartId AS CartId,
+                'Access Granted' AS [Message]
+            FOR JSON PATH, WITHOUT_ARRAY_WRAPPER
+        );
+
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        IF @@TRANCOUNT > 0 ROLLBACK TRANSACTION;
+        ;THROW;
+    END CATCH
+END
+--------------------------------------------------------------------------------------------------
+GO
+CREATE OR ALTER PROCEDURE [dbo].[SP_TopUpWallet]
+    @P_JSON_REQUEST NVARCHAR(MAX),
+    @P_JSON_RESPONSE NVARCHAR(MAX) OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @UserId INT, @Amount DECIMAL(18,2);
+
+    -- Extract from JSON
+    SELECT 
+        @UserId = UserId,
+        @Amount = Amount
+    FROM OPENJSON(@P_JSON_REQUEST)
+    WITH (
+        UserId INT '$.UserId',
+        Amount DECIMAL(18,2) '$.Amount'
+    );
+
+    BEGIN TRY
+        BEGIN TRANSACTION;
+
+        DECLARE @WalletId INT, @CurrentBalance DECIMAL(18,2), @NewBalance DECIMAL(18,2);
+
+        -- 1. Lock the wallet row to prevent race conditions during read/write
+        SELECT @WalletId = WalletId, @CurrentBalance = CurrentBalance
+        FROM Wallets WITH (UPDLOCK)
+        WHERE UserId = @UserId;
+
+        IF @WalletId IS NULL
+        BEGIN
+            ;THROW 50002, 'Wallet not found for this user.', 1;
+        END
+
+        -- 2. Calculate new balance
+        SET @NewBalance = @CurrentBalance + @Amount;
+
+        -- 3. Update the Wallet
+        UPDATE Wallets 
+        SET CurrentBalance = @NewBalance, 
+            LastUpdatedAt = GETUTCDATE()
+        WHERE WalletId = @WalletId;
+        -- 4. Create the Audit Trail (Ledger)
+        INSERT INTO WalletLedgerEntries (WalletId, LedgerEntryTypeId, Amount, BalanceAfter, CreatedAt)
+        VALUES (@WalletId, 1, @Amount, @NewBalance, GETUTCDATE());
+        -- 5. Return the new state
+        SET @P_JSON_RESPONSE = (
+            SELECT 
+                @WalletId AS WalletId,
+                @NewBalance AS NewBalance,
+                'Wallet topped up successfully.' AS [Message]
+            FOR JSON PATH, WITHOUT_ARRAY_WRAPPER
+        );
+
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        IF @@TRANCOUNT > 0 ROLLBACK TRANSACTION;
+        ;THROW;
+    END CATCH
+END
+--------------------------------------------------------------------------------------------------
+GO
+CREATE OR ALTER PROCEDURE [dbo].[SP_GetWalletBalance]
+    @UserId INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+        WalletId, 
+        CurrentBalance, 
+        LastUpdatedAt
+    FROM Wallets
+    WHERE UserId = @UserId
+    FOR JSON PATH, WITHOUT_ARRAY_WRAPPER, INCLUDE_NULL_VALUES;
+END
+--------------------------------------------------------------------------------------------------
