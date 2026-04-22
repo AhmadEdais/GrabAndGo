@@ -349,3 +349,290 @@ BEGIN
     FOR JSON PATH, WITHOUT_ARRAY_WRAPPER, INCLUDE_NULL_VALUES;
 END
 --------------------------------------------------------------------------------------------------
+GO
+IF OBJECT_ID('dbo.SP_BindSessionTrack', 'P') IS NOT NULL
+    DROP PROCEDURE [dbo].[SP_BindSessionTrack];
+GO
+CREATE PROCEDURE [dbo].[SP_BindSessionTrack]
+    @P_JSON_REQUEST NVARCHAR(MAX),
+    @P_JSON_RESPONSE NVARCHAR(MAX) OUTPUT  -- Added to match your SqlExecutor
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    BEGIN TRY
+        -- 1. Extract properties natively from the incoming JSON DTO
+        DECLARE @SessionId NVARCHAR(50);
+        DECLARE @TrackId NVARCHAR(50);
+        DECLARE @Source NVARCHAR(100);
+
+        SELECT 
+            @SessionId = [SessionId],
+            @TrackId = [TrackId],
+            @Source = [Source]
+        FROM OPENJSON(@P_JSON_REQUEST)
+        WITH (
+            [SessionId] NVARCHAR(50),
+            [TrackId] NVARCHAR(50),
+            [Source] NVARCHAR(100)
+        );
+
+        -- 2. Begin Transaction to ensure atomic binding
+        BEGIN TRAN;
+        -- Retire previous tracks for this session
+        UPDATE SessionTrackBindings
+        SET IsCurrent = 0
+        WHERE SessionId = @SessionId AND IsCurrent = 1;
+
+        -- 3. Insert the new physical-to-digital link
+        DECLARE @NewBindingId INT;
+        DECLARE @BoundAt DATETIME2 = SYSUTCDATETIME();
+
+        INSERT INTO SessionTrackBindings 
+            (SessionId, TrackId, Source, BoundAt, IsCurrent)
+        VALUES 
+            (@SessionId, @TrackId, @Source, @BoundAt, 1);
+
+        SET @NewBindingId = SCOPE_IDENTITY();
+
+        COMMIT TRAN;
+
+        -- 4. Assign the JSON directly to the OUTPUT parameter your executor is waiting for
+        SET @P_JSON_RESPONSE = (
+            SELECT 
+                BindingId = @NewBindingId,
+                SessionId = @SessionId,
+                TrackId = @TrackId,
+                BoundAt = @BoundAt,
+                IsCurrent = CAST(1 AS BIT)
+            FOR JSON PATH, WITHOUT_ARRAY_WRAPPER, INCLUDE_NULL_VALUES
+        );
+
+    END TRY
+    BEGIN CATCH
+        IF @@TRANCOUNT > 0 ROLLBACK TRAN;
+        THROW;
+    END CATCH
+END
+GO
+--------------------------------------------------------------------------------------------------
+GO
+CREATE OR ALTER PROCEDURE SP_ProcessVisionEvent
+    @P_JSON_REQUEST NVARCHAR(MAX),
+    @P_JSON_RESPONSE NVARCHAR(MAX) OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- =========================================================================
+    -- PHASE A: INGESTION & RESOLUTION (No Locks Yet)
+    -- =========================================================================
+    
+    -- 1. Extract values directly from the DTO payload
+    DECLARE @TrackId NVARCHAR(50), 
+            @AiLabel NVARCHAR(120), 
+            @Action NVARCHAR(10), 
+            @EventTime DATETIME2, 
+            @Confidence DECIMAL(5,4), 
+            @CameraCode NVARCHAR(50);
+
+    SELECT 
+        @TrackId = [TrackId],
+        @AiLabel = [AiLabel],
+        @Action = [Action],
+        @EventTime = [EventTime],
+        @Confidence = [Confidence],
+        @CameraCode = [CameraCode]
+    FROM OPENJSON(@P_JSON_REQUEST)
+    WITH (
+        TrackId NVARCHAR(50),
+        AiLabel NVARCHAR(120),
+        Action NVARCHAR(10),
+        EventTime DATETIME2,
+        Confidence DECIMAL(5,4),
+        CameraCode NVARCHAR(50)
+    );
+    -- 2. Lookups (Camera, Store, Zone, Product, Session, Cart)
+    DECLARE @CameraId INT, @StoreId INT, @ZoneId INT;
+    SELECT @CameraId = CameraId, @StoreId = StoreId, @ZoneId = ZoneId 
+    FROM Cameras WHERE CameraCode = @CameraCode;
+
+
+    DECLARE @ProductId INT, @UnitPrice DECIMAL(18,2);
+    SELECT @ProductId = Products.ProductId, @UnitPrice = PriceGross + PriceGross * VAT_Rate
+    FROM Products INNER JOIN ProductAiLabels 
+    ON Products.ProductId = ProductAiLabels.ProductId
+    WHERE AiLabel = @AiLabel;
+
+
+    DECLARE @SessionId INT, @CartId INT;
+    -- Find the active session for this person
+    SELECT @SessionId = SessionId 
+    FROM SessionTrackBindings 
+    WHERE TrackId = @TrackId;
+
+
+    IF @SessionId IS NOT NULL
+    BEGIN
+        -- Find the active cart (StatusId = 1) for this session
+        SELECT @CartId = CartId 
+        FROM Carts INNER JOIN Sessions
+        ON Carts.SessionId = Sessions.SessionId
+        WHERE Sessions.SessionId = @SessionId AND Sessions.SessionStatusId = 1; 
+
+    END
+    -- 3. THE QoS 1 IDEMPOTENCY GUARD
+    -- If this exact event was already processed (network duplicate), exit immediately.
+    IF EXISTS (
+        SELECT 1 FROM VisionEventsRaw 
+        WHERE TrackId = @TrackId 
+          AND EventTime = @EventTime 
+          AND AiLabel = @AiLabel
+          
+    )
+    BEGIN
+        -- Skip DB writes, jump straight to returning the current cart state
+        GOTO OutputSignalRJson;
+    END
+
+    -- =========================================================================
+    -- PHASE B: THE RAW LOG
+    -- =========================================================================
+    
+    DECLARE @VisionEventId INT;
+    -- Insert with ProcessingStatusId = 1 (Pending)
+    INSERT INTO VisionEventsRaw (
+        StoreId, CameraId, ZoneId, MatchedSessionId, 
+        TrackId, AiLabel, Action, EventTime, 
+        Confidence, PayloadJson,IngestedAt ,ProcessingStatusId
+    )
+    VALUES (
+        @StoreId, @CameraId, @ZoneId, @SessionId, 
+        @TrackId, @AiLabel, @Action, @EventTime, 
+        @Confidence, @P_JSON_REQUEST,GETDATE(), 1
+    );
+    
+    SET @VisionEventId = SCOPE_IDENTITY();
+
+    -- =========================================================================
+    -- PHASE C: THE ATOMIC CART UPDATE
+    -- =========================================================================
+    
+    -- Only proceed with financial cart updates if we successfully mapped the user and product
+    IF @CartId IS NOT NULL AND @ProductId IS NOT NULL
+    BEGIN
+        BEGIN TRY
+            BEGIN TRANSACTION;
+
+            DECLARE @CartStateChanged BIT = 0;
+
+            -- Handle Pick (Add 1 or Insert)
+            IF @Action = 'Pick'
+            BEGIN
+                IF EXISTS (SELECT 1 FROM CartItems WHERE CartId = @CartId AND ProductId = @ProductId)
+                BEGIN
+                    UPDATE CartItems 
+                    SET Quantity = Quantity + 1 
+                    WHERE CartId = @CartId AND ProductId = @ProductId;
+                END
+                ELSE
+                BEGIN 
+                    INSERT INTO CartItems (CartId, ProductId,LastEventId, Quantity,LastAction) 
+                    VALUES (@CartId, @ProductId, @VisionEventId ,1, @Action);
+                END
+                SET @CartStateChanged = 1;
+            END
+            
+            -- Handle Return (Subtract 1, Delete if 0)
+            ELSE IF @Action = 'Return'
+            BEGIN
+                IF EXISTS (SELECT 1 FROM CartItems WHERE CartId = @CartId AND ProductId = @ProductId)
+                BEGIN
+                    UPDATE CartItems 
+                    SET Quantity = Quantity - 1 ,UpdatedAt = GETUTCDATE()
+                    WHERE CartId = @CartId AND ProductId = @ProductId;
+                    
+                    -- Crucial: Remove row entirely if quantity hits zero
+                    DELETE FROM CartItems 
+                    WHERE CartId = @CartId AND ProductId = @ProductId AND Quantity <= 0;
+                    SET @CartStateChanged = 1;
+                END
+            END
+            IF @CartStateChanged = 1
+                BEGIN
+                    DECLARE @NewCartVersion INT;
+                    SELECT @NewCartVersion = CartVersion + 1 FROM Carts WHERE CartId = @CartId;
+                    -- Audit Trail
+                    INSERT INTO CartItemEvents(CartId, ProductId, VisionEventId,Action, DeltaQty,CartVersionAfter, AppliedAt)
+                    VALUES (@CartId, @ProductId,@VisionEventId, @Action, CASE WHEN @Action = 'Pick' THEN 1 ELSE -1 END,@NewCartVersion ,@EventTime);
+
+                    -- Version Bump
+                    UPDATE Carts 
+                    SET CartVersion = @NewCartVersion, 
+                        LastUpdatedAt = GETUTCDATE() 
+                    WHERE CartId = @CartId;
+                END
+
+            -- Mark Raw Log as Applied (ProcessingStatusId = 2)
+            UPDATE VisionEventsRaw 
+            SET ProcessingStatusId = 2 
+            WHERE VisionEventId = @VisionEventId;
+
+            COMMIT TRANSACTION;
+        END TRY
+        BEGIN CATCH
+            IF @@TRANCOUNT > 0 ROLLBACK TRANSACTION;
+            THROW; -- Re-throw the error to the ASP.NET Global Exception Handler
+        END CATCH
+    END
+
+    -- =========================================================================
+    -- PHASE D: THE SIGNALR OUTPUT
+    -- =========================================================================
+    
+    OutputSignalRJson:
+
+    -- If no CartId exists (e.g., event was mapped to a ghost track), return empty JSON
+    IF @CartId IS NULL
+    BEGIN
+        SET @P_JSON_RESPONSE = '{}';
+        RETURN;
+    END
+
+    -- Return the freshly updated Cart, along with its Nested Items and calculated totals.
+    -- We use WITHOUT_ARRAY_WRAPPER to return a single object, and INCLUDE_NULL_VALUES for Flutter safety.
+    SET @P_JSON_RESPONSE =
+    (SELECT 
+        c.CartId,
+        c.SessionId,
+        c.CartVersion,
+        c.LastUpdatedAt,
+-- 1. FIX: Wrap SUM in ISNULL to return 0 instead of NULL
+        ISNULL(( 
+            SELECT SUM(ci.Quantity * (p.PriceGross + (p.PriceGross * p.VAT_Rate))) 
+            FROM CartItems ci
+            INNER JOIN Products p ON ci.ProductId = p.ProductId
+            WHERE ci.CartId = c.CartId
+        ), 0.00) AS CartTotal,
+        
+        -- 2. FIX: Wrap FOR JSON in ISNULL and use JSON_QUERY to return an empty array []
+        ISNULL((
+            SELECT 
+                ci.ProductId,
+                p.Name AS ProductName,
+                pi.AiLabel,
+                ci.Quantity,
+                (p.PriceGross + (p.PriceGross * p.VAT_Rate)) AS UnitPrice,
+                (ci.Quantity * (p.PriceGross + (p.PriceGross * p.VAT_Rate))) AS LineTotal
+            FROM CartItems ci
+            INNER JOIN Products p ON ci.ProductId = p.ProductId
+            INNER JOIN ProductAiLabels Pi ON p.ProductId = pi.ProductId  AND pi.IsPrimary = 1
+            WHERE ci.CartId = c.CartId
+            FOR JSON PATH
+        ), JSON_QUERY('[]')) AS CartItems
+    FROM Carts c
+    WHERE c.CartId = @CartId
+    FOR JSON PATH, WITHOUT_ARRAY_WRAPPER, INCLUDE_NULL_VALUES);
+
+END
+GO

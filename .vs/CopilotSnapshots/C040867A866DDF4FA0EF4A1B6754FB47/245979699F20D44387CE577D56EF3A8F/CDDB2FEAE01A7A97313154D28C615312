@@ -1,0 +1,29 @@
+﻿using System;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using MQTTnet;
+using MQTTnet.Client;
+
+namespace GrabAndGo.Api.BackgroundServices
+{
+    public class MqttVisionWorker : BackgroundService
+    {
+        private readonly IMqttClient _mqttClient;
+        private readonly MqttClientOptions _mqttOptions;
+        private readonly IServiceScopeFactory _scopeFactory;
+        private readonly ILogger<MqttVisionWorker> _logger;
+        public MqttVisionWorker(IServiceScopeFactory scopeFactory, ILogger<MqttVisionWorker> logger)
+        {
+            _scopeFactory = scopeFactory;
+            _logger = logger;
+
+            var factory = new MqttFactory();
+
+        }
+
+        public override async Task ExecuteAsync(CancellationToken cancellationToken)
+        {
+        }
+    }
+}

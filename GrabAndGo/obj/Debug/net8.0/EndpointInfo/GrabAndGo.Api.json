@@ -203,6 +203,54 @@
         }
       }
     },
+    "/api/VisionSystem/bind-track": {
+      "post": {
+        "tags": [
+          "VisionSystem"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BindTrackRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BindTrackRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BindTrackRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BindTrackResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BindTrackResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BindTrackResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Wallets/top-up": {
       "post": {
         "tags": [
@@ -271,6 +319,57 @@
           "token": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BindTrackRequestDto": {
+        "required": [
+          "sessionId",
+          "source",
+          "trackId"
+        ],
+        "type": "object",
+        "properties": {
+          "sessionId": {
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          },
+          "trackId": {
+            "maxLength": 50,
+            "minLength": 1,
+            "type": "string"
+          },
+          "source": {
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "BindTrackResponseDto": {
+        "type": "object",
+        "properties": {
+          "bindingId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sessionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "trackId": {
+            "type": "string",
+            "nullable": true
+          },
+          "boundAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "isCurrent": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false

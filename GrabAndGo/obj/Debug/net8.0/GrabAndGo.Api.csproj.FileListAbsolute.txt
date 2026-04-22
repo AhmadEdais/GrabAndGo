@@ -84,3 +84,6 @@ C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo\obj\Debug\net8.0\ref\GrabAndGo.Api.dll
 C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
 C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo\bin\Debug\net8.0\MQTTnet.dll
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo\bin\Debug\net8.0\MQTTnet.Extensions.ManagedClient.dll
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo\bin\Debug\net8.0\Newtonsoft.Json.dll

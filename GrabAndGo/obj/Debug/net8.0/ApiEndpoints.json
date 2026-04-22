@@ -110,6 +110,32 @@
     ]
   },
   {
+    "ContainingType": "GrabAndGo.Api.Controllers.VisionSystemController",
+    "Method": "BindTrack",
+    "RelativePath": "api/VisionSystem/bind-track",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "GrabAndGo.Models.Requests.Vision_System.BindTrackRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "GrabAndGo.Models.Responses.Vision_System.BindTrackResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "GrabAndGo.Api.Controllers.WalletsController",
     "Method": "GetBalance",
     "RelativePath": "api/Wallets/balance",

@@ -1,7 +1,11 @@
-using GrabAndGo.DataAccess; // For SqlExecutor
+using GrabAndGo.Api.BackgroundServices;
+using GrabAndGo.Api.Hubs;
+using GrabAndGo.Api.Notifications;
+using GrabAndGo.Application.Interfaces;
 using GrabAndGo.DataAccess.Core;
 using GrabAndGo.DataAccess.Interfaces;
-using GrabAndGo.DataAccess.Repositories; // Adjust these based on your exact folder names
+using GrabAndGo.DataAccess.Repositories; 
+using GrabAndGo.Infrastructure.Repositories;
 using GrabAndGo.Services.Implementations;
 using GrabAndGo.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -13,14 +17,28 @@ var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddSingleton(new SqlExecutor(connectionString!));
+builder.Services.AddHostedService<MqttVisionWorker>();
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<ISessionService, SessionService>();
+
 builder.Services.AddScoped<ISessionRepository, SessionRepository>();
+builder.Services.AddScoped<ISessionService, SessionService>();
+
 builder.Services.AddScoped<IWalletService, WalletService>();
 builder.Services.AddScoped<IWalletRepository, WalletRepository>();
 
+builder.Services.AddScoped<IVisionSystemRepository, VisionSystemRepository>();
+builder.Services.AddScoped<IVisionSystemService, VisionSystemService>();
+
+builder.Services.AddScoped<ICartRepository, CartRepository>();
+builder.Services.AddScoped<ICartService, CartService>();
+
+builder.Services.AddScoped<ICartNotificationService, SignalRCartNotificationService>();
+builder.Services.AddSignalR(options =>
+{
+    options.MaximumReceiveMessageSize = 1048576; // 1 Megabytes, 6,990 distinct, unique items
+});
 // Standard Boilerplate
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -91,5 +109,5 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
-
+app.MapHub<CartHub>("/hubs/cart");
 app.Run();
