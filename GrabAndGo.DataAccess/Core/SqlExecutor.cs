@@ -1,11 +1,4 @@
-﻿using System;
-using System.Data;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
-using Microsoft.Data.SqlClient;
-
-namespace GrabAndGo.DataAccess.Core
+﻿namespace GrabAndGo.DataAccess.Core
 {
     public class SqlExecutor
     {

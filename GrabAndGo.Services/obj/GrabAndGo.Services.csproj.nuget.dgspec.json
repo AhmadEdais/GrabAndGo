@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\GrabAndGo.Services.csproj": {}
+    "C:\\vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\GrabAndGo.Services.csproj": {}
   },
   "projects": {
-    "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj": {
+    "C:\\vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj",
+        "projectUniqueName": "C:\\vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj",
         "projectName": "GrabAndGo.DataAccess",
-        "projectPath": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj",
+        "projectPath": "C:\\vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj",
         "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\obj\\",
+        "outputPath": "C:\\vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\GrabAndGo.Models.csproj": {
-                "projectPath": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\GrabAndGo.Models.csproj"
+              "C:\\vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\GrabAndGo.Models.csproj": {
+                "projectPath": "C:\\vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\GrabAndGo.Models.csproj"
               }
             }
           }
@@ -48,7 +48,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -70,23 +70,37 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.26, 8.0.26]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.26, 8.0.26]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.26, 8.0.26]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.312/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\GrabAndGo.Models.csproj": {
+    "C:\\vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\GrabAndGo.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\GrabAndGo.Models.csproj",
+        "projectUniqueName": "C:\\vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\GrabAndGo.Models.csproj",
         "projectName": "GrabAndGo.Models",
-        "projectPath": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\GrabAndGo.Models.csproj",
+        "projectPath": "C:\\vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\GrabAndGo.Models.csproj",
         "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\obj\\",
+        "outputPath": "C:\\vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -119,7 +133,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -135,23 +149,37 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.26, 8.0.26]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.26, 8.0.26]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.26, 8.0.26]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.312/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\GrabAndGo.Services.csproj": {
+    "C:\\vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\GrabAndGo.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\GrabAndGo.Services.csproj",
+        "projectUniqueName": "C:\\vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\GrabAndGo.Services.csproj",
         "projectName": "GrabAndGo.Services",
-        "projectPath": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\GrabAndGo.Services.csproj",
+        "projectPath": "C:\\vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\GrabAndGo.Services.csproj",
         "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\obj\\",
+        "outputPath": "C:\\vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -172,11 +200,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj": {
-                "projectPath": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj"
+              "C:\\vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj": {
+                "projectPath": "C:\\vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj"
               },
-              "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\GrabAndGo.Models.csproj": {
-                "projectPath": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\GrabAndGo.Models.csproj"
+              "C:\\vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\GrabAndGo.Models.csproj": {
+                "projectPath": "C:\\vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\GrabAndGo.Models.csproj"
               }
             }
           }
@@ -191,7 +219,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -213,6 +241,10 @@
               "target": "Package",
               "version": "[8.17.0, )"
             },
+            "QuestPDF": {
+              "target": "Package",
+              "version": "[2024.12.3, )"
+            },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[8.17.0, )"
@@ -229,12 +261,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.26, 8.0.26]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.26, 8.0.26]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.26, 8.0.26]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.312/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

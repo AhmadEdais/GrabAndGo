@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace GrabAndGo.Models.Requests.Vision_System
+﻿namespace GrabAndGo.Models.Requests.Vision_System
 {
     public class BindTrackRequestDto
     {

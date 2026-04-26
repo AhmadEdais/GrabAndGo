@@ -156,7 +156,7 @@ BEGIN
     DECLARE @EntryQrTokenId INT;
     
     -- 4. Calculate exact UTC timestamps
-    DECLARE @IssuedAt DATETIME2 = GETUTCDATE();
+    DECLARE @IssuedAt DATETIME2 = GETDATE();
     DECLARE @ExpiresAt DATETIME2 = DATEADD(MINUTE, 30, @IssuedAt); -- FIX: Corrected to ExpiresAt
 
     BEGIN TRY
@@ -236,20 +236,20 @@ BEGIN
         END
         -- 4. Burn the Token
         UPDATE EntryQrTokens 
-        SET ConsumedAt = GETUTCDATE() 
+        SET ConsumedAt = GETDATE() 
         WHERE EntryQrTokenId = @TokenId;
 
         -- 5. Create the Session
         DECLARE @NewSessionId INT;
         INSERT INTO Sessions (UserId, StoreId, EntryQrTokenId, SessionStatusId, StartedAt)
-        VALUES (@UserId, @StoreId, @TokenId, 1, GETUTCDATE());
+        VALUES (@UserId, @StoreId, @TokenId, 1, GETDATE());
         
         SET @NewSessionId = SCOPE_IDENTITY();
         SELECT * FROM Carts
         -- 6. Create the empty Cart
         DECLARE @NewCartId INT;
         INSERT INTO Carts (SessionId,UserId, CreatedAt, CartVersion)
-        VALUES (@NewSessionId,@UserId ,GETUTCDATE(), 0);
+        VALUES (@NewSessionId,@UserId ,GETDATE(), 0);
         
         SET @NewCartId = SCOPE_IDENTITY();
 
@@ -311,11 +311,11 @@ BEGIN
         -- 3. Update the Wallet
         UPDATE Wallets 
         SET CurrentBalance = @NewBalance, 
-            LastUpdatedAt = GETUTCDATE()
+            LastUpdatedAt = GETDATE()
         WHERE WalletId = @WalletId;
         -- 4. Create the Audit Trail (Ledger)
         INSERT INTO WalletLedgerEntries (WalletId, LedgerEntryTypeId, Amount, BalanceAfter, CreatedAt)
-        VALUES (@WalletId, 1, @Amount, @NewBalance, GETUTCDATE());
+        VALUES (@WalletId, 1, @Amount, @NewBalance, GETDATE());
         -- 5. Return the new state
         SET @P_JSON_RESPONSE = (
             SELECT 
@@ -549,7 +549,7 @@ BEGIN
                 IF EXISTS (SELECT 1 FROM CartItems WHERE CartId = @CartId AND ProductId = @ProductId)
                 BEGIN
                     UPDATE CartItems 
-                    SET Quantity = Quantity - 1 ,UpdatedAt = GETUTCDATE()
+                    SET Quantity = Quantity - 1 ,UpdatedAt = GETDATE()
                     WHERE CartId = @CartId AND ProductId = @ProductId;
                     
                     -- Crucial: Remove row entirely if quantity hits zero
@@ -569,7 +569,7 @@ BEGIN
                     -- Version Bump
                     UPDATE Carts 
                     SET CartVersion = @NewCartVersion, 
-                        LastUpdatedAt = GETUTCDATE() 
+                        LastUpdatedAt = GETDATE() 
                     WHERE CartId = @CartId;
                 END
 
@@ -582,7 +582,7 @@ BEGIN
         END TRY
         BEGIN CATCH
             IF @@TRANCOUNT > 0 ROLLBACK TRANSACTION;
-            THROW; -- Re-throw the error to the ASP.NET Global Exception Handler
+            THROW; 
         END CATCH
     END
 
@@ -599,23 +599,38 @@ BEGIN
         RETURN;
     END
 
-    -- Return the freshly updated Cart, along with its Nested Items and calculated totals.
-    -- We use WITHOUT_ARRAY_WRAPPER to return a single object, and INCLUDE_NULL_VALUES for Flutter safety.
+    -- 1. Pre-calculate the Cart Total and Wallet Balance for performance
+    DECLARE @CurrentCartTotal DECIMAL(18,2) = 0.00;
+    
+    SELECT @CurrentCartTotal = ISNULL(SUM(ci.Quantity * (p.PriceGross + (p.PriceGross * p.VAT_Rate))), 0.00)
+    FROM CartItems ci
+    INNER JOIN Products p ON ci.ProductId = p.ProductId
+    WHERE ci.CartId = @CartId;
+
+    DECLARE @CurrentBalance DECIMAL(18,2) = 0.00;
+
+    -- We already have @SessionId, so we join to find the exact User's Wallet
+    SELECT @CurrentBalance = w.CurrentBalance 
+    FROM Wallets w 
+    INNER JOIN Sessions s ON w.UserId = s.UserId 
+    WHERE s.SessionId = @SessionId;
+
+    -- 2. Determine Shortfall Logic
+    DECLARE @IsShortfall BIT = CASE WHEN @CurrentCartTotal > @CurrentBalance THEN 1 ELSE 0 END;
+    DECLARE @ShortfallAmount DECIMAL(18,2) = CASE WHEN @IsShortfall = 1 THEN (@CurrentCartTotal - @CurrentBalance) ELSE 0.00 END;
+
     SET @P_JSON_RESPONSE =
     (SELECT 
         c.CartId,
         c.SessionId,
         c.CartVersion,
         c.LastUpdatedAt,
--- 1. FIX: Wrap SUM in ISNULL to return 0 instead of NULL
-        ISNULL(( 
-            SELECT SUM(ci.Quantity * (p.PriceGross + (p.PriceGross * p.VAT_Rate))) 
-            FROM CartItems ci
-            INNER JOIN Products p ON ci.ProductId = p.ProductId
-            WHERE ci.CartId = c.CartId
-        ), 0.00) AS CartTotal,
+
+        @CurrentBalance AS WalletBalance,
+        @CurrentCartTotal AS CartTotal,
+        @IsShortfall AS IsShortfall,
+        @ShortfallAmount AS ShortfallAmount,
         
-        -- 2. FIX: Wrap FOR JSON in ISNULL and use JSON_QUERY to return an empty array []
         ISNULL((
             SELECT 
                 ci.ProductId,
@@ -636,3 +651,497 @@ BEGIN
 
 END
 GO
+--------------------------------------------------------------------------------------------------
+GO
+USE [GrabAndGoDB]
+GO
+
+CREATE OR ALTER PROCEDURE [dbo].[SP_ProcessCheckout]
+    @P_JSON_REQUEST NVARCHAR(MAX),
+    @P_JSON_RESPONSE NVARCHAR(MAX) OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- =========================================================================
+    -- PHASE 1: PARSE INPUT & RESOLVE DIGITAL IDENTITY
+    -- =========================================================================
+    DECLARE @TrackId NVARCHAR(50), 
+            @CameraCode NVARCHAR(50), 
+            @EventTime DATETIME2;
+
+    SELECT 
+        @TrackId = [TrackId],
+        @CameraCode = [CameraCode],
+        @EventTime = [EventTime]
+    FROM OPENJSON(@P_JSON_REQUEST)
+    WITH (
+        TrackId NVARCHAR(50),
+        CameraCode NVARCHAR(50),
+        EventTime DATETIME2
+    );
+
+    -- Find the Active Session tied to this TrackId
+    DECLARE @SessionId INT, @UserId INT, @StoreId INT, @CartId INT;
+
+    SELECT 
+        @SessionId = s.SessionId,
+        @UserId = s.UserId,
+        @StoreId = s.StoreId
+    FROM SessionTrackBindings stb
+    INNER JOIN Sessions s ON stb.SessionId = s.SessionId
+    WHERE stb.TrackId = @TrackId 
+      AND stb.IsCurrent = 1 
+      AND s.SessionStatusId = 1; -- 1 = Active
+    -- If no active session is found for this person, safely reject the gate opening
+    IF @SessionId IS NULL
+    BEGIN
+        SET @P_JSON_RESPONSE = '{"GateAction":"KeepClosed", "Message":"No active shopping session found.", "IsSuccess":false, "ShortfallAmount":0}';
+        RETURN;
+    END
+
+    -- Find the active Cart
+    SELECT @CartId = CartId FROM Carts WHERE SessionId = @SessionId;
+
+    -- =========================================================================
+    -- PHASE 2: ATOMIC FINANCIAL CALCULATIONS & TRANSACTIONS
+    -- =========================================================================
+    BEGIN TRY
+        BEGIN TRANSACTION;
+
+        -- 1. Lock the Wallet to prevent double-spending race conditions
+        DECLARE @WalletId INT, @CurrentBalance DECIMAL(18,2);
+        SELECT @WalletId = WalletId, @CurrentBalance = CurrentBalance
+        FROM Wallets WITH (UPDLOCK)
+        WHERE UserId = @UserId;
+
+        -- 2. Calculate Final Cart Totals
+        DECLARE @Subtotal DECIMAL(18,2) = 0.00, 
+                @TaxTotal DECIMAL(18,2) = 0.00, 
+                @GrandTotal DECIMAL(18,2) = 0.00;
+
+        SELECT 
+            @Subtotal = ISNULL(SUM(ci.Quantity * p.PriceGross), 0.00),
+            @TaxTotal = ISNULL(SUM(ci.Quantity * (p.PriceGross * p.VAT_Rate)), 0.00)
+        FROM CartItems ci
+        INNER JOIN Products p ON ci.ProductId = p.ProductId
+        WHERE ci.CartId = @CartId;
+
+        SET @GrandTotal = @Subtotal + @TaxTotal;
+
+        -- 3. The HARD STOP Check (Insufficient Funds)
+        IF @CurrentBalance < @GrandTotal
+        BEGIN
+            -- User does not have enough money. We COMMIT to release the lock, 
+            -- but we DO NOT process the checkout. Session remains active.
+            DECLARE @Shortfall DECIMAL(18,2) = @GrandTotal - @CurrentBalance;
+            
+            SET @P_JSON_RESPONSE = (
+                SELECT 
+                    'KeepClosed' AS GateAction,
+                    'Insufficient Funds. Please Top Up.' AS Message,
+                    CAST(0 AS BIT) AS IsSuccess,
+                    @Shortfall AS ShortfallAmount,
+                    @SessionId AS SessionId
+                FOR JSON PATH, WITHOUT_ARRAY_WRAPPER
+            );
+            COMMIT TRANSACTION;
+            RETURN;
+        END
+
+        -- =====================================================================
+        -- PHASE 3: CHECKOUT EXECUTION (User has enough funds)
+        -- =====================================================================
+
+        DECLARE @NewBalance DECIMAL(18,2) = @CurrentBalance - @GrandTotal;
+
+        -- A. Deduct Wallet Funds
+        UPDATE Wallets 
+        SET CurrentBalance = @NewBalance, LastUpdatedAt = GETDATE()
+        WHERE WalletId = @WalletId;
+
+        -- B. Create Header Transaction (Status = 2 / Completed)
+        DECLARE @TransactionId INT;
+        INSERT INTO Transactions (SessionId, UserId, CartId, Subtotal, Tax, Total, PaymentStatusId, CreatedAt)
+        VALUES (@SessionId, @UserId,@CartId, @Subtotal,@TaxTotal, @GrandTotal, 2,GETDATE() );
+
+        SET @TransactionId = SCOPE_IDENTITY();
+
+        -- C. Snapshot CartItems into TransactionItems (The Receipt Lines)
+        INSERT INTO TransactionItems (TransactionId, ProductId, Quantity, UnitPrice, LineTotal)
+        SELECT 
+            @TransactionId, 
+            ci.ProductId, 
+            ci.Quantity, 
+            (p.PriceGross + (p.PriceGross * p.VAT_Rate)), 
+            (ci.Quantity * (p.PriceGross + (p.PriceGross * p.VAT_Rate)))
+        FROM CartItems ci
+        INNER JOIN Products p ON ci.ProductId = p.ProductId
+        WHERE ci.CartId = @CartId;
+
+        DECLARE @LedgerReference NVARCHAR(100) = 'Checkout_Txn_' + CAST(@TransactionId AS NVARCHAR(50));
+        -- D. Write Ledger Entry (Immutable Financial Record)
+        INSERT INTO WalletLedgerEntries (WalletId, LedgerEntryTypeId, Amount, BalanceAfter, RelatedTransactionId, CreatedAt,Reference)
+        VALUES (@WalletId, 2, -@GrandTotal, @NewBalance, @TransactionId, GETDATE(),@LedgerReference); -- 2 = Debit
+
+        -- E. Generate Stub for Invoice Generation (Phase 5 will fill the PDF URL later)
+        INSERT INTO Invoices (TransactionId, GeneratedAt)
+        VALUES (@TransactionId, GETDATE());
+
+        -- F. Terminate the Digital Session
+        UPDATE Sessions 
+        SET SessionStatusId = 2, ExitDetectedAt = @EventTime, EndedAt = GETDATE() 
+        WHERE SessionId = @SessionId;
+
+        -- G. Unbind the physical Track ID so the camera stops associating them with the session
+        UPDATE SessionTrackBindings 
+        SET IsCurrent = 0 
+        WHERE SessionId = @SessionId;
+
+        -- H. Build Success JSON Response
+        SET @P_JSON_RESPONSE = (
+            SELECT 
+                'OpenGate' AS GateAction,
+                'Checkout Successful' AS Message,
+                CAST(1 AS BIT) AS IsSuccess,
+                0.00 AS ShortfallAmount,
+                @SessionId AS SessionId,
+                @TransactionId AS TransactionId,
+                @GrandTotal AS TotalDeducted,
+                @NewBalance AS RemainingBalance
+            FOR JSON PATH, WITHOUT_ARRAY_WRAPPER
+        );
+
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        IF @@TRANCOUNT > 0 ROLLBACK TRANSACTION;
+        THROW; -- Pass exception back to C#
+    END CATCH
+END
+GO
+--------------------------------------------------------------------------------------------------
+ USE [GrabAndGoDB]
+  GO
+
+  -- =============================================================================
+  -- SP_GetInvoiceData
+  -- Returns the full invoice payload needed to render a PDF, as a single JSON
+  -- object, including nested line items.
+  -- Consumer: InvoiceService (called by InvoiceWorker background service, and by
+  -- GET /api/invoices/{transactionId} controller endpoint).
+  -- =============================================================================
+  CREATE OR ALTER PROCEDURE dbo.SP_GetInvoiceData
+      @TransactionId INT
+  AS
+  BEGIN
+      SET NOCOUNT ON;
+
+      SELECT
+          i.InvoiceId,
+          i.TransactionId,
+          i.PdfUrlOrPath,
+          i.GeneratedAt,
+
+          t.Subtotal,
+          t.Tax,
+          t.Total,
+          t.CreatedAt,
+          t.CompletedAt,
+
+          ps.StatusName       AS PaymentStatus,
+
+          u.UserId            AS CustomerUserId,
+          u.FirstName         AS CustomerFirstName,
+          u.LastName          AS CustomerLastName,
+          u.Email             AS CustomerEmail,
+
+          s.StoreId,
+          s.StoreCode,
+          s.Name              AS StoreName,
+          s.Timezone          AS StoreTimezone,
+
+          Items = (
+              SELECT
+                  ti.TransactionItemId,
+                  ti.ProductId,
+                  p.Name      AS ProductName,
+                  p.SKU,
+                  ti.Quantity,
+                  ti.UnitPrice,
+                  ti.LineTotal,
+                  p.VAT_Rate
+              FROM dbo.TransactionItems ti
+              INNER JOIN dbo.Products p ON p.ProductId = ti.ProductId
+              WHERE ti.TransactionId = i.TransactionId
+              ORDER BY ti.TransactionItemId
+              FOR JSON PATH, INCLUDE_NULL_VALUES
+          )
+
+      FROM dbo.Invoices i
+          INNER JOIN dbo.Transactions    t  ON t.TransactionId    = i.TransactionId
+          INNER JOIN dbo.Sessions        ses ON ses.SessionId     = t.SessionId
+          INNER JOIN dbo.Stores          s  ON s.StoreId          = ses.StoreId
+          INNER JOIN dbo.Users           u  ON u.UserId           = t.UserId
+          INNER JOIN dbo.PaymentStatuses ps ON ps.PaymentStatusId = t.PaymentStatusId
+      WHERE i.TransactionId = @TransactionId
+      FOR JSON PATH, WITHOUT_ARRAY_WRAPPER, INCLUDE_NULL_VALUES;
+  END
+  GO
+
+
+  -- =============================================================================
+  -- SP_UpdateInvoicePath
+  -- Writes the generated PDF path (or URL) back into Invoices.PdfUrlOrPath.
+  -- Consumer: InvoiceService, after the PDF file has been persisted to storage.
+  --
+  -- Request JSON shape:
+  --   { "TransactionId": <int>, "PdfUrlOrPath": "<string>" }
+  --
+  -- Response JSON shape:
+  --   { "IsSuccess": <bit>, "Message": "<string>",
+  --     "TransactionId": <int>, "PdfUrlOrPath": "<string>" }
+  -- =============================================================================
+  CREATE OR ALTER PROCEDURE dbo.SP_UpdateInvoicePath
+      @P_JSON_REQUEST  NVARCHAR(MAX),
+      @P_JSON_RESPONSE NVARCHAR(MAX) = NULL OUTPUT
+  AS
+  BEGIN
+      SET NOCOUNT ON;
+
+      DECLARE @TransactionId  INT;
+      DECLARE @PdfUrlOrPath   NVARCHAR(500);
+
+      SELECT
+          @TransactionId = TransactionId,
+          @PdfUrlOrPath  = PdfUrlOrPath
+      FROM OPENJSON(@P_JSON_REQUEST)
+      WITH (
+          TransactionId INT            '$.TransactionId',
+          PdfUrlOrPath  NVARCHAR(500)  '$.PdfUrlOrPath'
+      );
+
+      -- Guard: invoice stub must exist before we can fill in the path.
+      IF NOT EXISTS (
+          SELECT 1 FROM dbo.Invoices WHERE TransactionId = @TransactionId
+      )
+      BEGIN
+          SET @P_JSON_RESPONSE = (
+              SELECT
+                  CAST(0 AS BIT)                                                 AS IsSuccess,
+                  'No invoice stub found for the specified TransactionId.'       AS Message,
+                  @TransactionId                                                 AS TransactionId,
+                  CAST(NULL AS NVARCHAR(500))                                    AS PdfUrlOrPath
+              FOR JSON PATH, WITHOUT_ARRAY_WRAPPER, INCLUDE_NULL_VALUES
+          );
+          RETURN;
+      END
+
+      -- Guard: don't overwrite an existing PDF path silently. The worker should
+      -- only pick up rows where PdfUrlOrPath IS NULL, but defending against
+      -- double-submission here keeps the invariant enforced at the data layer.
+      IF EXISTS (
+          SELECT 1 FROM dbo.Invoices
+          WHERE TransactionId = @TransactionId AND PdfUrlOrPath IS NOT NULL
+      )
+      BEGIN
+          SET @P_JSON_RESPONSE = (
+              SELECT
+                  CAST(0 AS BIT)                                                 AS IsSuccess,
+                  'PDF path is already set for this invoice.'                    AS Message,
+                  @TransactionId                                                 AS TransactionId,
+                  (SELECT PdfUrlOrPath FROM dbo.Invoices
+                    WHERE TransactionId = @TransactionId)                        AS PdfUrlOrPath
+              FOR JSON PATH, WITHOUT_ARRAY_WRAPPER, INCLUDE_NULL_VALUES
+          );
+          RETURN;
+      END
+
+      UPDATE dbo.Invoices
+      SET    PdfUrlOrPath = @PdfUrlOrPath
+      WHERE  TransactionId = @TransactionId;
+
+      SET @P_JSON_RESPONSE = (
+          SELECT
+              CAST(1 AS BIT)                                                     AS IsSuccess,
+              'Invoice PDF path stored successfully.'                            AS Message,
+              @TransactionId                                                     AS TransactionId,
+              @PdfUrlOrPath                                                      AS PdfUrlOrPath
+          FOR JSON PATH, WITHOUT_ARRAY_WRAPPER, INCLUDE_NULL_VALUES
+      );
+  END
+  GO
+   CREATE OR ALTER PROCEDURE dbo.SP_GetPendingInvoices
+      @BatchSize INT = 10
+  AS
+  BEGIN
+      SET NOCOUNT ON;
+
+      DECLARE @CompletedStatusId INT = (
+          SELECT PaymentStatusId FROM dbo.PaymentStatuses WHERE StatusName = 'Completed'
+      );
+
+      SELECT TOP (@BatchSize)
+          i.TransactionId,
+          i.GeneratedAt
+      FROM dbo.Invoices i
+          INNER JOIN dbo.Transactions t ON t.TransactionId = i.TransactionId
+      WHERE i.PdfUrlOrPath IS NULL
+        AND t.PaymentStatusId = @CompletedStatusId
+      ORDER BY i.GeneratedAt ASC
+      FOR JSON PATH, INCLUDE_NULL_VALUES;
+  END
+  GO
+   USE [GrabAndGoDB];
+  GO
+
+  CREATE OR ALTER PROCEDURE dbo.SP_GetUserTransactions
+      @UserId     INT,
+      @PageNumber INT = 1,
+      @PageSize   INT = 20
+  AS
+  BEGIN
+      SET NOCOUNT ON;
+
+      DECLARE @Offset INT = (@PageNumber - 1) * @PageSize;
+
+      SELECT
+          t.TransactionId,
+          s.StoreId,
+          s.Name           AS StoreName,
+          t.Subtotal,
+          t.Tax,
+          t.Total,
+          ps.StatusName    AS PaymentStatus,
+          t.CreatedAt,
+          t.CompletedAt,
+          ItemCount = (SELECT COUNT(1) FROM dbo.TransactionItems ti WHERE ti.TransactionId = t.TransactionId)
+      FROM dbo.Transactions t
+          INNER JOIN dbo.Sessions        ses ON ses.SessionId       = t.SessionId
+          INNER JOIN dbo.Stores          s   ON s.StoreId           = ses.StoreId
+          INNER JOIN dbo.PaymentStatuses ps  ON ps.PaymentStatusId  = t.PaymentStatusId
+      WHERE t.UserId = @UserId
+      ORDER BY t.CreatedAt DESC
+      OFFSET @Offset ROWS FETCH NEXT @PageSize ROWS ONLY
+      FOR JSON PATH, INCLUDE_NULL_VALUES;
+  END
+  GO
+
+
+  CREATE OR ALTER PROCEDURE dbo.SP_GetUserInvoices
+      @UserId     INT,
+      @PageNumber INT = 1,
+      @PageSize   INT = 20
+  AS
+  BEGIN
+      SET NOCOUNT ON;
+
+      DECLARE @Offset INT = (@PageNumber - 1) * @PageSize;
+
+      SELECT
+          i.InvoiceId,
+          i.TransactionId,
+          i.PdfUrlOrPath,
+          i.GeneratedAt,
+          t.Total,
+          s.Name        AS StoreName,
+          ps.StatusName AS PaymentStatus
+      FROM dbo.Invoices i
+          INNER JOIN dbo.Transactions    t   ON t.TransactionId    = i.TransactionId
+          INNER JOIN dbo.Sessions        ses ON ses.SessionId      = t.SessionId
+          INNER JOIN dbo.Stores          s   ON s.StoreId          = ses.StoreId
+          INNER JOIN dbo.PaymentStatuses ps  ON ps.PaymentStatusId = t.PaymentStatusId
+      WHERE t.UserId = @UserId
+      ORDER BY i.GeneratedAt DESC
+      OFFSET @Offset ROWS FETCH NEXT @PageSize ROWS ONLY
+      FOR JSON PATH, INCLUDE_NULL_VALUES;
+  END
+  GO
+   USE [GrabAndGoDB];
+  GO
+
+  CREATE OR ALTER PROCEDURE dbo.SP_GetUserWalletLedger
+      @UserId     INT,
+      @PageNumber INT = 1,
+      @PageSize   INT = 20
+  AS
+  BEGIN
+      SET NOCOUNT ON;
+
+      DECLARE @Offset INT = (@PageNumber - 1) * @PageSize;
+
+      SELECT
+          wle.LedgerEntryId,
+          wle.WalletId,
+          wle.RelatedTransactionId,
+          let.TypeName     AS EntryType,
+          wle.Amount,
+          wle.BalanceAfter,
+          wle.CreatedAt,
+          wle.Reference
+      FROM dbo.WalletLedgerEntries wle
+          INNER JOIN dbo.Wallets w ON w.WalletId = wle.WalletId
+          INNER JOIN dbo.LedgerEntryTypes let ON let.LedgerEntryTypeId = wle.LedgerEntryTypeId
+      WHERE w.UserId = @UserId
+      ORDER BY wle.CreatedAt DESC, wle.LedgerEntryId DESC
+      OFFSET @Offset ROWS FETCH NEXT @PageSize ROWS ONLY
+      FOR JSON PATH, INCLUDE_NULL_VALUES;
+  END
+  GO
+
+
+  CREATE OR ALTER PROCEDURE dbo.SP_GetUserActiveSession
+      @UserId INT
+  AS
+  BEGIN
+      SET NOCOUNT ON;
+
+      SELECT TOP 1
+          s.SessionId,
+          s.StoreId,
+          st.StoreCode,
+          st.Name           AS StoreName,
+          s.StartedAt,
+          c.CartId,
+          c.CartVersion,
+          ss.StatusName     AS SessionStatus
+      FROM dbo.Sessions s
+          INNER JOIN dbo.Stores st ON st.StoreId = s.StoreId
+          INNER JOIN dbo.SessionStatuses ss ON ss.SessionStatusId = s.SessionStatusId
+          LEFT  JOIN dbo.Carts c ON c.SessionId = s.SessionId
+      WHERE s.UserId = @UserId
+        AND s.EndedAt IS NULL
+        AND ss.StatusName = 'Active'
+      ORDER BY s.StartedAt DESC
+      FOR JSON PATH, WITHOUT_ARRAY_WRAPPER, INCLUDE_NULL_VALUES;
+  END
+  GO
+  
+  CREATE OR ALTER PROCEDURE dbo.SP_GetProducts
+      @PageNumber INT             = 1,
+      @PageSize   INT             = 50,
+      @Search     NVARCHAR(200)   = NULL
+  AS
+  BEGIN
+      SET NOCOUNT ON;
+
+      DECLARE @Offset INT = (@PageNumber - 1) * @PageSize;
+
+      SELECT
+          p.ProductId,
+          p.Name,
+          p.SKU,
+          p.PriceGross,
+          p.VAT_Rate,
+          p.ImageUrl,
+          p.IsActive
+      FROM dbo.Products p
+      WHERE p.IsActive = 1
+        AND (@Search IS NULL
+             OR p.Name LIKE '%' + @Search + '%'
+             OR p.SKU  LIKE '%' + @Search + '%')
+      ORDER BY p.Name ASC
+      OFFSET @Offset ROWS FETCH NEXT @PageSize ROWS ONLY
+      FOR JSON PATH, INCLUDE_NULL_VALUES;
+  END
+  GO

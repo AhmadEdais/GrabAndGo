@@ -1,8 +1,4 @@
-﻿using GrabAndGo.DataAccess.Core;
-using GrabAndGo.DataAccess.Interfaces;
-using GrabAndGo.Models.DTOs;
-
-namespace GrabAndGo.DataAccess.Repositories
+﻿namespace GrabAndGo.DataAccess.Repositories
 {
     public class SessionRepository : ISessionRepository
     {
@@ -31,12 +27,31 @@ namespace GrabAndGo.DataAccess.Repositories
         }
         public async Task<GateEntryResponseDto?> ProcessEntryAsync(int tokenId, int userId, int storeId)
         {
-            // The SqlExecutor will auto-serialize the anonymous object, 
+            // The SqlExecutor will auto-serialize the anonymous object,
             // run the transaction, and deserialize the output JSON into our Response DTO!
             return await _executor.ExecuteNonQueryAsync<GateEntryResponseDto>(
                 "SP_ProcessStoreEntry",
                 new { TokenId = tokenId, UserId = userId, StoreId = storeId }
             );
+        }
+
+        public async Task<ActiveSessionDto?> GetUserActiveSessionAsync(int userId)
+        {
+            return await _executor.ExecuteReaderAsync<ActiveSessionDto>(
+                "SP_GetUserActiveSession",
+                new { UserId = userId }
+            );
+        }
+
+        public async Task<bool> DoesUserOwnActiveSessionAsync(int userId, int sessionId)
+        {
+            // Scalar SP returns 1 if the user owns an active session with that ID, NULL otherwise.
+            // ExecuteScalarAsync<int> returns 0 when the SP returns no rows.
+            var result = await _executor.ExecuteScalarAsync<int>(
+                "SP_DoesUserOwnActiveSession",
+                new { UserId = userId, SessionId = sessionId }
+            );
+            return result == 1;
         }
     }
 }

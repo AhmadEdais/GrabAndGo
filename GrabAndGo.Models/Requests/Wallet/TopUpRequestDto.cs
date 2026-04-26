@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace GrabAndGo.Models.Requests.Wallet
+﻿namespace GrabAndGo.Models.Requests.Wallet
 {
     public class TopUpRequestDto
     {

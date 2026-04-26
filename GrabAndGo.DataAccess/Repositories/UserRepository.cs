@@ -1,10 +1,4 @@
-﻿using GrabAndGo.DataAccess.Core;
-using GrabAndGo.DataAccess.Interfaces;
-using GrabAndGo.Models.Requests.Users;
-using GrabAndGo.Models.Responses.Users;
-using System.Threading.Tasks;
-
-namespace GrabAndGo.DataAccess.Repositories
+﻿namespace GrabAndGo.DataAccess.Repositories
 {
     public class UserRepository : IUserRepository
     {

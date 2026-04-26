@@ -1,23 +1,12 @@
-using GrabAndGo.Api.BackgroundServices;
-using GrabAndGo.Api.Hubs;
-using GrabAndGo.Api.Notifications;
-using GrabAndGo.Application.Interfaces;
-using GrabAndGo.DataAccess.Core;
-using GrabAndGo.DataAccess.Interfaces;
-using GrabAndGo.DataAccess.Repositories; 
-using GrabAndGo.Infrastructure.Repositories;
-using GrabAndGo.Services.Implementations;
-using GrabAndGo.Services.Interfaces;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
-using System.Text;
+// QuestPDF Community License — must be acknowledged once at startup before any PDF is rendered.
+QuestPDF.Settings.License = QuestPDF.Infrastructure.LicenseType.Community;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddSingleton(new SqlExecutor(connectionString!));
 builder.Services.AddHostedService<MqttVisionWorker>();
+builder.Services.AddHostedService<InvoiceWorker>();
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
@@ -34,7 +23,20 @@ builder.Services.AddScoped<IVisionSystemService, VisionSystemService>();
 builder.Services.AddScoped<ICartRepository, CartRepository>();
 builder.Services.AddScoped<ICartService, CartService>();
 
+builder.Services.AddScoped<ICheckoutRepository, CheckoutRepository>();
+builder.Services.AddScoped<ICheckoutService, CheckoutService>();
+
+builder.Services.AddScoped<IInvoiceRepository, InvoiceRepository>();
+builder.Services.AddScoped<IInvoiceService, InvoiceService>();
+
+builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
+builder.Services.AddScoped<ITransactionService, TransactionService>();
+
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IProductService, ProductService>();
+
 builder.Services.AddScoped<ICartNotificationService, SignalRCartNotificationService>();
+builder.Services.AddScoped<IGateNotificationService, GateNotificationService>();
 builder.Services.AddSignalR(options =>
 {
     options.MaximumReceiveMessageSize = 1048576; // 1 Megabytes, 6,990 distinct, unique items
@@ -91,6 +93,23 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
             // Optional: Removes the default 5-minute clock skew so tokens expire at the exact second
             ClockSkew = TimeSpan.Zero
+        };
+
+        // SignalR can't send custom headers during the WebSocket handshake (browser limitation),
+        // so the Flutter app passes the JWT as ?access_token=... on the /hubs/* connection URL.
+        // We forward that query token into the bearer pipeline only for hub paths.
+        options.Events = new JwtBearerEvents
+        {
+            OnMessageReceived = context =>
+            {
+                var accessToken = context.Request.Query["access_token"];
+                var path = context.HttpContext.Request.Path;
+                if (!string.IsNullOrEmpty(accessToken) && path.StartsWithSegments("/hubs"))
+                {
+                    context.Token = accessToken;
+                }
+                return Task.CompletedTask;
+            }
         };
     });
 

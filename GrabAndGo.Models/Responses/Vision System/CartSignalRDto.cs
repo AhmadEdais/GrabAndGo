@@ -6,9 +6,12 @@
         public int SessionId { get; set; }
         public int CartVersion { get; set; }
         public DateTime LastUpdatedAt { get; set; }
+        public decimal WalletBalance { get; set; }
         public decimal CartTotal { get; set; }
+        public bool IsShortfall { get; set; } = false;
 
-        // This exactly matches the correlated subquery alias in Phase D
+        public decimal ShortfallAmount { get; set; }
+
         public List<CartItemSignalRDto> CartItems { get; set; } = new List<CartItemSignalRDto>();
     }
 

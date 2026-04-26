@@ -1,6 +1,4 @@
-﻿using GrabAndGo.Application.DTOs.Vision;
-
-namespace GrabAndGo.Services.Interfaces
+﻿namespace GrabAndGo.Services.Interfaces
 {
     public interface ICartNotificationService
     {

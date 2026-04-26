@@ -1,10 +1,4 @@
-﻿using GrabAndGo.DataAccess.Core;
-using GrabAndGo.DataAccess.Interfaces;
-using GrabAndGo.Models.Requests.Vision_System;
-using GrabAndGo.Models.Responses.Vision_System;
-
-
-namespace GrabAndGo.DataAccess.Repositories
+﻿namespace GrabAndGo.DataAccess.Repositories
 {
     public class VisionSystemRepository : IVisionSystemRepository
     {

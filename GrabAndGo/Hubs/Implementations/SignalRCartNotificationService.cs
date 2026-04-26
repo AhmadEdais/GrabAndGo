@@ -1,9 +1,4 @@
-﻿using GrabAndGo.Api.Hubs;
-using GrabAndGo.Application.DTOs.Vision;
-using Microsoft.AspNetCore.SignalR;
-using GrabAndGo.Services.Interfaces;
-
-namespace GrabAndGo.Api.Notifications
+﻿namespace GrabAndGo.Api.Notifications
 {
     public class SignalRCartNotificationService : ICartNotificationService
     {

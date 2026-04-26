@@ -1,7 +1,4 @@
-﻿using System.Threading.Tasks;
-using GrabAndGo.Application.DTOs.Vision;
-
-namespace GrabAndGo.Application.Interfaces
+﻿namespace GrabAndGo.Application.Interfaces
 {
     public interface ICartRepository
     {

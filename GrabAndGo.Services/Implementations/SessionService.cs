@@ -1,12 +1,4 @@
-﻿using GrabAndGo.DataAccess.Interfaces;
-using GrabAndGo.Models.DTOs;
-using GrabAndGo.Services.Interfaces;
-using Microsoft.Extensions.Configuration;
-using System.Security.Cryptography;
-using System.Text;
-using System.Text.Json;
-
-namespace GrabAndGo.Services.Implementations
+﻿namespace GrabAndGo.Services.Implementations
 {
     public class SessionService : ISessionService
     {
@@ -101,6 +93,16 @@ namespace GrabAndGo.Services.Implementations
             );
 
             return entryResult;
+        }
+
+        public async Task<ActiveSessionDto?> GetUserActiveSessionAsync(int userId)
+        {
+            return await _sessionRepository.GetUserActiveSessionAsync(userId);
+        }
+
+        public async Task<bool> DoesUserOwnActiveSessionAsync(int userId, int sessionId)
+        {
+            return await _sessionRepository.DoesUserOwnActiveSessionAsync(userId, sessionId);
         }
     }
 }

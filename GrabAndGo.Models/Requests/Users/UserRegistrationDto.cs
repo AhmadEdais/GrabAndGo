@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace GrabAndGo.Models.Requests.Users
+﻿namespace GrabAndGo.Models.Requests.Users
 {
     public class UserRegistrationDto
     {

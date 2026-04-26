@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GrabAndGo.Models.Responses.Vision_System
+﻿namespace GrabAndGo.Models.Responses.Vision_System
 {
     public class BindTrackResponseDto
     {

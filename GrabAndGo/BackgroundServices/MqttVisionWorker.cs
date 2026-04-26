@@ -1,16 +1,4 @@
-﻿using GrabAndGo.Application.DTOs.Vision;
-using GrabAndGo.Services.Interfaces;
-using Microsoft.AspNetCore.Cors.Infrastructure;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using MQTTnet;
-using MQTTnet.Client;
-using System;
-using System.Text;
-using System.Text.Json;
-
-namespace GrabAndGo.Api.BackgroundServices
+﻿namespace GrabAndGo.Api.BackgroundServices
 {
     public class MqttVisionWorker : BackgroundService
     {

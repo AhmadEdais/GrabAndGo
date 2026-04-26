@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace GrabAndGo.Application.DTOs.Vision
+﻿namespace GrabAndGo.Application.DTOs.Vision
 {
     public class VisionEventRequestDto
     {

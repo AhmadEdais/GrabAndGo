@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace GrabAndGo.Models.DTOs
+﻿namespace GrabAndGo.Models.DTOs
 {
     public class GateEntryRequestDto
     {

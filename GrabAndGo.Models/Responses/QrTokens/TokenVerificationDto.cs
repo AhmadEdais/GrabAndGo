@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace GrabAndGo.Models.DTOs
+﻿namespace GrabAndGo.Models.DTOs
 {
     public class TokenVerificationDto
     {

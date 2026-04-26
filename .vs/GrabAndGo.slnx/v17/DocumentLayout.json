@@ -3,52 +3,240 @@
   "WorkspaceRootPath": "C:\\Vs\\GrabAndGo\\GrabAndGo\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo\\controllers\\gatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|solutionrelative:grabandgo\\controllers\\gatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|solutionrelative:grabandgo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo\\hubs\\implementations\\signalrcartnotificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|solutionrelative:grabandgo\\hubs\\implementations\\signalrcartnotificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo\\security\\requireapikeyattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|solutionrelative:grabandgo\\security\\requireapikeyattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.services\\implementations\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|solutionrelative:grabandgo.services\\implementations\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.dataaccess\\interfaces\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|solutionrelative:grabandgo.dataaccess\\interfaces\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.services\\interfaces\\icartnotificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|solutionrelative:grabandgo.services\\interfaces\\icartnotificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.dataaccess\\interfaces\\icartrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|solutionrelative:grabandgo.dataaccess\\interfaces\\icartrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo\\hubs\\carthub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|solutionrelative:grabandgo\\hubs\\carthub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.dataaccess\\repositories\\cartrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|solutionrelative:grabandgo.dataaccess\\repositories\\cartrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo\\controllers\\gatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|solutionrelative:grabandgo\\controllers\\gatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.dataaccess\\interfaces\\icheckoutrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|solutionrelative:grabandgo.dataaccess\\interfaces\\icheckoutrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo\\backgroundservices\\mqttvisionworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|solutionrelative:grabandgo\\backgroundservices\\mqttvisionworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo\\backgroundservices\\invoiceworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|solutionrelative:grabandgo\\backgroundservices\\invoiceworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.services\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|solutionrelative:grabandgo.services\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.models\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|solutionrelative:grabandgo.models\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.models\\responses\\wallet\\walletbalanceresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|solutionrelative:grabandgo.models\\responses\\wallet\\walletbalanceresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.models\\responses\\wallet\\topupresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|solutionrelative:grabandgo.models\\responses\\wallet\\topupresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.dataaccess\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|solutionrelative:grabandgo.dataaccess\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.dataaccess\\core\\sqlexecutor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|solutionrelative:grabandgo.dataaccess\\core\\sqlexecutor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.dataaccess\\interfaces\\iinvoicerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|solutionrelative:grabandgo.dataaccess\\interfaces\\iinvoicerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.dataaccess\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|solutionrelative:grabandgo.dataaccess\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.dataaccess\\interfaces\\iwalletrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|solutionrelative:grabandgo.dataaccess\\interfaces\\iwalletrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.dataaccess\\interfaces\\ivisionsystemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|solutionrelative:grabandgo.dataaccess\\interfaces\\ivisionsystemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.dataaccess\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|solutionrelative:grabandgo.dataaccess\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.dataaccess\\repositories\\walletrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|solutionrelative:grabandgo.dataaccess\\repositories\\walletrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|solutionrelative:grabandgo\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo\\controllers\\invoicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|solutionrelative:grabandgo\\controllers\\invoicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.dataaccess\\interfaces\\itransactionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|solutionrelative:grabandgo.dataaccess\\interfaces\\itransactionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.dataaccess\\interfaces\\isessionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|solutionrelative:grabandgo.dataaccess\\interfaces\\isessionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo\\controllers\\walletscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|solutionrelative:grabandgo\\controllers\\walletscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo\\controllers\\visionsystemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|solutionrelative:grabandgo\\controllers\\visionsystemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|solutionrelative:grabandgo\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo\\controllers\\transactionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|solutionrelative:grabandgo\\controllers\\transactionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|solutionrelative:grabandgo\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo\\hubs\\carthub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|solutionrelative:grabandgo\\hubs\\carthub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo\\hubs\\implementations\\gatenotificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|solutionrelative:grabandgo\\hubs\\implementations\\gatenotificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|solutionrelative:grabandgo\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo\\controllers\\sessionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|solutionrelative:grabandgo\\controllers\\sessionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.models\\requests\\qrtoken\\generateqrrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|solutionrelative:grabandgo.models\\requests\\qrtoken\\generateqrrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo\\hubs\\implementations\\signalrcartnotificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|solutionrelative:grabandgo\\hubs\\implementations\\signalrcartnotificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.services\\implementations\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|solutionrelative:grabandgo.services\\implementations\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.dataaccess\\repositories\\transactionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|solutionrelative:grabandgo.dataaccess\\repositories\\transactionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.dataaccess\\repositories\\invoicerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|solutionrelative:grabandgo.dataaccess\\repositories\\invoicerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.services\\implementations\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|solutionrelative:grabandgo.services\\implementations\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.services\\implementations\\invoiceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|solutionrelative:grabandgo.services\\implementations\\invoiceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.services\\interfaces\\iinvoiceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|solutionrelative:grabandgo.services\\interfaces\\iinvoiceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.models\\responses\\invoice\\updateinvoicepathresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|solutionrelative:grabandgo.models\\responses\\invoice\\updateinvoicepathresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.models\\responses\\invoice\\pendinginvoicedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|solutionrelative:grabandgo.models\\responses\\invoice\\pendinginvoicedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.models\\responses\\invoice\\invoicelistitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|solutionrelative:grabandgo.models\\responses\\invoice\\invoicelistitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.models\\responses\\invoice\\invoicedatadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|solutionrelative:grabandgo.models\\responses\\invoice\\invoicedatadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.models\\requests\\invoice\\updateinvoicepathrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|solutionrelative:grabandgo.models\\requests\\invoice\\updateinvoicepathrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.services\\implementations\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|solutionrelative:grabandgo.services\\implementations\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.dataaccess\\repositories\\cartrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|solutionrelative:grabandgo.dataaccess\\repositories\\cartrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.dataaccess\\repositories\\sessionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|solutionrelative:grabandgo.dataaccess\\repositories\\sessionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.dataaccess\\repositories\\checkoutrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|solutionrelative:grabandgo.dataaccess\\repositories\\checkoutrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.models\\responses\\vision system\\checkoutvisionresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|solutionrelative:grabandgo.models\\responses\\vision system\\checkoutvisionresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.services\\interfaces\\igatenotificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|solutionrelative:grabandgo.services\\interfaces\\igatenotificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.services\\implementations\\checkoutservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|solutionrelative:grabandgo.services\\implementations\\checkoutservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.services\\interfaces\\icheckoutservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|solutionrelative:grabandgo.services\\interfaces\\icheckoutservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.services\\interfaces\\icartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|solutionrelative:grabandgo.services\\interfaces\\icartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.services\\interfaces\\icartnotificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|solutionrelative:grabandgo.services\\interfaces\\icartnotificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.models\\responses\\vision system\\cartsignalrdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|solutionrelative:grabandgo.models\\responses\\vision system\\cartsignalrdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.models\\requests\\vision system\\visioneventrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|solutionrelative:grabandgo.models\\requests\\vision system\\visioneventrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.models\\requests\\vision system\\checkoutvisionrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|solutionrelative:grabandgo.models\\requests\\vision system\\checkoutvisionrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo\\controllers\\visionsystemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|solutionrelative:grabandgo\\controllers\\visionsystemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.models\\requests\\vision system\\visioneventrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|solutionrelative:grabandgo.models\\requests\\vision system\\visioneventrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.services\\implementations\\visionsystemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -67,10 +255,6 @@
       "RelativeMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|solutionrelative:grabandgo.models\\responses\\vision system\\bindtrackresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.services\\interfaces\\icartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|solutionrelative:grabandgo.services\\interfaces\\icartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.services\\interfaces\\isessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|solutionrelative:grabandgo.services\\interfaces\\isessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -83,40 +267,12 @@
       "RelativeMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|solutionrelative:grabandgo\\grabandgo.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.dataaccess\\interfaces\\ivisionsystemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|solutionrelative:grabandgo.dataaccess\\interfaces\\ivisionsystemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.models\\grabandgo.models.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|solutionrelative:grabandgo.models\\grabandgo.models.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.dataaccess\\interfaces\\icartrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|solutionrelative:grabandgo.dataaccess\\interfaces\\icartrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.dataaccess\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|solutionrelative:grabandgo.dataaccess\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.dataaccess\\repositories\\sessionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|solutionrelative:grabandgo.dataaccess\\repositories\\sessionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.dataaccess\\repositories\\walletrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|solutionrelative:grabandgo.dataaccess\\repositories\\walletrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|solutionrelative:grabandgo\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.services\\interfaces\\ivisionsystemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|solutionrelative:grabandgo.services\\interfaces\\ivisionsystemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.dataaccess\\interfaces\\iwalletrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|solutionrelative:grabandgo.dataaccess\\interfaces\\iwalletrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.services\\implementations\\walletservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -127,20 +283,8 @@
       "RelativeMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|solutionrelative:grabandgo.services\\interfaces\\iwalletservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo\\controllers\\walletscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|solutionrelative:grabandgo\\controllers\\walletscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.models\\responses\\wallet\\walletbalanceresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|solutionrelative:grabandgo.models\\responses\\wallet\\walletbalanceresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.models\\requests\\wallet\\topuprequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|solutionrelative:grabandgo.models\\requests\\wallet\\topuprequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.models\\responses\\wallet\\topupresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|solutionrelative:grabandgo.models\\responses\\wallet\\topupresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.services\\implementations\\sessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -149,14 +293,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.models\\responses\\qrtokens\\gateentryresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|solutionrelative:grabandgo.models\\responses\\qrtokens\\gateentryresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.dataaccess\\interfaces\\isessionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|solutionrelative:grabandgo.dataaccess\\interfaces\\isessionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo\\controllers\\sessionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|solutionrelative:grabandgo\\controllers\\sessionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.models\\responses\\qrtokens\\tokenverificationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -175,14 +311,6 @@
       "RelativeMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|solutionrelative:grabandgo.models\\requests\\users\\userregistrationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.models\\requests\\qrtoken\\generateqrrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|solutionrelative:grabandgo.models\\requests\\qrtoken\\generateqrrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.services\\implementations\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|solutionrelative:grabandgo.services\\implementations\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.models\\responses\\users\\authresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{609C81D9-20C9-FE1F-BF09-3604EBFFCFE9}|GrabAndGo.Models\\GrabAndGo.Models.csproj|solutionrelative:grabandgo.models\\responses\\users\\authresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -197,14 +325,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.services\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF058C2C-3BB4-AF97-EC8C-ADC701241AA2}|GrabAndGo.Services\\GrabAndGo.Services.csproj|solutionrelative:grabandgo.services\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo.dataaccess\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB5582B3-EEDA-AD6B-DBD7-B0F3041FC68B}|GrabAndGo.DataAccess\\GrabAndGo.DataAccess.csproj|solutionrelative:grabandgo.dataaccess\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|c:\\vs\\grabandgo\\grabandgo\\grabandgo\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{4642BE14-3D8F-83A0-DE0F-30DE7AEE906B}|GrabAndGo\\GrabAndGo.Api.csproj|solutionrelative:grabandgo\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -214,24 +334,25 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 32,
               "Title": "SessionsController.cs",
               "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Controllers\\SessionsController.cs",
               "RelativeDocumentMoniker": "GrabAndGo\\Controllers\\SessionsController.cs",
               "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Controllers\\SessionsController.cs",
               "RelativeToolTip": "GrabAndGo\\Controllers\\SessionsController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwBYAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAzwCEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-11T19:20:47.273Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 71,
               "Title": "SessionService.cs",
               "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Implementations\\SessionService.cs",
               "RelativeDocumentMoniker": "GrabAndGo.Services\\Implementations\\SessionService.cs",
@@ -240,21 +361,49 @@
               "ViewState": "AgIAAEYAAAAAAAAAAAAcwGkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-11T19:45:20.89Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 48,
               "Title": "SessionRepository.cs",
               "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Repositories\\SessionRepository.cs",
               "RelativeDocumentMoniker": "GrabAndGo.DataAccess\\Repositories\\SessionRepository.cs",
               "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Repositories\\SessionRepository.cs",
               "RelativeToolTip": "GrabAndGo.DataAccess\\Repositories\\SessionRepository.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAEwBMAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAzwA8AAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-11T19:49:19.499Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Program.cs",
+              "RelativeDocumentMoniker": "GrabAndGo\\Program.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Program.cs",
+              "RelativeToolTip": "GrabAndGo\\Program.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAAAGcAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T18:21:58.846Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RequireApiKeyAttribute.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Security\\RequireApiKeyAttribute.cs",
+              "RelativeDocumentMoniker": "GrabAndGo\\Security\\RequireApiKeyAttribute.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Security\\RequireApiKeyAttribute.cs",
+              "RelativeToolTip": "GrabAndGo\\Security\\RequireApiKeyAttribute.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T08:41:36.847Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -266,52 +415,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ICartNotificationService.cs",
-              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Interfaces\\ICartNotificationService.cs",
-              "RelativeDocumentMoniker": "GrabAndGo.Services\\Interfaces\\ICartNotificationService.cs",
-              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Interfaces\\ICartNotificationService.cs",
-              "RelativeToolTip": "GrabAndGo.Services\\Interfaces\\ICartNotificationService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-22T10:57:18.486Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CartHub.cs",
-              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Hubs\\CartHub.cs",
-              "RelativeDocumentMoniker": "GrabAndGo\\Hubs\\CartHub.cs",
-              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Hubs\\CartHub.cs",
-              "RelativeToolTip": "GrabAndGo\\Hubs\\CartHub.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-22T10:52:53.217Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SignalRCartNotificationService.cs",
-              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Hubs\\Implementations\\SignalRCartNotificationService.cs",
-              "RelativeDocumentMoniker": "GrabAndGo\\Hubs\\Implementations\\SignalRCartNotificationService.cs",
-              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Hubs\\Implementations\\SignalRCartNotificationService.cs",
-              "RelativeToolTip": "GrabAndGo\\Hubs\\Implementations\\SignalRCartNotificationService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-22T10:51:47.16Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "MqttVisionWorker.cs",
               "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\BackgroundServices\\MqttVisionWorker.cs",
               "RelativeDocumentMoniker": "GrabAndGo\\BackgroundServices\\MqttVisionWorker.cs",
               "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\BackgroundServices\\MqttVisionWorker.cs",
               "RelativeToolTip": "GrabAndGo\\BackgroundServices\\MqttVisionWorker.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAArwFIAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEYAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-20T17:34:24.183Z",
               "EditorCaption": ""
@@ -319,271 +429,301 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Program.cs",
-              "RelativeDocumentMoniker": "GrabAndGo\\Program.cs",
-              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Program.cs",
-              "RelativeToolTip": "GrabAndGo\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-10T18:21:58.846Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "CartSignalRDto.cs",
-              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\Vision System\\CartSignalRDto.cs",
-              "RelativeDocumentMoniker": "GrabAndGo.Models\\Responses\\Vision System\\CartSignalRDto.cs",
-              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\Vision System\\CartSignalRDto.cs",
-              "RelativeToolTip": "GrabAndGo.Models\\Responses\\Vision System\\CartSignalRDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T14:47:16.982Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CartService.cs",
-              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Implementations\\CartService.cs",
-              "RelativeDocumentMoniker": "GrabAndGo.Services\\Implementations\\CartService.cs",
-              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Implementations\\CartService.cs",
-              "RelativeToolTip": "GrabAndGo.Services\\Implementations\\CartService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-21T13:20:06.842Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "SqlExecutor.cs",
-              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Core\\SqlExecutor.cs",
-              "RelativeDocumentMoniker": "GrabAndGo.DataAccess\\Core\\SqlExecutor.cs",
-              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Core\\SqlExecutor.cs",
-              "RelativeToolTip": "GrabAndGo.DataAccess\\Core\\SqlExecutor.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAYwDUAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-10T16:26:58.948Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "GateController.cs",
               "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Controllers\\GateController.cs",
               "RelativeDocumentMoniker": "GrabAndGo\\Controllers\\GateController.cs",
               "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Controllers\\GateController.cs",
               "RelativeToolTip": "GrabAndGo\\Controllers\\GateController.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAjwCYAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAACUAAAAAAAAAAAAQwCwAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-12T10:03:30.985Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "InvoiceWorker.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\BackgroundServices\\InvoiceWorker.cs",
+              "RelativeDocumentMoniker": "GrabAndGo\\BackgroundServices\\InvoiceWorker.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\BackgroundServices\\InvoiceWorker.cs",
+              "RelativeToolTip": "GrabAndGo\\BackgroundServices\\InvoiceWorker.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-24T20:53:48.822Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "CartRepository.cs",
-              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Repositories\\CartRepository.cs",
-              "RelativeDocumentMoniker": "GrabAndGo.DataAccess\\Repositories\\CartRepository.cs",
-              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Repositories\\CartRepository.cs",
-              "RelativeToolTip": "GrabAndGo.DataAccess\\Repositories\\CartRepository.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAAMAAAAAAAAAA==",
+              "Title": "ICheckoutRepository.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Interfaces\\ICheckoutRepository.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.DataAccess\\Interfaces\\ICheckoutRepository.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Interfaces\\ICheckoutRepository.cs",
+              "RelativeToolTip": "GrabAndGo.DataAccess\\Interfaces\\ICheckoutRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T14:49:00.344Z",
+              "WhenOpened": "2026-04-23T11:30:31.918Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "VisionEventRequestDto.cs",
-              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Requests\\Vision System\\VisionEventRequestDto.cs",
-              "RelativeDocumentMoniker": "GrabAndGo.Models\\Requests\\Vision System\\VisionEventRequestDto.cs",
-              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Requests\\Vision System\\VisionEventRequestDto.cs",
-              "RelativeToolTip": "GrabAndGo.Models\\Requests\\Vision System\\VisionEventRequestDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-17T17:39:46.111Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "VisionSystemService.cs",
-              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Implementations\\VisionSystemService.cs",
-              "RelativeDocumentMoniker": "GrabAndGo.Services\\Implementations\\VisionSystemService.cs",
-              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Implementations\\VisionSystemService.cs",
-              "RelativeToolTip": "GrabAndGo.Services\\Implementations\\VisionSystemService.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAywBIAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T12:41:07.67Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "VisionSystemController.cs",
-              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Controllers\\VisionSystemController.cs",
-              "RelativeDocumentMoniker": "GrabAndGo\\Controllers\\VisionSystemController.cs",
-              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Controllers\\VisionSystemController.cs",
-              "RelativeToolTip": "GrabAndGo\\Controllers\\VisionSystemController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAA7wCYAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T12:43:57.62Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "VisionSystemRepository.cs",
-              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Repositories\\VisionSystemRepository.cs",
-              "RelativeDocumentMoniker": "GrabAndGo.DataAccess\\Repositories\\VisionSystemRepository.cs",
-              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Repositories\\VisionSystemRepository.cs",
-              "RelativeToolTip": "GrabAndGo.DataAccess\\Repositories\\VisionSystemRepository.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAwBQAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T12:36:17.713Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "BindTrackRequestDto.cs",
-              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Requests\\Vision System\\BindTrackRequestDto.cs",
-              "RelativeDocumentMoniker": "GrabAndGo.Models\\Requests\\Vision System\\BindTrackRequestDto.cs",
-              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Requests\\Vision System\\BindTrackRequestDto.cs",
-              "RelativeToolTip": "GrabAndGo.Models\\Requests\\Vision System\\BindTrackRequestDto.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAuwAkAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T12:23:20.456Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "BindTrackResponseDto.cs",
-              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\Vision System\\BindTrackResponseDto.cs",
-              "RelativeDocumentMoniker": "GrabAndGo.Models\\Responses\\Vision System\\BindTrackResponseDto.cs",
-              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\Vision System\\BindTrackResponseDto.cs",
-              "RelativeToolTip": "GrabAndGo.Models\\Responses\\Vision System\\BindTrackResponseDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T12:26:26.422Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "ISessionService.cs",
-              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Interfaces\\ISessionService.cs",
-              "RelativeDocumentMoniker": "GrabAndGo.Services\\Interfaces\\ISessionService.cs",
-              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Interfaces\\ISessionService.cs",
-              "RelativeToolTip": "GrabAndGo.Services\\Interfaces\\ISessionService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-11T19:37:45.442Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "02_Architecture_Rules.md",
-              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\02_Architecture_Rules.md",
-              "RelativeDocumentMoniker": "02_Architecture_Rules.md",
-              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\02_Architecture_Rules.md",
-              "RelativeToolTip": "02_Architecture_Rules.md",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2026-04-11T10:59:29.97Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "GrabAndGo.Api",
-              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\GrabAndGo.Api.csproj",
-              "RelativeDocumentMoniker": "GrabAndGo\\GrabAndGo.Api.csproj",
-              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\GrabAndGo.Api.csproj",
-              "RelativeToolTip": "GrabAndGo\\GrabAndGo.Api.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-04-21T11:54:19.375Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "ICartService.cs",
-              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Interfaces\\ICartService.cs",
-              "RelativeDocumentMoniker": "GrabAndGo.Services\\Interfaces\\ICartService.cs",
-              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Interfaces\\ICartService.cs",
-              "RelativeToolTip": "GrabAndGo.Services\\Interfaces\\ICartService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-21T13:13:03.131Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "IVisionSystemRepository.cs",
-              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Interfaces\\IVisionSystemRepository.cs",
-              "RelativeDocumentMoniker": "GrabAndGo.DataAccess\\Interfaces\\IVisionSystemRepository.cs",
-              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Interfaces\\IVisionSystemRepository.cs",
-              "RelativeToolTip": "GrabAndGo.DataAccess\\Interfaces\\IVisionSystemRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T12:33:42.412Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Repositories\\UserRepository.cs",
-              "RelativeDocumentMoniker": "GrabAndGo.DataAccess\\Repositories\\UserRepository.cs",
-              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Repositories\\UserRepository.cs",
-              "RelativeToolTip": "GrabAndGo.DataAccess\\Repositories\\UserRepository.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAqwBUAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-10T18:41:08.955Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 4,
               "Title": "ICartRepository.cs",
               "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Interfaces\\ICartRepository.cs",
               "RelativeDocumentMoniker": "GrabAndGo.DataAccess\\Interfaces\\ICartRepository.cs",
               "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Interfaces\\ICartRepository.cs",
               "RelativeToolTip": "GrabAndGo.DataAccess\\Interfaces\\ICartRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAcAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T14:48:37.884Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "GrabAndGo.Models.csproj",
-              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\GrabAndGo.Models.csproj",
-              "RelativeDocumentMoniker": "GrabAndGo.Models\\GrabAndGo.Models.csproj",
-              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\GrabAndGo.Models.csproj",
-              "RelativeToolTip": "GrabAndGo.Models\\GrabAndGo.Models.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-04-20T17:20:52.991Z",
+              "WhenOpened": "2026-04-18T14:48:37.884Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 8,
+              "Title": "GlobalUsings.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\GlobalUsings.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Services\\GlobalUsings.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\GlobalUsings.cs",
+              "RelativeToolTip": "GrabAndGo.Services\\GlobalUsings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T07:09:51.477Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "GlobalUsings.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\GlobalUsings.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Models\\GlobalUsings.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\GlobalUsings.cs",
+              "RelativeToolTip": "GrabAndGo.Models\\GlobalUsings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T07:09:34.149Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IProductRepository.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Interfaces\\IProductRepository.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.DataAccess\\Interfaces\\IProductRepository.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Interfaces\\IProductRepository.cs",
+              "RelativeToolTip": "GrabAndGo.DataAccess\\Interfaces\\IProductRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T17:12:41.122Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "TopUpResponseDto.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\Wallet\\TopUpResponseDto.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Models\\Responses\\Wallet\\TopUpResponseDto.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\Wallet\\TopUpResponseDto.cs",
+              "RelativeToolTip": "GrabAndGo.Models\\Responses\\Wallet\\TopUpResponseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T11:48:07.167Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "SqlExecutor.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Core\\SqlExecutor.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.DataAccess\\Core\\SqlExecutor.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Core\\SqlExecutor.cs",
+              "RelativeToolTip": "GrabAndGo.DataAccess\\Core\\SqlExecutor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T16:26:58.948Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "IInvoiceRepository.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Interfaces\\IInvoiceRepository.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.DataAccess\\Interfaces\\IInvoiceRepository.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Interfaces\\IInvoiceRepository.cs",
+              "RelativeToolTip": "GrabAndGo.DataAccess\\Interfaces\\IInvoiceRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-24T19:12:28.575Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "WalletBalanceResponseDto.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\Wallet\\WalletBalanceResponseDto.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Models\\Responses\\Wallet\\WalletBalanceResponseDto.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\Wallet\\WalletBalanceResponseDto.cs",
+              "RelativeToolTip": "GrabAndGo.Models\\Responses\\Wallet\\WalletBalanceResponseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T12:38:34.271Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Interfaces\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.DataAccess\\Interfaces\\IUserRepository.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Interfaces\\IUserRepository.cs",
+              "RelativeToolTip": "GrabAndGo.DataAccess\\Interfaces\\IUserRepository.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAIAzwAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T18:40:39.649Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "GlobalUsings.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\GlobalUsings.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.DataAccess\\GlobalUsings.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\GlobalUsings.cs",
+              "RelativeToolTip": "GrabAndGo.DataAccess\\GlobalUsings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T17:27:39.952Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IWalletRepository.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Interfaces\\IWalletRepository.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.DataAccess\\Interfaces\\IWalletRepository.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Interfaces\\IWalletRepository.cs",
+              "RelativeToolTip": "GrabAndGo.DataAccess\\Interfaces\\IWalletRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T11:56:04.915Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "IVisionSystemRepository.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Interfaces\\IVisionSystemRepository.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.DataAccess\\Interfaces\\IVisionSystemRepository.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Interfaces\\IVisionSystemRepository.cs",
+              "RelativeToolTip": "GrabAndGo.DataAccess\\Interfaces\\IVisionSystemRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T12:33:42.412Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.DataAccess\\Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "GrabAndGo.DataAccess\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T18:41:08.955Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
               "Title": "WalletRepository.cs",
               "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Repositories\\WalletRepository.cs",
               "RelativeDocumentMoniker": "GrabAndGo.DataAccess\\Repositories\\WalletRepository.cs",
               "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Repositories\\WalletRepository.cs",
               "RelativeToolTip": "GrabAndGo.DataAccess\\Repositories\\WalletRepository.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAIwBUAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAIwAsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-12T11:54:20.947Z"
+              "WhenOpened": "2026-04-12T11:54:20.947Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "InvoicesController.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Controllers\\InvoicesController.cs",
+              "RelativeDocumentMoniker": "GrabAndGo\\Controllers\\InvoicesController.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Controllers\\InvoicesController.cs",
+              "RelativeToolTip": "GrabAndGo\\Controllers\\InvoicesController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBsAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-24T20:56:03.164Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ITransactionRepository.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Interfaces\\ITransactionRepository.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.DataAccess\\Interfaces\\ITransactionRepository.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Interfaces\\ITransactionRepository.cs",
+              "RelativeToolTip": "GrabAndGo.DataAccess\\Interfaces\\ITransactionRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T17:12:48.621Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "GlobalUsings.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\GlobalUsings.cs",
+              "RelativeDocumentMoniker": "GrabAndGo\\GlobalUsings.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\GlobalUsings.cs",
+              "RelativeToolTip": "GrabAndGo\\GlobalUsings.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACcAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T17:11:57.649Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "WalletsController.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Controllers\\WalletsController.cs",
+              "RelativeDocumentMoniker": "GrabAndGo\\Controllers\\WalletsController.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Controllers\\WalletsController.cs",
+              "RelativeToolTip": "GrabAndGo\\Controllers\\WalletsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T11:59:41.482Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ISessionRepository.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Interfaces\\ISessionRepository.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.DataAccess\\Interfaces\\ISessionRepository.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Interfaces\\ISessionRepository.cs",
+              "RelativeToolTip": "GrabAndGo.DataAccess\\Interfaces\\ISessionRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T07:20:27.513Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "VisionSystemController.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Controllers\\VisionSystemController.cs",
+              "RelativeDocumentMoniker": "GrabAndGo\\Controllers\\VisionSystemController.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Controllers\\VisionSystemController.cs",
+              "RelativeToolTip": "GrabAndGo\\Controllers\\VisionSystemController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADgAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T12:43:57.62Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -593,13 +733,500 @@
               "RelativeDocumentMoniker": "GrabAndGo\\Controllers\\UsersController.cs",
               "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Controllers\\UsersController.cs",
               "RelativeToolTip": "GrabAndGo\\Controllers\\UsersController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAIBJwCMAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-10T16:29:59.645Z"
+              "WhenOpened": "2026-04-10T16:29:59.645Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 27,
+              "Title": "TransactionsController.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Controllers\\TransactionsController.cs",
+              "RelativeDocumentMoniker": "GrabAndGo\\Controllers\\TransactionsController.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Controllers\\TransactionsController.cs",
+              "RelativeToolTip": "GrabAndGo\\Controllers\\TransactionsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T12:12:37.724Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "GrabAndGo\\Controllers\\ProductsController.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "GrabAndGo\\Controllers\\ProductsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T14:05:30.414Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "CartHub.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Hubs\\CartHub.cs",
+              "RelativeDocumentMoniker": "GrabAndGo\\Hubs\\CartHub.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Hubs\\CartHub.cs",
+              "RelativeToolTip": "GrabAndGo\\Hubs\\CartHub.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T10:52:53.217Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "GateNotificationService.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Hubs\\Implementations\\GateNotificationService.cs",
+              "RelativeDocumentMoniker": "GrabAndGo\\Hubs\\Implementations\\GateNotificationService.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Hubs\\Implementations\\GateNotificationService.cs",
+              "RelativeToolTip": "GrabAndGo\\Hubs\\Implementations\\GateNotificationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T12:55:11.803Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\appsettings.json",
+              "RelativeDocumentMoniker": "GrabAndGo\\appsettings.json",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\appsettings.json",
+              "RelativeToolTip": "GrabAndGo\\appsettings.json",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAkAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-11T13:30:05.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "GenerateQrRequestDto.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Requests\\QrToken\\GenerateQrRequestDto.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Models\\Requests\\QrToken\\GenerateQrRequestDto.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Requests\\QrToken\\GenerateQrRequestDto.cs",
+              "RelativeToolTip": "GrabAndGo.Models\\Requests\\QrToken\\GenerateQrRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-11T19:19:08.819Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "SignalRCartNotificationService.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Hubs\\Implementations\\SignalRCartNotificationService.cs",
+              "RelativeDocumentMoniker": "GrabAndGo\\Hubs\\Implementations\\SignalRCartNotificationService.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Hubs\\Implementations\\SignalRCartNotificationService.cs",
+              "RelativeToolTip": "GrabAndGo\\Hubs\\Implementations\\SignalRCartNotificationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T10:51:47.16Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Implementations\\UserService.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Services\\Implementations\\UserService.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Implementations\\UserService.cs",
+              "RelativeToolTip": "GrabAndGo.Services\\Implementations\\UserService.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAAASwFQAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T18:43:55.382Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "TransactionRepository.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Repositories\\TransactionRepository.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.DataAccess\\Repositories\\TransactionRepository.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Repositories\\TransactionRepository.cs",
+              "RelativeToolTip": "GrabAndGo.DataAccess\\Repositories\\TransactionRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T13:26:14.481Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "InvoiceRepository.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Repositories\\InvoiceRepository.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.DataAccess\\Repositories\\InvoiceRepository.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Repositories\\InvoiceRepository.cs",
+              "RelativeToolTip": "GrabAndGo.DataAccess\\Repositories\\InvoiceRepository.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-24T19:12:36.561Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "TransactionService.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Implementations\\TransactionService.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Services\\Implementations\\TransactionService.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Implementations\\TransactionService.cs",
+              "RelativeToolTip": "GrabAndGo.Services\\Implementations\\TransactionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T12:07:50.99Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "IInvoiceService.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Interfaces\\IInvoiceService.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Services\\Interfaces\\IInvoiceService.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Interfaces\\IInvoiceService.cs",
+              "RelativeToolTip": "GrabAndGo.Services\\Interfaces\\IInvoiceService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-24T19:17:12.215Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "InvoiceService.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Implementations\\InvoiceService.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Services\\Implementations\\InvoiceService.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Implementations\\InvoiceService.cs",
+              "RelativeToolTip": "GrabAndGo.Services\\Implementations\\InvoiceService.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAlwEcAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-24T19:17:18.174Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "UpdateInvoicePathResponseDto.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\Invoice\\UpdateInvoicePathResponseDto.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Models\\Responses\\Invoice\\UpdateInvoicePathResponseDto.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\Invoice\\UpdateInvoicePathResponseDto.cs",
+              "RelativeToolTip": "GrabAndGo.Models\\Responses\\Invoice\\UpdateInvoicePathResponseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-24T19:05:34.781Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "PendingInvoiceDto.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\Invoice\\PendingInvoiceDto.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Models\\Responses\\Invoice\\PendingInvoiceDto.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\Invoice\\PendingInvoiceDto.cs",
+              "RelativeToolTip": "GrabAndGo.Models\\Responses\\Invoice\\PendingInvoiceDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T12:03:00.749Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "InvoiceListItemDto.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\Invoice\\InvoiceListItemDto.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Models\\Responses\\Invoice\\InvoiceListItemDto.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\Invoice\\InvoiceListItemDto.cs",
+              "RelativeToolTip": "GrabAndGo.Models\\Responses\\Invoice\\InvoiceListItemDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T12:02:55.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "InvoiceDataDto.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\Invoice\\InvoiceDataDto.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Models\\Responses\\Invoice\\InvoiceDataDto.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\Invoice\\InvoiceDataDto.cs",
+              "RelativeToolTip": "GrabAndGo.Models\\Responses\\Invoice\\InvoiceDataDto.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAzwBsAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-24T19:05:38.413Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "UpdateInvoicePathRequestDto.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Requests\\Invoice\\UpdateInvoicePathRequestDto.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Models\\Requests\\Invoice\\UpdateInvoicePathRequestDto.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Requests\\Invoice\\UpdateInvoicePathRequestDto.cs",
+              "RelativeToolTip": "GrabAndGo.Models\\Requests\\Invoice\\UpdateInvoicePathRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-24T19:05:17.358Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "CheckoutVisionResponseDto.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\Vision System\\CheckoutVisionResponseDto.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Models\\Responses\\Vision System\\CheckoutVisionResponseDto.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\Vision System\\CheckoutVisionResponseDto.cs",
+              "RelativeToolTip": "GrabAndGo.Models\\Responses\\Vision System\\CheckoutVisionResponseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T11:02:16.989Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "CartService.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Implementations\\CartService.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Services\\Implementations\\CartService.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Implementations\\CartService.cs",
+              "RelativeToolTip": "GrabAndGo.Services\\Implementations\\CartService.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAwBQAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-21T13:20:06.842Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "IGateNotificationService.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Interfaces\\IGateNotificationService.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Services\\Interfaces\\IGateNotificationService.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Interfaces\\IGateNotificationService.cs",
+              "RelativeToolTip": "GrabAndGo.Services\\Interfaces\\IGateNotificationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T12:54:38.857Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "CartRepository.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Repositories\\CartRepository.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.DataAccess\\Repositories\\CartRepository.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Repositories\\CartRepository.cs",
+              "RelativeToolTip": "GrabAndGo.DataAccess\\Repositories\\CartRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T14:49:00.344Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "CheckoutRepository.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Repositories\\CheckoutRepository.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.DataAccess\\Repositories\\CheckoutRepository.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Repositories\\CheckoutRepository.cs",
+              "RelativeToolTip": "GrabAndGo.DataAccess\\Repositories\\CheckoutRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T11:30:56.654Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "CheckoutService.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Implementations\\CheckoutService.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Services\\Implementations\\CheckoutService.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Implementations\\CheckoutService.cs",
+              "RelativeToolTip": "GrabAndGo.Services\\Implementations\\CheckoutService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T11:31:58.604Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "ICheckoutService.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Interfaces\\ICheckoutService.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Services\\Interfaces\\ICheckoutService.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Interfaces\\ICheckoutService.cs",
+              "RelativeToolTip": "GrabAndGo.Services\\Interfaces\\ICheckoutService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T11:31:35.306Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "ICartNotificationService.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Interfaces\\ICartNotificationService.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Services\\Interfaces\\ICartNotificationService.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Interfaces\\ICartNotificationService.cs",
+              "RelativeToolTip": "GrabAndGo.Services\\Interfaces\\ICartNotificationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T10:57:18.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "ICartService.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Interfaces\\ICartService.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Services\\Interfaces\\ICartService.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Interfaces\\ICartService.cs",
+              "RelativeToolTip": "GrabAndGo.Services\\Interfaces\\ICartService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-21T13:13:03.131Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "CartSignalRDto.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\Vision System\\CartSignalRDto.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Models\\Responses\\Vision System\\CartSignalRDto.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\Vision System\\CartSignalRDto.cs",
+              "RelativeToolTip": "GrabAndGo.Models\\Responses\\Vision System\\CartSignalRDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T14:47:16.982Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "CheckoutVisionRequestDto.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Requests\\Vision System\\CheckoutVisionRequestDto.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Models\\Requests\\Vision System\\CheckoutVisionRequestDto.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Requests\\Vision System\\CheckoutVisionRequestDto.cs",
+              "RelativeToolTip": "GrabAndGo.Models\\Requests\\Vision System\\CheckoutVisionRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T10:47:35.177Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "VisionEventRequestDto.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Requests\\Vision System\\VisionEventRequestDto.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Models\\Requests\\Vision System\\VisionEventRequestDto.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Requests\\Vision System\\VisionEventRequestDto.cs",
+              "RelativeToolTip": "GrabAndGo.Models\\Requests\\Vision System\\VisionEventRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T17:39:46.111Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "VisionSystemService.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Implementations\\VisionSystemService.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Services\\Implementations\\VisionSystemService.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Implementations\\VisionSystemService.cs",
+              "RelativeToolTip": "GrabAndGo.Services\\Implementations\\VisionSystemService.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAywBIAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T12:41:07.67Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "VisionSystemRepository.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Repositories\\VisionSystemRepository.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.DataAccess\\Repositories\\VisionSystemRepository.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Repositories\\VisionSystemRepository.cs",
+              "RelativeToolTip": "GrabAndGo.DataAccess\\Repositories\\VisionSystemRepository.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAwBQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T12:36:17.713Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "BindTrackRequestDto.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Requests\\Vision System\\BindTrackRequestDto.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Models\\Requests\\Vision System\\BindTrackRequestDto.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Requests\\Vision System\\BindTrackRequestDto.cs",
+              "RelativeToolTip": "GrabAndGo.Models\\Requests\\Vision System\\BindTrackRequestDto.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAuwAkAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T12:23:20.456Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "BindTrackResponseDto.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\Vision System\\BindTrackResponseDto.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Models\\Responses\\Vision System\\BindTrackResponseDto.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\Vision System\\BindTrackResponseDto.cs",
+              "RelativeToolTip": "GrabAndGo.Models\\Responses\\Vision System\\BindTrackResponseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T12:26:26.422Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "ISessionService.cs",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Interfaces\\ISessionService.cs",
+              "RelativeDocumentMoniker": "GrabAndGo.Services\\Interfaces\\ISessionService.cs",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Interfaces\\ISessionService.cs",
+              "RelativeToolTip": "GrabAndGo.Services\\Interfaces\\ISessionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-11T19:37:45.442Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "02_Architecture_Rules.md",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\02_Architecture_Rules.md",
+              "RelativeDocumentMoniker": "02_Architecture_Rules.md",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\02_Architecture_Rules.md",
+              "RelativeToolTip": "02_Architecture_Rules.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-04-11T10:59:29.97Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 65,
+              "Title": "GrabAndGo.Api.csproj",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\GrabAndGo.Api.csproj",
+              "RelativeDocumentMoniker": "GrabAndGo\\GrabAndGo.Api.csproj",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\GrabAndGo.Api.csproj",
+              "RelativeToolTip": "GrabAndGo\\GrabAndGo.Api.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-21T11:54:19.375Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
+              "Title": "GrabAndGo.Models.csproj",
+              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\GrabAndGo.Models.csproj",
+              "RelativeDocumentMoniker": "GrabAndGo.Models\\GrabAndGo.Models.csproj",
+              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\GrabAndGo.Models.csproj",
+              "RelativeToolTip": "GrabAndGo.Models\\GrabAndGo.Models.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-20T17:20:52.991Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 67,
               "Title": "IVisionSystemService.cs",
               "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Interfaces\\IVisionSystemService.cs",
               "RelativeDocumentMoniker": "GrabAndGo.Services\\Interfaces\\IVisionSystemService.cs",
@@ -611,43 +1238,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "WalletBalanceResponseDto.cs",
-              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\Wallet\\WalletBalanceResponseDto.cs",
-              "RelativeDocumentMoniker": "GrabAndGo.Models\\Responses\\Wallet\\WalletBalanceResponseDto.cs",
-              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\Wallet\\WalletBalanceResponseDto.cs",
-              "RelativeToolTip": "GrabAndGo.Models\\Responses\\Wallet\\WalletBalanceResponseDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-12T12:38:34.271Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "WalletsController.cs",
-              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Controllers\\WalletsController.cs",
-              "RelativeDocumentMoniker": "GrabAndGo\\Controllers\\WalletsController.cs",
-              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\Controllers\\WalletsController.cs",
-              "RelativeToolTip": "GrabAndGo\\Controllers\\WalletsController.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAIwDsAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-12T11:59:41.482Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "IWalletRepository.cs",
-              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Interfaces\\IWalletRepository.cs",
-              "RelativeDocumentMoniker": "GrabAndGo.DataAccess\\Interfaces\\IWalletRepository.cs",
-              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Interfaces\\IWalletRepository.cs",
-              "RelativeToolTip": "GrabAndGo.DataAccess\\Interfaces\\IWalletRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-12T11:56:04.915Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 68,
               "Title": "WalletService.cs",
               "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Implementations\\WalletService.cs",
               "RelativeDocumentMoniker": "GrabAndGo.Services\\Implementations\\WalletService.cs",
@@ -659,7 +1250,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 69,
               "Title": "IWalletService.cs",
               "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Interfaces\\IWalletService.cs",
               "RelativeDocumentMoniker": "GrabAndGo.Services\\Interfaces\\IWalletService.cs",
@@ -671,7 +1262,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 70,
               "Title": "TopUpRequestDto.cs",
               "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Requests\\Wallet\\TopUpRequestDto.cs",
               "RelativeDocumentMoniker": "GrabAndGo.Models\\Requests\\Wallet\\TopUpRequestDto.cs",
@@ -683,19 +1274,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "TopUpResponseDto.cs",
-              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\Wallet\\TopUpResponseDto.cs",
-              "RelativeDocumentMoniker": "GrabAndGo.Models\\Responses\\Wallet\\TopUpResponseDto.cs",
-              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\Wallet\\TopUpResponseDto.cs",
-              "RelativeToolTip": "GrabAndGo.Models\\Responses\\Wallet\\TopUpResponseDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAQAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-12T11:48:07.167Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 73,
               "Title": "TokenVerificationDto.cs",
               "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\QrTokens\\TokenVerificationDto.cs",
               "RelativeDocumentMoniker": "GrabAndGo.Models\\Responses\\QrTokens\\TokenVerificationDto.cs",
@@ -707,7 +1286,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 76,
               "Title": "UserRegistrationDto.cs",
               "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Requests\\Users\\UserRegistrationDto.cs",
               "RelativeDocumentMoniker": "GrabAndGo.Models\\Requests\\Users\\UserRegistrationDto.cs",
@@ -719,7 +1298,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 72,
               "Title": "GateEntryResponseDto.cs",
               "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\QrTokens\\GateEntryResponseDto.cs",
               "RelativeDocumentMoniker": "GrabAndGo.Models\\Responses\\QrTokens\\GateEntryResponseDto.cs",
@@ -731,7 +1310,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 75,
               "Title": "QrTokenResponseDto.cs",
               "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\QrTokens\\QrTokenResponseDto.cs",
               "RelativeDocumentMoniker": "GrabAndGo.Models\\Responses\\QrTokens\\QrTokenResponseDto.cs",
@@ -743,19 +1322,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "ISessionRepository.cs",
-              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Interfaces\\ISessionRepository.cs",
-              "RelativeDocumentMoniker": "GrabAndGo.DataAccess\\Interfaces\\ISessionRepository.cs",
-              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Interfaces\\ISessionRepository.cs",
-              "RelativeToolTip": "GrabAndGo.DataAccess\\Interfaces\\ISessionRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA0AAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-12T07:20:27.513Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 74,
               "Title": "GateEntryRequestDto.cs",
               "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Requests\\QrToken\\GateEntryRequestDto.cs",
               "RelativeDocumentMoniker": "GrabAndGo.Models\\Requests\\QrToken\\GateEntryRequestDto.cs",
@@ -767,31 +1334,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "GenerateQrRequestDto.cs",
-              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Requests\\QrToken\\GenerateQrRequestDto.cs",
-              "RelativeDocumentMoniker": "GrabAndGo.Models\\Requests\\QrToken\\GenerateQrRequestDto.cs",
-              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Requests\\QrToken\\GenerateQrRequestDto.cs",
-              "RelativeToolTip": "GrabAndGo.Models\\Requests\\QrToken\\GenerateQrRequestDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAYAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-11T19:19:08.819Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Implementations\\UserService.cs",
-              "RelativeDocumentMoniker": "GrabAndGo.Services\\Implementations\\UserService.cs",
-              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Implementations\\UserService.cs",
-              "RelativeToolTip": "GrabAndGo.Services\\Implementations\\UserService.cs",
-              "ViewState": "AgIAAFIAAAAAAAAAAAAEwF0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-10T18:43:55.382Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 77,
               "Title": "AuthResponseDto.cs",
               "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\Users\\AuthResponseDto.cs",
               "RelativeDocumentMoniker": "GrabAndGo.Models\\Responses\\Users\\AuthResponseDto.cs",
@@ -803,7 +1346,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 79,
               "Title": "UserAuthLookupDto.cs",
               "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Responses\\Users\\UserAuthLookupDto.cs",
               "RelativeDocumentMoniker": "GrabAndGo.Models\\Responses\\Users\\UserAuthLookupDto.cs",
@@ -815,7 +1358,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 78,
               "Title": "LoginRequestDto.cs",
               "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Models\\Requests\\Users\\LoginRequestDto.cs",
               "RelativeDocumentMoniker": "GrabAndGo.Models\\Requests\\Users\\LoginRequestDto.cs",
@@ -827,7 +1370,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 80,
               "Title": "IUserService.cs",
               "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.Services\\Interfaces\\IUserService.cs",
               "RelativeDocumentMoniker": "GrabAndGo.Services\\Interfaces\\IUserService.cs",
@@ -836,30 +1379,6 @@
               "ViewState": "AgIAAAIAAAAAAAAAAAAhwAsAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-11T14:21:04.401Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 49,
-              "Title": "IUserRepository.cs",
-              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Interfaces\\IUserRepository.cs",
-              "RelativeDocumentMoniker": "GrabAndGo.DataAccess\\Interfaces\\IUserRepository.cs",
-              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo.DataAccess\\Interfaces\\IUserRepository.cs",
-              "RelativeToolTip": "GrabAndGo.DataAccess\\Interfaces\\IUserRepository.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAASwA0AAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-10T18:40:39.649Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 50,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\appsettings.json",
-              "RelativeDocumentMoniker": "GrabAndGo\\appsettings.json",
-              "ToolTip": "C:\\Vs\\GrabAndGo\\GrabAndGo\\GrabAndGo\\appsettings.json",
-              "RelativeToolTip": "GrabAndGo\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-04-11T13:30:05.404Z"
             }
           ]
         }

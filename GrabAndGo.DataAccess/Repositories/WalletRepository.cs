@@ -1,13 +1,4 @@
-﻿using GrabAndGo.DataAccess.Core;
-using GrabAndGo.DataAccess.Interfaces;
-using GrabAndGo.Models.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GrabAndGo.DataAccess.Repositories
+﻿namespace GrabAndGo.DataAccess.Repositories
 {
     public class WalletRepository : IWalletRepository
     {
@@ -30,6 +21,14 @@ namespace GrabAndGo.DataAccess.Repositories
             return await _executor.ExecuteReaderAsync<WalletBalanceResponseDto>(
                 "SP_GetWalletBalance",
                 new { UserId = userId }
+            );
+        }
+
+        public async Task<List<WalletLedgerEntryDto>?> GetUserWalletLedgerAsync(int userId, int pageNumber, int pageSize)
+        {
+            return await _executor.ExecuteReaderAsync<List<WalletLedgerEntryDto>>(
+                "SP_GetUserWalletLedger",
+                new { UserId = userId, PageNumber = pageNumber, PageSize = pageSize }
             );
         }
     }

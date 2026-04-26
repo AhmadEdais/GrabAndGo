@@ -1,8 +1,4 @@
-﻿using GrabAndGo.Models.Requests.Users;
-using GrabAndGo.Models.Responses.Users;
-using System.Threading.Tasks;
-
-namespace GrabAndGo.DataAccess.Interfaces
+﻿namespace GrabAndGo.DataAccess.Interfaces
 {
     public interface IUserRepository
     {

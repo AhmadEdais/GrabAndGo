@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "GrabAndGo.Api.Controllers.GateController",
+    "Method": "ProcessExitEvent",
+    "RelativePath": "api/Gate/checkout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "GrabAndGo.Models.Requests.CheckoutVisionRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GrabAndGo.Api.Controllers.GateController",
     "Method": "ScanQrCode",
     "RelativePath": "api/Gate/scan",
     "HttpMethod": "POST",
@@ -10,6 +26,54 @@
       {
         "Name": "request",
         "Type": "GrabAndGo.Models.DTOs.GateEntryRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GrabAndGo.Api.Controllers.InvoicesController",
+    "Method": "GetStatus",
+    "RelativePath": "api/Invoices/{transactionId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "transactionId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GrabAndGo.Api.Controllers.InvoicesController",
+    "Method": "Generate",
+    "RelativePath": "api/Invoices/{transactionId}/generate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "transactionId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GrabAndGo.Api.Controllers.InvoicesController",
+    "Method": "GetPdf",
+    "RelativePath": "api/Invoices/{transactionId}/pdf",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "transactionId",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

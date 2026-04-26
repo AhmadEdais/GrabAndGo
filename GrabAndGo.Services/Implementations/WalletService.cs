@@ -1,13 +1,4 @@
-﻿using GrabAndGo.DataAccess.Interfaces;
-using GrabAndGo.Models.DTOs;
-using GrabAndGo.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GrabAndGo.Services.Implementations
+﻿namespace GrabAndGo.Services.Implementations
 {
     public class WalletService : IWalletService
     {
@@ -25,7 +16,7 @@ namespace GrabAndGo.Services.Implementations
         {
             var balance = await _walletRepository.GetBalanceAsync(userId);
 
-            // Optional: If the user doesn't have a wallet yet, you could throw an exception 
+            // Optional: If the user doesn't have a wallet yet, you could throw an exception
             // or return a default DTO with 0 balance.
             if (balance == null)
             {
@@ -33,6 +24,17 @@ namespace GrabAndGo.Services.Implementations
             }
 
             return balance;
+        }
+
+        public async Task<List<WalletLedgerEntryDto>> GetUserWalletLedgerAsync(int userId, int pageNumber, int pageSize)
+        {
+            // Clamp pagination to safe bounds before hitting the SP
+            if (pageNumber < 1) pageNumber = 1;
+            if (pageSize < 1) pageSize = 20;
+            if (pageSize > 100) pageSize = 100;
+
+            var result = await _walletRepository.GetUserWalletLedgerAsync(userId, pageNumber, pageSize);
+            return result ?? new List<WalletLedgerEntryDto>();
         }
     }
 }

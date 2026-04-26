@@ -1,8 +1,4 @@
-﻿using GrabAndGo.Models.Requests.Users;
-using GrabAndGo.Models.Responses.Users;
-using System.Threading.Tasks;
-
-namespace GrabAndGo.Services.Interfaces
+﻿namespace GrabAndGo.Services.Interfaces
 {
     public interface IUserService
     {

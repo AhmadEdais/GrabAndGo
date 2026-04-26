@@ -1,15 +1,4 @@
-﻿using GrabAndGo.DataAccess.Interfaces;
-using GrabAndGo.Models.Requests.Users;
-using GrabAndGo.Models.Responses.Users;
-using GrabAndGo.Services.Interfaces;
-using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GrabAndGo.Services.Implementations
+﻿namespace GrabAndGo.Services.Implementations
 {
     public class UserService : IUserService
     {

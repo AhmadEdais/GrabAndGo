@@ -1,18 +1,14 @@
-﻿using GrabAndGo.Application.DTOs.Vision;
-using GrabAndGo.Application.Interfaces;
-using GrabAndGo.Services.Interfaces;
-
-namespace GrabAndGo.Services.Implementations
+﻿namespace GrabAndGo.Services.Implementations
 {
     public class CartService : ICartService
     {
         private readonly ICartRepository _cartRepository;
-        private readonly ICartNotificationService _notificationService; // NEW
+        private readonly ICartNotificationService _cartNotificationService; 
 
         public CartService(ICartRepository cartRepository, ICartNotificationService notificationService)
         {
             _cartRepository = cartRepository;
-            _notificationService = notificationService;
+            _cartNotificationService = notificationService;
         }
 
         public async Task<CartSignalRDto> ProcessVisionEventAsync(VisionEventRequestDto visionEvent)
@@ -22,7 +18,7 @@ namespace GrabAndGo.Services.Implementations
             if (cartDto != null)
             {
                 // The service simply announces the update. It doesn't care HOW it gets delivered.
-                await _notificationService.BroadcastCartUpdateAsync(cartDto);
+                await _cartNotificationService.BroadcastCartUpdateAsync(cartDto);
             }
 
             return cartDto;
