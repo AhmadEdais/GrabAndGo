@@ -68,7 +68,8 @@
         "dependencies": {
           "Microsoft.AspNetCore.Connections.Abstractions": "2.3.0",
           "Microsoft.Extensions.Options": "8.0.2",
-          "Newtonsoft.Json": "11.0.2"
+          "Newtonsoft.Json": "11.0.2",
+          "System.Buffers": "4.6.0"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Common.dll": {
@@ -84,7 +85,9 @@
           "Microsoft.AspNetCore.SignalR.Protocols.Json": "1.2.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
           "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
-          "System.IO.Pipelines": "8.0.0"
+          "System.IO.Pipelines": "8.0.0",
+          "System.Reflection.Emit": "4.7.0",
+          "System.Threading.Channels": "8.0.0"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Core.dll": {
@@ -494,6 +497,7 @@
           }
         }
       },
+      "System.Buffers/4.6.0": {},
       "System.Configuration.ConfigurationManager/8.0.1": {
         "dependencies": {
           "System.Diagnostics.EventLog": "8.0.1",
@@ -548,6 +552,7 @@
           }
         }
       },
+      "System.Reflection.Emit/4.7.0": {},
       "System.Security.Cryptography.Pkcs/8.0.1": {
         "runtime": {
           "lib/net8.0/System.Security.Cryptography.Pkcs.dll": {
@@ -572,6 +577,7 @@
           }
         }
       },
+      "System.Threading.Channels/8.0.0": {},
       "GrabAndGo.DataAccess/1.0.0": {
         "dependencies": {
           "GrabAndGo.Models": "1.0.0",
@@ -796,6 +802,13 @@
       "path": "questpdf/2024.12.3",
       "hashPath": "questpdf.2024.12.3.nupkg.sha512"
     },
+    "System.Buffers/4.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lN6tZi7Q46zFzAbRYXTIvfXcyvQQgxnY7Xm6C6xQ9784dEL1amjM6S6Iw4ZpsvesAKnRVsM4scrDQaDqSClkjA==",
+      "path": "system.buffers/4.6.0",
+      "hashPath": "system.buffers.4.6.0.nupkg.sha512"
+    },
     "System.Configuration.ConfigurationManager/8.0.1": {
       "type": "package",
       "serviceable": true,
@@ -824,6 +837,13 @@
       "path": "system.io.pipelines/8.0.0",
       "hashPath": "system.io.pipelines.8.0.0.nupkg.sha512"
     },
+    "System.Reflection.Emit/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VR4kk8XLKebQ4MZuKuIni/7oh+QGFmZW3qORd1GvBq/8026OpW501SzT/oypwiQl4TvT8ErnReh/NzY9u+C6wQ==",
+      "path": "system.reflection.emit/4.7.0",
+      "hashPath": "system.reflection.emit.4.7.0.nupkg.sha512"
+    },
     "System.Security.Cryptography.Pkcs/8.0.1": {
       "type": "package",
       "serviceable": true,
@@ -837,6 +857,13 @@
       "sha512": "sha512-+TUFINV2q2ifyXauQXRwy4CiBhqvDEDZeVJU7qfxya4aRYOKzVBpN+4acx25VcPB9ywUN6C0n8drWl110PhZEg==",
       "path": "system.security.cryptography.protecteddata/8.0.0",
       "hashPath": "system.security.cryptography.protecteddata.8.0.0.nupkg.sha512"
+    },
+    "System.Threading.Channels/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CMaFr7v+57RW7uZfZkPExsPB6ljwzhjACWW1gfU35Y56rk72B/Wu+sTqxVmGSk4SFUlPc3cjeKND0zktziyjBA==",
+      "path": "system.threading.channels/8.0.0",
+      "hashPath": "system.threading.channels.8.0.0.nupkg.sha512"
     },
     "GrabAndGo.DataAccess/1.0.0": {
       "type": "project",

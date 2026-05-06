@@ -25,8 +25,6 @@ namespace GrabAndGo.Api.Controllers
         /// <response code="200">Returns array of invoice summaries (possibly empty).</response>
         /// <response code="401">JWT missing or invalid.</response>
         [HttpGet]
-        [EndpointDescription]
-        [EndpointSummary]
         [ProducesResponseType(typeof(List<InvoiceListItemDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<IActionResult> GetMyInvoices([FromQuery] int page = 1, [FromQuery] int pageSize = 20)

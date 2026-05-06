@@ -1145,3 +1145,20 @@ GO
       FOR JSON PATH, INCLUDE_NULL_VALUES;
   END
   GO
+  USE [GrabAndGoDB];
+  GO
+
+  CREATE OR ALTER PROCEDURE dbo.SP_DoesUserOwnActiveSession
+      @UserId    INT,
+      @SessionId INT
+  AS
+  BEGIN
+      SET NOCOUNT ON;
+
+      SELECT TOP 1 1
+      FROM dbo.Sessions
+      WHERE SessionId = @SessionId
+        AND UserId    = @UserId
+        AND EndedAt   IS NULL;
+  END
+  GO
