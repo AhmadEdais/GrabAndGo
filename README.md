@@ -331,7 +331,7 @@ Decouples PDF generation from the checkout flow. The checkout endpoint creates a
 
 ```bash
 # 1. Clone and restore
-git clone https://github.com/your-username/GrabAndGo.git
+git clone https://github.com/AhmadEdais/GrabAndGo.git
 cd GrabAndGo
 
 # 2. Set the connection string in GrabAndGo/appsettings.json
