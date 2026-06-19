@@ -387,14 +387,14 @@ Use `GrabAndGo/GrabAndGo.http` for manual endpoint testing in Visual Studio or V
 - Move API keys and secrets from appsettings.json to a secrets manager (Azure Key Vault, AWS Secrets Manager, etc.) in production
 
 ---
-<<<<<<< HEAD
-> **Ahmad Edais**
-> *Software Developer | Amman, Jordan*
->
-> [LinkedIn](https://linkedin.com/in/ahmad-edais) • [Email](mailto:ahmad.edais.jo@gmail.com)
-=======
 
 ## License
 
 MIT
->>>>>>> 0754fef (Organizing Repo)
+
+---
+
+> **Ahmad Edais**
+> *Software Developer | Amman, Jordan*
+>
+> [LinkedIn](https://linkedin.com/in/ahmad-edais) • [Email](mailto:ahmad.edais.jo@gmail.com)
