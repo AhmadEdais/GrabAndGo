@@ -16,5 +16,12 @@
                 requestDto
             );
         }
+        public async Task<CartSignalRDto?> GetActiveCartByUserIdAsync(int userId)
+        {
+            return await _sqlExecutor.ExecuteReaderAsync<CartSignalRDto?>(
+                "SP_GetActiveCart",
+                new { UserId = userId }
+            );
+        }
     }
 }

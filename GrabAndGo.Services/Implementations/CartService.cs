@@ -23,5 +23,9 @@
 
             return cartDto;
         }
+        public async Task<CartSignalRDto?> GetActiveCartByUserIdAsync(int userId)
+        {
+            return await _cartRepository.GetActiveCartByUserIdAsync(userId);
+        }
     }
 }

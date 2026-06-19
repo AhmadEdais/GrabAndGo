@@ -1,4 +1,4 @@
-USE [GrabAndGoDB]
+﻿USE [GrabAndGoDB]
 GO
 
 CREATE OR ALTER PROCEDURE [dbo].[SP_InsertUser]
@@ -1162,3 +1162,88 @@ GO
         AND EndedAt   IS NULL;
   END
   GO
+  --------------------------------------------------------------------------------
+    CREATE OR ALTER PROCEDURE SP_GetActiveCart
+        @UserId INT
+    AS
+    BEGIN
+        SET NOCOUNT ON;
+
+        DECLARE @SessionId INT;
+        SELECT @SessionId = s.SessionId
+        FROM Sessions s
+        Where s.UserId = @UserId
+         AND s.SessionStatusId = 1;
+        -- ── Look up CartId ────────────────────────────────────────
+        DECLARE @CartId INT;
+
+        SELECT @CartId = c.CartId
+        FROM Carts c
+        INNER JOIN Sessions s ON c.SessionId = s.SessionId
+        WHERE s.SessionId    = @SessionId
+          AND s.SessionStatusId = 1;        -- active sessions only
+
+        IF @CartId IS NULL
+        BEGIN
+           SELECT '{}' AS [JSON];
+            RETURN;
+        END
+
+        -- ── Compute totals ────────────────────────────────────────
+        DECLARE @CurrentCartTotal DECIMAL(18, 2) = 0.00;
+
+        SELECT @CurrentCartTotal = ISNULL(
+            SUM(ci.Quantity * (p.PriceGross + p.PriceGross * p.VAT_Rate)),
+            0.00
+        )
+        FROM CartItems ci
+        INNER JOIN Products p ON ci.ProductId = p.ProductId
+        WHERE ci.CartId = @CartId;
+
+        DECLARE @CurrentBalance DECIMAL(18, 2) = 0.00;
+
+
+        SELECT @CurrentBalance = w.CurrentBalance
+        FROM Wallets w
+        WHERE w.UserId = @UserId;
+        -- ── Shortfall ─────────────────────────────────────────────
+        DECLARE @IsShortfall BIT =
+            CASE WHEN @CurrentCartTotal > @CurrentBalance THEN 1 ELSE 0 END;
+
+        DECLARE @ShortfallAmount DECIMAL(18, 2) =
+            CASE WHEN @IsShortfall = 1
+                 THEN @CurrentCartTotal - @CurrentBalance
+                 ELSE 0.00
+            END;
+
+   
+            SELECT
+                c.CartId,
+                c.SessionId,
+                c.CartVersion,
+                c.LastUpdatedAt,
+                @CurrentBalance   AS WalletBalance,
+                @CurrentCartTotal AS CartTotal,
+                @IsShortfall      AS IsShortfall,
+                @ShortfallAmount  AS ShortfallAmount,
+                ISNULL((
+                    SELECT
+                        ci.ProductId,
+                        p.Name AS ProductName,
+                        pi.AiLabel,
+                        ci.Quantity,
+                        (p.PriceGross + p.PriceGross * p.VAT_Rate)                 AS UnitPrice,
+                        (ci.Quantity * (p.PriceGross + p.PriceGross * p.VAT_Rate)) AS LineTotal
+                    FROM CartItems ci
+                    INNER JOIN Products p  ON ci.ProductId  = p.ProductId
+                    INNER JOIN ProductAiLabels pi ON p.ProductId = pi.ProductId
+                        AND pi.IsPrimary = 1
+                    WHERE ci.CartId = c.CartId
+                    FOR JSON PATH
+                ), JSON_QUERY('[]')) AS CartItems
+            FROM Carts c
+            WHERE c.CartId = @CartId
+            FOR JSON PATH, WITHOUT_ARRAY_WRAPPER, INCLUDE_NULL_VALUES
+   
+    END
+    GO

@@ -126,4 +126,4 @@ C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo\bin\Debug\net8.0\runtimes\win-x86\native\lib
 C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo\bin\Debug\net8.0\runtimes\win-x86\native\libstdc++-6.dll
 C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo\bin\Debug\net8.0\runtimes\win-x86\native\libwinpthread-1.dll
 C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo\bin\Debug\net8.0\runtimes\win-x86\native\qpdf.dll
-C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo\obj\Debug\net8.0\swae.build.ex.cache
+C:\Vs\GrabAndGo\GrabAndGo\GrabAndGo\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
