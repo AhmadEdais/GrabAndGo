@@ -16,5 +16,13 @@ namespace GrabAndGo.DataAccess.Repositories
                 new { UserId = userId, PageNumber = pageNumber, PageSize = pageSize }
             );
         }
+        public async Task<bool> DoesUserOwnTransactionAsync(int transactionId, int userId)
+        {
+            var result = await _executor.ExecuteReaderAsync<bool>(
+                "SP_DoesUserOwnTransaction",
+                new { TransactionId = transactionId, UserId = userId }
+            );
+            return result;
+        }
     }
 }

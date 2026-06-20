@@ -71,7 +71,7 @@ namespace GrabAndGo.Api.BackgroundServices
                             item.TransactionId, result.PdfUrlOrPath);
                     }
                     else
-                    {
+                    {   
                         _logger.LogWarning(
                             "Invoice generation unsuccessful for TransactionId={TransactionId}: {Message}",
                             item.TransactionId, result.Message);

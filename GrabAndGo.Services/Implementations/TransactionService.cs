@@ -18,5 +18,9 @@ namespace GrabAndGo.Services.Implementations
             var result = await _transactionRepository.GetUserTransactionsAsync(userId, pageNumber, pageSize);
             return result ?? new List<TransactionListItemDto>();
         }
+        public async Task<bool> DoesUserOwnTransactionAsync(int userId, int transactionId)
+        {
+            return await _transactionRepository.DoesUserOwnTransactionAsync(transactionId, userId);
+        }
     }
 }

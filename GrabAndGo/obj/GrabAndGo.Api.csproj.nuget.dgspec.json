@@ -209,6 +209,10 @@
               "target": "Package",
               "version": "[10.0.5, )"
             },
+            "Microsoft.Extensions.Http": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.IdentityModel.Tokens": {
               "target": "Package",
               "version": "[8.17.0, )"

@@ -10,10 +10,11 @@ namespace GrabAndGo.Api.Controllers
     public class InvoicesController : ControllerBase
     {
         private readonly IInvoiceService _invoiceService;
-
-        public InvoicesController(IInvoiceService invoiceService)
+        private readonly ITransactionService _transactionService;
+        public InvoicesController(IInvoiceService invoiceService,ITransactionService transactionService)
         {
             _invoiceService = invoiceService;
+            _transactionService = transactionService;
         }
 
         /// <summary>
@@ -142,6 +143,26 @@ namespace GrabAndGo.Api.Controllers
 
             var fileBytes = await System.IO.File.ReadAllBytesAsync(data.PdfUrlOrPath);
             return File(fileBytes, "application/pdf", $"invoice-{transactionId}.pdf");
+        }
+        [HttpGet("GetInvoiceData/{transactionId:int}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> GetInvoiceData(int transactionId)
+        {
+            if (!TryGetUserId(out int userId))
+                return Unauthorized(new { message = "Invalid token identity." });
+
+            var owns = await _transactionService.DoesUserOwnTransactionAsync(userId, transactionId);
+            if (!owns) return Forbid();
+
+            var data = await _invoiceService.GetInvoiceDataAsync(transactionId);
+            if (data == null) return NotFound(new { message = "Invoice not found." });
+            if (data.CustomerUserId != userId) return Forbid();
+
+            return Ok(data);
         }
 
         private bool TryGetUserId(out int userId)

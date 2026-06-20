@@ -1247,3 +1247,64 @@ GO
    
     END
     GO
+    ----------------------------------------------------------------------
+    CREATE OR ALTER PROCEDURE SP_DoesUserOwnTransaction
+    @TransactionId INT,
+    @UserId INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT CASE WHEN EXISTS (
+        SELECT 1 FROM Transactions
+        WHERE TransactionId = @TransactionId AND UserId = @UserId
+    )
+    THEN CAST('true' AS NVARCHAR(5))
+    ELSE CAST('false' AS NVARCHAR(5))
+    END;
+END
+GO
+--------------------------------------------------------------------------------
+CREATE OR ALTER PROCEDURE SP_GetInvoiceData
+    @TransactionId INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT
+        t.TransactionId,
+        t.CreatedAt,
+        CASE t.PaymentStatusId
+            WHEN 2 THEN 'Completed'
+            ELSE 'Unknown'
+        END                          AS PaymentStatus,
+        st.StoreCode,
+        st.Name                      AS StoreName,
+        u.FirstName                  AS CustomerFirstName,
+        u.LastName                   AS CustomerLastName,
+        u.Email                      AS CustomerEmail,
+        t.Subtotal,
+        t.Tax,
+        t.Total,
+        i.PdfUrlOrPath,
+        ISNULL((
+            SELECT
+                p.Name                AS ProductName,
+                p.SKU                 AS SKU,
+                ti.Quantity,
+                ti.UnitPrice,
+                ti.LineTotal
+            FROM TransactionItems ti
+            INNER JOIN Products p ON ti.ProductId = p.ProductId
+            WHERE ti.TransactionId = t.TransactionId
+            FOR JSON PATH
+        ), JSON_QUERY('[]')) AS Items
+    FROM Transactions t
+    INNER JOIN Sessions s ON t.SessionId = s.SessionId
+    INNER JOIN Stores st  ON s.StoreId   = st.StoreId
+    INNER JOIN Users u    ON t.UserId    = u.UserId
+    LEFT JOIN Invoices i  ON i.TransactionId = t.TransactionId
+    WHERE t.TransactionId = @TransactionId
+    FOR JSON PATH, WITHOUT_ARRAY_WRAPPER, INCLUDE_NULL_VALUES;
+END
+GO

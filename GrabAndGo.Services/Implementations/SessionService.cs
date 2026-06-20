@@ -1,14 +1,23 @@
-﻿namespace GrabAndGo.Services.Implementations
+﻿using Microsoft.Extensions.Logging;
+using System.Net.Http.Json;
+
+namespace GrabAndGo.Services.Implementations
 {
     public class SessionService : ISessionService
     {
         private readonly ISessionRepository _sessionRepository;
         private readonly IConfiguration _config;
+        private readonly ILogger _logger;
+        private readonly IHttpClientFactory _httpClientFactory;
 
-        public SessionService(ISessionRepository sessionRepository, IConfiguration config)
+        public SessionService(ISessionRepository sessionRepository, IConfiguration config
+            , IHttpClientFactory httpClientFactory, ILogger<SessionService> logger)
         {
             _sessionRepository = sessionRepository;
             _config = config;
+            _httpClientFactory = httpClientFactory;
+            _logger = logger;
+
         }
 
         public async Task<QrTokenResponseDto?> GenerateSecureTokenAsync(int userId, int storeId)
@@ -89,9 +98,30 @@
             var entryResult = await _sessionRepository.ProcessEntryAsync(
                 validToken.TokenId,
                 validToken.UserId,
-                validToken.StoreId
+                validToken.StoreId 
             );
+            try
+            {
+                var client = _httpClientFactory.CreateClient("VisionSystem");
+                var response = await client.PostAsJsonAsync("vision/session/assign", new
+                {
+                    sessionId = entryResult.SessionId.ToString(),   
+                    source = "Camera_01"
+                });
 
+                if (!response.IsSuccessStatusCode)
+                {
+                    var body = await response.Content.ReadAsStringAsync();
+                    _logger.LogWarning(
+                        "Vision system rejected session assignment for {SessionId}: {Status} — {Body}",
+                        entryResult.SessionId, response.StatusCode, body);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogWarning(ex, "Failed to notify vision system of new session {SessionId}", entryResult.SessionId);
+            }
             return entryResult;
         }
 

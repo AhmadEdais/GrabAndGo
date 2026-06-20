@@ -19,8 +19,8 @@
                 TransactionId = result.TransactionId
             };
 
-            await _hubContext.Clients.Group(result.SessionId?.ToString())
-                             .SendAsync("GateStatusUpdate", notification);
+            await _hubContext.Clients.Group($"Session_{result.SessionId}")
+                 .SendAsync("GateStatusUpdate", notification);
         }
     }
 }

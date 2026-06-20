@@ -1,16 +1,20 @@
+using GrabAndGo.Services.Interfaces;
+
 namespace GrabAndGo.Services.Implementations
 {
     public class InvoiceService : IInvoiceService
     {
         private readonly IInvoiceRepository _invoiceRepository;
         private readonly IConfiguration _config;
+        private readonly IInvoiceNotificationService _invoiceNotificationService;
 
         private const string DefaultStorageFolder = "invoices";
 
-        public InvoiceService(IInvoiceRepository invoiceRepository, IConfiguration config)
+        public InvoiceService(IInvoiceRepository invoiceRepository, IConfiguration config, IInvoiceNotificationService invoiceNotificationService)
         {
             _invoiceRepository = invoiceRepository;
             _config = config;
+            _invoiceNotificationService = invoiceNotificationService;
         }
 
         public async Task<UpdateInvoicePathResponseDto> GenerateInvoiceAsync(int transactionId)
@@ -53,6 +57,10 @@ namespace GrabAndGo.Services.Implementations
                 PdfUrlOrPath = fullPath
             });
 
+            if(updateResult != null && updateResult.IsSuccess)
+            {
+                await _invoiceNotificationService.SendInvoiceNotification(transactionId);
+            }
             return updateResult ?? new UpdateInvoicePathResponseDto
             {
                 IsSuccess = false,
@@ -83,8 +91,6 @@ namespace GrabAndGo.Services.Implementations
             return result ?? new List<InvoiceListItemDto>();
         }
 
-        // PDF rendering — QuestPDF fluent API. Kept private because it's a pure transform
-        // from DTO → bytes with no external dependencies.
         private static byte[] RenderPdf(InvoiceDataDto data)
         {
             var document = Document.Create(container =>
@@ -124,36 +130,44 @@ namespace GrabAndGo.Services.Implementations
 
                         column.Item().PaddingVertical(15).LineHorizontal(1);
 
-                        // Line items table
-                        column.Item().Table(table =>
+                        // Line items — table only when there's something to show
+                        if (data.Items == null || data.Items.Count == 0)
                         {
-                            table.ColumnsDefinition(columns =>
+                            column.Item().PaddingVertical(15).AlignCenter()
+                                .Text("No items purchased.").Italic();
+                        }
+                        else
+                        {
+                            column.Item().Table(table =>
                             {
-                                columns.RelativeColumn(3);    // Product name
-                                columns.RelativeColumn(2);    // SKU
-                                columns.RelativeColumn(1);    // Qty
-                                columns.RelativeColumn(1.5f); // Unit price
-                                columns.RelativeColumn(1.5f); // Line total
-                            });
+                                table.ColumnsDefinition(columns =>
+                                {
+                                    columns.RelativeColumn(3);    // Product name
+                                    columns.RelativeColumn(2);    // SKU
+                                    columns.RelativeColumn(1);    // Qty
+                                    columns.RelativeColumn(1.5f); // Unit price
+                                    columns.RelativeColumn(1.5f); // Line total
+                                });
 
-                            table.Header(header =>
-                            {
-                                header.Cell().BorderBottom(1).PaddingBottom(5).Text("Product").Bold();
-                                header.Cell().BorderBottom(1).PaddingBottom(5).Text("SKU").Bold();
-                                header.Cell().BorderBottom(1).PaddingBottom(5).AlignRight().Text("Qty").Bold();
-                                header.Cell().BorderBottom(1).PaddingBottom(5).AlignRight().Text("Unit Price").Bold();
-                                header.Cell().BorderBottom(1).PaddingBottom(5).AlignRight().Text("Line Total").Bold();
-                            });
+                                table.Header(header =>
+                                {
+                                    header.Cell().BorderBottom(1).PaddingBottom(5).Text("Product").Bold();
+                                    header.Cell().BorderBottom(1).PaddingBottom(5).Text("SKU").Bold();
+                                    header.Cell().BorderBottom(1).PaddingBottom(5).AlignRight().Text("Qty").Bold();
+                                    header.Cell().BorderBottom(1).PaddingBottom(5).AlignRight().Text("Unit Price").Bold();
+                                    header.Cell().BorderBottom(1).PaddingBottom(5).AlignRight().Text("Line Total").Bold();
+                                });
 
-                            foreach (var item in data.Items)
-                            {
-                                table.Cell().PaddingVertical(3).Text(item.ProductName);
-                                table.Cell().PaddingVertical(3).Text(item.SKU);
-                                table.Cell().PaddingVertical(3).AlignRight().Text(item.Quantity.ToString());
-                                table.Cell().PaddingVertical(3).AlignRight().Text($"{item.UnitPrice:F2}");
-                                table.Cell().PaddingVertical(3).AlignRight().Text($"{item.LineTotal:F2}");
-                            }
-                        });
+                                foreach (var item in data.Items)
+                                {
+                                    table.Cell().PaddingVertical(3).Text(item.ProductName);
+                                    table.Cell().PaddingVertical(3).Text(item.SKU);
+                                    table.Cell().PaddingVertical(3).AlignRight().Text(item.Quantity.ToString());
+                                    table.Cell().PaddingVertical(3).AlignRight().Text($"{item.UnitPrice:F2}");
+                                    table.Cell().PaddingVertical(3).AlignRight().Text($"{item.LineTotal:F2}");
+                                }
+                            });
+                        }
 
                         // Totals block (right-aligned)
                         column.Item().PaddingTop(20).AlignRight().Column(totals =>
@@ -174,5 +188,6 @@ namespace GrabAndGo.Services.Implementations
 
             return document.GeneratePdf();
         }
+
     }
 }

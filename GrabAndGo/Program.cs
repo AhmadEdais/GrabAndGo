@@ -1,4 +1,6 @@
 // QuestPDF Community License — must be acknowledged once at startup before any PDF is rendered.
+using GrabAndGo.Api.Hubs.Implementations;
+
 QuestPDF.Settings.License = QuestPDF.Infrastructure.LicenseType.Community;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -37,9 +39,14 @@ builder.Services.AddScoped<IProductService, ProductService>();
 
 builder.Services.AddScoped<ICartNotificationService, SignalRCartNotificationService>();
 builder.Services.AddScoped<IGateNotificationService, GateNotificationService>();
+builder.Services.AddScoped<IInvoiceNotificationService, InvoiceNotificationService>();
 builder.Services.AddSignalR(options =>
 {
     options.MaximumReceiveMessageSize = 1048576; // 1 Megabytes, 6,990 distinct, unique items
+});
+builder.Services.AddHttpClient("VisionSystem", client =>
+{
+    client.BaseAddress = new Uri(builder.Configuration["VisionSystem:BaseUrl"]!);
 });
 // Standard Boilerplate
 builder.Services.AddControllers();
@@ -91,13 +98,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidAudience = jwtAudience,
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey)),
 
-            // Optional: Removes the default 5-minute clock skew so tokens expire at the exact second
             ClockSkew = TimeSpan.Zero
         };
 
-        // SignalR can't send custom headers during the WebSocket handshake (browser limitation),
-        // so the Flutter app passes the JWT as ?access_token=... on the /hubs/* connection URL.
-        // We forward that query token into the bearer pipeline only for hub paths.
+
         options.Events = new JwtBearerEvents
         {
             OnMessageReceived = context =>
@@ -143,4 +147,5 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 app.MapHub<CartHub>("/hubs/cart");
+app.MapHub<InvoiceHub>("/hubs/invoice");
 app.Run();
