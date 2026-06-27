@@ -1265,46 +1265,77 @@ BEGIN
 END
 GO
 --------------------------------------------------------------------------------
-CREATE OR ALTER PROCEDURE SP_GetInvoiceData
-    @TransactionId INT
+ USE [GrabAndGoDB];
+  GO
+CREATE OR ALTER PROCEDURE [dbo].[SP_GenerateGateToken]
+    @P_JSON_REQUEST  NVARCHAR(MAX),
+    @P_JSON_RESPONSE NVARCHAR(MAX) OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- 1. Declare variables
+    DECLARE @StoreId         INT;
+    DECLARE @TokenHashString VARCHAR(64);
+
+    -- 2. Extract from JSON
+    SELECT
+        @StoreId         = StoreId,
+        @TokenHashString = TokenHash
+    FROM OPENJSON(@P_JSON_REQUEST)
+    WITH (
+        StoreId   INT         '$.StoreId',
+        TokenHash VARCHAR(64) '$.TokenHash'
+    );
+
+    -- 3. Validate store exists
+    IF NOT EXISTS (SELECT 1 FROM Stores WHERE StoreId = @StoreId)
+        THROW 50003, 'Store not found.', 1;
+
+    -- 4. Convert hex string → VARBINARY(32)
+    DECLARE @TokenHash VARBINARY(32) = CONVERT(VARBINARY(32), @TokenHashString, 2);
+
+    -- 5. Calculate timestamps — 30 SECONDS not minutes, this is a gate token
+    DECLARE @IssuedAt  DATETIME = GETDATE();
+    DECLARE @ExpiresAt DATETIME = DATEADD(SECOND, 30, @IssuedAt);
+
+    BEGIN TRY
+        -- 6. Insert — ConsumedAt omitted, lands as NULL
+        INSERT INTO GateQrTokens (StoreId, TokenHash, IssuedAt, ExpiresAt)
+        VALUES (@StoreId, @TokenHash, @IssuedAt, @ExpiresAt);
+
+        -- 7. Return
+        SET @P_JSON_RESPONSE = (
+            SELECT
+                SCOPE_IDENTITY() AS GateQrTokenId,
+                @ExpiresAt       AS ExpiresAt
+            FOR JSON PATH, WITHOUT_ARRAY_WRAPPER
+        );
+    END TRY
+    BEGIN CATCH
+        ;THROW;
+    END CATCH
+END
+GO
+--------------------------------------------------------------------------------
+ USE [GrabAndGoDB];
+GO
+CREATE OR ALTER PROCEDURE [dbo].[SP_GetGateTokenForVerification]
+    @GateQrTokenId INT
 AS
 BEGIN
     SET NOCOUNT ON;
 
     SELECT
-        t.TransactionId,
-        t.CreatedAt,
-        CASE t.PaymentStatusId
-            WHEN 2 THEN 'Completed'
-            ELSE 'Unknown'
-        END                          AS PaymentStatus,
-        st.StoreCode,
-        st.Name                      AS StoreName,
-        u.FirstName                  AS CustomerFirstName,
-        u.LastName                   AS CustomerLastName,
-        u.Email                      AS CustomerEmail,
-        t.Subtotal,
-        t.Tax,
-        t.Total,
-        i.PdfUrlOrPath,
-        ISNULL((
-            SELECT
-                p.Name                AS ProductName,
-                p.SKU                 AS SKU,
-                ti.Quantity,
-                ti.UnitPrice,
-                ti.LineTotal
-            FROM TransactionItems ti
-            INNER JOIN Products p ON ti.ProductId = p.ProductId
-            WHERE ti.TransactionId = t.TransactionId
-            FOR JSON PATH
-        ), JSON_QUERY('[]')) AS Items
-    FROM Transactions t
-    INNER JOIN Sessions s ON t.SessionId = s.SessionId
-    INNER JOIN Stores st  ON s.StoreId   = st.StoreId
-    INNER JOIN Users u    ON t.UserId    = u.UserId
-    LEFT JOIN Invoices i  ON i.TransactionId = t.TransactionId
-    WHERE t.TransactionId = @TransactionId
+        GateQrTokenId,
+        StoreId,
+        CONVERT(VARCHAR(64), TokenHash, 2) AS TokenHash,
+        IssuedAt,
+        ExpiresAt,
+        ConsumedAt
+    FROM GateQrTokens
+    WHERE GateQrTokenId = @GateQrTokenId
     FOR JSON PATH, WITHOUT_ARRAY_WRAPPER, INCLUDE_NULL_VALUES;
 END
 GO
+--------------------------------------------------------------------------------

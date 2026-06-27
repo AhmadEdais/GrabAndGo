@@ -4,6 +4,6 @@
     {
         public int TokenId { get; set; }
         public DateTime ExpiresAt { get; set; }
-        public string QrCodeData { get; set; } = string.Empty; // The string Flutter turns into an image
+        public string QrCodeData { get; set; } = string.Empty;
     }
 }
