@@ -44,3 +44,5 @@ global using System.Security.Claims;
 global using System.Security.Cryptography;
 global using System.Text;
 global using System.Text.Json;
+global using GrabAndGo.Models.Requests.QrToken;
+global using GrabAndGo.Models.Responses.Gate;

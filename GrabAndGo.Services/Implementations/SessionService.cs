@@ -1,138 +1,124 @@
-﻿using Microsoft.Extensions.Logging;
-using System.Net.Http.Json;
+﻿namespace GrabAndGo.Services.Implementations;
 
-namespace GrabAndGo.Services.Implementations
+public class SessionService : ISessionService
 {
-    public class SessionService : ISessionService
+    private readonly ISessionRepository _sessionRepository;
+    private readonly IGateRepository _gateRepository;
+    private readonly IConfiguration _config;
+
+    private readonly HelperMethods _helperMethods;
+
+    public SessionService(ISessionRepository sessionRepository, IGateRepository gateRepository, IConfiguration config
+        ,HelperMethods helperMethods)
     {
-        private readonly ISessionRepository _sessionRepository;
-        private readonly IConfiguration _config;
-        private readonly ILogger _logger;
-        private readonly IHttpClientFactory _httpClientFactory;
+        _sessionRepository = sessionRepository;
+        _gateRepository = gateRepository;
+        _config = config;
+        _helperMethods = helperMethods;
+    }
 
-        public SessionService(ISessionRepository sessionRepository, IConfiguration config
-            , IHttpClientFactory httpClientFactory, ILogger<SessionService> logger)
+    public async Task<QrTokenResponseDto?> GenerateSecureTokenAsync(int userId, int storeId)
+    {
+        string nonce = Guid.NewGuid().ToString("N");
+
+        
+        string rawPayload = $"{userId}:{storeId}:{nonce}";
+
+        
+        string tokenHash = _helperMethods.ComputeHmac(rawPayload);
+
+        QrTokenResponseDto? dbResponse = await _sessionRepository.GenerateSecureTokenAsync(userId, storeId, tokenHash);
+
+        if (dbResponse is null)
+            return null;
+        
+        dbResponse.QrCodeData = $"{dbResponse.TokenId}|{rawPayload}";
+
+        return dbResponse;
+    }
+
+    public async Task<TokenVerificationDto?> GetTokenForVerificationAsync(string qrCodeData)
+    {
+        // Split the QR code data into TokenId and the rest of the payload
+        string[] parts = qrCodeData.Split('|');
+        if (parts.Length != 2 || !int.TryParse(parts[0], out int tokenId))
+            return null; // Invalid QR code format
+        TokenVerificationDto? tokenData = await _sessionRepository.GetTokenForVerificationAsync(tokenId);
+        if (tokenData is null) return null;
+
+
+        string rawPayload = parts[1];
+
+        string expectedHash = _helperMethods.ComputeHmac(rawPayload);
+
+        if (!CryptographicOperations.FixedTimeEquals(
+         Encoding.UTF8.GetBytes(expectedHash),
+         Encoding.UTF8.GetBytes(tokenData.TokenHash)))
+            return null;
+
+        if (tokenData.ConsumedAt != null || tokenData.ExpiresAt < DateTime.UtcNow)
+            return null;
+
+        return tokenData;
+    }
+
+    public async Task<GateEntryResponseDto?> ProcessStoreEntryAsync(string qrCodeData)
+    {
+        // PHASE A: The Security Check
+        // We call the method you wrote earlier to verify the hash, expiration, and reuse.
+        var validToken = await GetTokenForVerificationAsync(qrCodeData);
+
+        if (validToken == null)
         {
-            _sessionRepository = sessionRepository;
-            _config = config;
-            _httpClientFactory = httpClientFactory;
-            _logger = logger;
-
+            // Token is invalid, tampered with, expired, or already used.
+            // The gate stays closed.
+            throw new UnauthorizedAccessException("Invalid, expired, or consumed QR Token.");
         }
 
-        public async Task<QrTokenResponseDto?> GenerateSecureTokenAsync(int userId, int storeId)
-        {
-            // 1. Generate a "Nonce" (a unique, random cryptographic string)
-            string nonce = Guid.NewGuid().ToString("N");
+        // PHASE B: The Database Transaction
+        // If we reach here, the token is 100% authentic and ready to burn.
+        var entryResult = await _sessionRepository.ProcessEntryAsync(
+            validToken.TokenId,
+            validToken.UserId,
+            validToken.StoreId
+        );
+        int sessionId = entryResult.SessionId;
+        await _helperMethods.NotifyVisionSystemAsync(sessionId);
+        return entryResult;
+    }
+    public async Task<GateEntryResponseDto?> EnterStoreAsync(int userId, string gateToken)
+    {
+        var parts = gateToken.Split('|');
+        if (parts.Length != 2 || !int.TryParse(parts[0], out int gateQrTokenId))
+            throw new UnauthorizedAccessException("Malformed gate token.");
 
-            // 2. Create the raw payload string. 
-            // This is the "Secret" that the QR scanner at the gate will read.
-            string rawPayload = $"{userId}:{storeId}:{nonce}";
+        string rawPayload = parts[1];
 
-            // 3. Hash the payload using HMAC-SHA256
-            string secretKey = _config["QrSecurityKey"] ?? "FallbackSuperSecretKeyForDev2026";
-            byte[] keyBytes = Encoding.UTF8.GetBytes(secretKey);
-            string tokenHash;
+        var tokenRecord = await _gateRepository.GetGateTokenForVerificationAsync(gateQrTokenId);
+        if (tokenRecord == null || tokenRecord.ExpiresAt < DateTime.Now || tokenRecord.ConsumedAt != null)
+            throw new UnauthorizedAccessException("Gate token invalid, expired, or already used.");
 
-            using (var hmac = new HMACSHA256(keyBytes))
-            {
-                byte[] payloadBytes = Encoding.UTF8.GetBytes(rawPayload);
-                byte[] hashBytes = hmac.ComputeHash(payloadBytes);
-                tokenHash = Convert.ToHexString(hashBytes); // 64-char Hex string for DB
-            }
+        string recomputedHash = _helperMethods.ComputeHmac(rawPayload);
+        if (!CryptographicOperations.FixedTimeEquals(
+                Encoding.UTF8.GetBytes(recomputedHash),
+                Encoding.UTF8.GetBytes(tokenRecord.TokenHash)))
+            throw new UnauthorizedAccessException("Gate token signature invalid.");
 
-            // 4. Call the DB (SqlExecutor auto-deserializes it now!)
-            QrTokenResponseDto? dbResponse = await _sessionRepository.GenerateSecureTokenAsync(userId, storeId, tokenHash);
+        var result = await _sessionRepository.ProcessGateEntryAsync(
+            gateQrTokenId, userId, tokenRecord.StoreId)
+            ?? throw new UnauthorizedAccessException("Failed to process gate entry.");
 
-            if (dbResponse == null)
-                return null;
+        await _helperMethods.NotifyVisionSystemAsync(result.SessionId);
+        return result;
+    }
 
-            // 5. Construct the final object for Flutter
-            // The physical QR code will hold "TokenId|UserId:StoreId:Nonce"
-            // The gate will read this, separate the TokenId to query the DB, 
-            // and hash the rest to prove it matches!
-            dbResponse.QrCodeData = $"{dbResponse.TokenId}|{rawPayload}";
+    public async Task<ActiveSessionDto?> GetUserActiveSessionAsync(int userId)
+    {
+        return await _sessionRepository.GetUserActiveSessionAsync(userId);
+    }
 
-            return dbResponse;
-        }
-
-        public async Task<TokenVerificationDto?> GetTokenForVerificationAsync(string qrCodeData)
-        {
-            // Split the QR code data into TokenId and the rest of the payload
-            string[] parts = qrCodeData.Split('|');
-            if (parts.Length != 2 || !int.TryParse(parts[0], out int tokenId))
-                return null; // Invalid QR code format
-            TokenVerificationDto? tokenData = await _sessionRepository.GetTokenForVerificationAsync(tokenId);
-            if (tokenData == null) return null;
-            string secretKey = _config["QrSecurityKey"] ?? "FallbackSuperSecretKeyForDev2026";
-            byte[] keyBytes = Encoding.UTF8.GetBytes(secretKey);
-            string rawPayload = parts[1];
-            string expectedHash;
-            using (var hmac = new HMACSHA256(keyBytes))
-            {
-                byte[] payloadBytes = Encoding.UTF8.GetBytes(rawPayload);
-                byte[] hashBytes = hmac.ComputeHash(payloadBytes);
-                expectedHash = Convert.ToHexString(hashBytes);
-            }
-            if (!string.Equals(expectedHash, tokenData.TokenHash, StringComparison.OrdinalIgnoreCase))
-                return null; // Hash mismatch - possible tampering
-            if (tokenData.ConsumedAt != null || tokenData.ExpiresAt < DateTime.UtcNow)
-                return null; // Token already used or expired
-            return tokenData;
-        }
-        public async Task<GateEntryResponseDto?> ProcessStoreEntryAsync(string qrCodeData)
-        {
-            // PHASE A: The Security Check
-            // We call the method you wrote earlier to verify the hash, expiration, and reuse.
-            var validToken = await GetTokenForVerificationAsync(qrCodeData);
-
-            if (validToken == null)
-            {
-                // Token is invalid, tampered with, expired, or already used.
-                // The gate stays closed.
-                throw new UnauthorizedAccessException("Invalid, expired, or consumed QR Token.");
-            }
-
-            // PHASE B: The Database Transaction
-            // If we reach here, the token is 100% authentic and ready to burn.
-            var entryResult = await _sessionRepository.ProcessEntryAsync(
-                validToken.TokenId,
-                validToken.UserId,
-                validToken.StoreId 
-            );
-            try
-            {
-                var client = _httpClientFactory.CreateClient("VisionSystem");
-                var response = await client.PostAsJsonAsync("vision/session/assign", new
-                {
-                    sessionId = entryResult.SessionId.ToString(),   
-                    source = "Camera_01"
-                });
-
-                if (!response.IsSuccessStatusCode)
-                {
-                    var body = await response.Content.ReadAsStringAsync();
-                    _logger.LogWarning(
-                        "Vision system rejected session assignment for {SessionId}: {Status} — {Body}",
-                        entryResult.SessionId, response.StatusCode, body);
-                }
-
-            }
-            catch (Exception ex)
-            {
-                _logger.LogWarning(ex, "Failed to notify vision system of new session {SessionId}", entryResult.SessionId);
-            }
-            return entryResult;
-        }
-
-        public async Task<ActiveSessionDto?> GetUserActiveSessionAsync(int userId)
-        {
-            return await _sessionRepository.GetUserActiveSessionAsync(userId);
-        }
-
-        public async Task<bool> DoesUserOwnActiveSessionAsync(int userId, int sessionId)
-        {
-            return await _sessionRepository.DoesUserOwnActiveSessionAsync(userId, sessionId);
-        }
+    public async Task<bool> DoesUserOwnActiveSessionAsync(int userId, int sessionId)
+    {
+        return await _sessionRepository.DoesUserOwnActiveSessionAsync(userId, sessionId);
     }
 }

@@ -69,5 +69,40 @@ namespace GrabAndGo.Api.Controllers
             }
             return Ok(active);
         }
+        [HttpPost("enter")]
+        [ProducesResponseType(typeof(GateEntryResponseDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> EnterStore([FromBody] EnterStoreRequestDto request)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
+                return Unauthorized(new { message = "User identity could not be verified." });
+
+            try
+            {
+                var response = await _sessionService.EnterStoreAsync(userId, request.GateToken);
+                if (response == null)
+                    return BadRequest(new { message = "Failed to open session." });
+
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Unauthorized(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("active shopping session"))
+                    return Conflict(new { message = ex.Message });
+
+                return StatusCode(500, new { message = "An error occurred while processing entry.", details = ex.Message });
+            }
+        }
     }
 }

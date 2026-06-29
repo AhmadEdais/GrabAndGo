@@ -1,6 +1,4 @@
-﻿using GrabAndGo.Models.Responses.Gate;
-
-namespace GrabAndGo.DataAccess.Repositories;
+﻿namespace GrabAndGo.DataAccess.Repositories;
 
 public class GateRepository : IGateRepository
 {
@@ -15,6 +13,14 @@ public class GateRepository : IGateRepository
         return await _executor.ExecuteNonQueryAsync<GateQrResponseDto>(
             "SP_GenerateGateToken",
             new { StoreId = storeId, TokenHash = tokenHash }
+        );
+    }
+
+    public async Task<GateTokenVerificationDto?> GetGateTokenForVerificationAsync(int gateQrTokenId)
+    {
+        return await _executor.ExecuteReaderAsync<GateTokenVerificationDto>(
+            "SP_GetGateTokenForVerification",
+            new { GateQrTokenId = gateQrTokenId }
         );
     }
 }

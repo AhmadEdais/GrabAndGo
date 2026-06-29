@@ -37,6 +37,9 @@ builder.Services.AddScoped<ITransactionService, TransactionService>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IProductService, ProductService>();
 
+builder.Services.AddScoped<IGateService, GateService>();
+builder.Services.AddScoped<IGateRepository, GateRepository>();
+
 builder.Services.AddScoped<ICartNotificationService, SignalRCartNotificationService>();
 builder.Services.AddScoped<IGateNotificationService, GateNotificationService>();
 builder.Services.AddScoped<IInvoiceNotificationService, InvoiceNotificationService>();
@@ -79,9 +82,31 @@ builder.Services.AddSwaggerGen(options =>
             Array.Empty<string>()
         }
     });
+    options.AddSecurityDefinition("GateApiKey", new OpenApiSecurityScheme
+    {
+        Type = SecuritySchemeType.ApiKey,
+        In = ParameterLocation.Header,
+        Name = "X-Api-Key",
+        Description = "Hardware Gate API Key"
+    });
+
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+             new OpenApiSecurityScheme
+                {
+                    Reference = new OpenApiReference
+                    {
+                        Type = ReferenceType.SecurityScheme,
+                        Id = "GateApiKey"
+                    }
+        },
+        Array.Empty<string>()
+        }
+    });
 });
 // Read JWT settings from appsettings.json or Environment Variables
-var jwtKey = builder.Configuration["GRABANDGO_JWT_KEY"] ?? throw new InvalidOperationException("JWT Key is missing in configuration."); 
+var jwtKey = builder.Configuration["GRABANDGO_JWT_KEY"] ?? throw new InvalidOperationException("JWT Key is missing in configuration.");
 var jwtIssuer = builder.Configuration["Jwt:Issuer"] ?? "GrabAndGoApi";
 var jwtAudience = builder.Configuration["Jwt:Audience"] ?? "GrabAndGoUsers";
 
@@ -116,6 +141,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             }
         };
     });
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("FrontendPolicy", policy =>

@@ -7,5 +7,6 @@
         Task<GateEntryResponseDto?> ProcessEntryAsync(int tokenId, int userId, int storeId);
         Task<ActiveSessionDto?> GetUserActiveSessionAsync(int userId);
         Task<bool> DoesUserOwnActiveSessionAsync(int userId, int sessionId);
+        Task<GateEntryResponseDto?> ProcessGateEntryAsync(int gateQrTokenId, int userId, int storeId);
     }
 }

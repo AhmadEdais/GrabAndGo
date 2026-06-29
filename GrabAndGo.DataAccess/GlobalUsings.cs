@@ -22,4 +22,6 @@ global using System.Data;
 global using System.Text;
 global using System.Text.Json;
 global using GrabAndGo.Models.Responses.Gate;
+global using GrabAndGo.Models.Responses.QrTokens;
+
 

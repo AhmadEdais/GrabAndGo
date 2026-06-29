@@ -53,5 +53,12 @@
             );
             return result == 1;
         }
+        public async Task<GateEntryResponseDto?> ProcessGateEntryAsync(int gateQrTokenId, int userId, int storeId)
+        {
+            return await _executor.ExecuteNonQueryAsync<GateEntryResponseDto>(
+                "SP_EnterStoreViaGate",
+                new { GateQrTokenId = gateQrTokenId, UserId = userId, StoreId = storeId }
+            );
+        }
     }
 }

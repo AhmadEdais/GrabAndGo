@@ -6,16 +6,18 @@ namespace GrabAndGo.Api.Controllers
     /// </summary>
     [ApiController]
     [Route("api/[controller]")]
-    //[RequireApiKey("Gate")]   // Both scan and checkout require the X-Api-Key header for the Gate role.
+    [RequireApiKey("Gate")]  
     public class GateController : ControllerBase
     {
         private readonly ISessionService _sessionService;
         private readonly ICheckoutService _checkoutService;
+        private readonly IGateService _gateService;
 
-        public GateController(ISessionService sessionService, ICheckoutService checkoutService)
+        public GateController(ISessionService sessionService, ICheckoutService checkoutService, IGateService gateService)
         {
             _sessionService = sessionService;
             _checkoutService = checkoutService;
+            _gateService = gateService;
         }
 
         /// <summary>
@@ -99,6 +101,32 @@ namespace GrabAndGo.Api.Controllers
                     IsSuccess = false,
                     ShortfallAmount = 0
                 });
+            }
+        }
+        [HttpPost("generate-qr")]
+        [ProducesResponseType(typeof(GateQrResponseDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> GenerateGateQr([FromBody] GenerateGateQrRequestDto request)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            try
+            {
+                var response = await _gateService.GenerateGateTokenAsync(request.StoreId);
+                if (response == null)
+                    return StatusCode(500, new { message = "Failed to generate gate QR." });
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("Store not found"))
+                    return NotFound(new { message = ex.Message });
+
+                return StatusCode(500, new { message = "An error occurred.", details = ex.Message });
             }
         }
     }

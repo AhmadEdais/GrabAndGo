@@ -245,7 +245,6 @@ BEGIN
         VALUES (@UserId, @StoreId, @TokenId, 1, GETDATE());
         
         SET @NewSessionId = SCOPE_IDENTITY();
-        SELECT * FROM Carts
         -- 6. Create the empty Cart
         DECLARE @NewCartId INT;
         INSERT INTO Carts (SessionId,UserId, CreatedAt, CartVersion)
@@ -1265,7 +1264,7 @@ BEGIN
 END
 GO
 --------------------------------------------------------------------------------
- USE [GrabAndGoDB];
+ USE [GrabAndGoDB]
   GO
 CREATE OR ALTER PROCEDURE [dbo].[SP_GenerateGateToken]
     @P_JSON_REQUEST  NVARCHAR(MAX),
@@ -1338,4 +1337,76 @@ BEGIN
     FOR JSON PATH, WITHOUT_ARRAY_WRAPPER, INCLUDE_NULL_VALUES;
 END
 GO
+--------------------------------------------------------------------------------
+CREATE OR ALTER PROCEDURE [dbo].[SP_EnterStoreViaGate]
+    @P_JSON_REQUEST  NVARCHAR(MAX),
+    @P_JSON_RESPONSE NVARCHAR(MAX) OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- 1. Declare variables
+    DECLARE @GateQrTokenId INT,
+            @UserId        INT,
+            @StoreId       INT;
+
+    -- 2. Extract from JSON
+    SELECT
+        @GateQrTokenId = GateQrTokenId,
+        @UserId        = UserId,
+        @StoreId       = StoreId
+    FROM OPENJSON(@P_JSON_REQUEST)
+    WITH (
+        GateQrTokenId INT '$.GateQrTokenId',
+        UserId        INT '$.UserId',
+        StoreId       INT '$.StoreId'
+    );
+
+    BEGIN TRY
+        BEGIN TRANSACTION;
+
+        -- 3. Double-entry prevention
+        IF EXISTS (SELECT 1 FROM Sessions WHERE UserId = @UserId AND SessionStatusId = 1)
+            THROW 50001, 'User already has an active shopping session.', 1;
+
+        -- 4. Burn the gate token — UPDLOCK prevents two simultaneous scans both succeeding
+        UPDATE GateQrTokens WITH (UPDLOCK)
+        SET ConsumedAt = GETDATE()
+        WHERE GateQrTokenId = @GateQrTokenId
+          AND ConsumedAt IS NULL
+          AND ExpiresAt > GETDATE();
+
+        IF @@ROWCOUNT = 0
+            THROW 50002, 'Gate token already used or expired.', 1;
+
+        -- 5. Create the session
+        DECLARE @NewSessionId INT;
+        INSERT INTO Sessions (UserId, StoreId, GateQrTokenId, EntryQrTokenId, SessionStatusId, StartedAt)
+        VALUES (@UserId, @StoreId, @GateQrTokenId, NULL, 1, GETDATE());
+
+        SET @NewSessionId = SCOPE_IDENTITY();
+
+        -- 6. Create the empty cart
+        DECLARE @NewCartId INT;
+        INSERT INTO Carts (SessionId, UserId, CreatedAt, CartVersion)
+        VALUES (@NewSessionId, @UserId, GETDATE(), 0);
+
+        SET @NewCartId = SCOPE_IDENTITY();
+
+        -- 7. Return
+        SET @P_JSON_RESPONSE = (
+            SELECT
+                @NewSessionId AS SessionId,
+                @NewCartId    AS CartId,
+                'Access Granted' AS [Message]
+            FOR JSON PATH, WITHOUT_ARRAY_WRAPPER
+        );
+
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        IF @@TRANCOUNT > 0 ROLLBACK TRANSACTION;
+        ;THROW;
+    END CATCH
+END
 --------------------------------------------------------------------------------
