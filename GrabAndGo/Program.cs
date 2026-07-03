@@ -1,5 +1,5 @@
 // QuestPDF Community License — must be acknowledged once at startup before any PDF is rendered.
-using GrabAndGo.Api.Hubs.Implementations;
+
 
 QuestPDF.Settings.License = QuestPDF.Infrastructure.LicenseType.Community;
 
@@ -43,6 +43,8 @@ builder.Services.AddScoped<IGateRepository, GateRepository>();
 builder.Services.AddScoped<ICartNotificationService, SignalRCartNotificationService>();
 builder.Services.AddScoped<IGateNotificationService, GateNotificationService>();
 builder.Services.AddScoped<IInvoiceNotificationService, InvoiceNotificationService>();
+builder.Services.AddScoped<HelperMethods>();
+builder.Services.AddScoped<ILogger, Logger<Program>>();
 builder.Services.AddSignalR(options =>
 {
     options.MaximumReceiveMessageSize = 1048576; // 1 Megabytes, 6,990 distinct, unique items

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GrabAndGo.DataAccess")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aa61efd30a0ee6d9b83ddf3fd9e4d991f6b234bb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6b4c0d782b969246154e47b38f15e2bb3eee2ede")]
 [assembly: System.Reflection.AssemblyProductAttribute("GrabAndGo.DataAccess")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GrabAndGo.DataAccess")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

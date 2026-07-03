@@ -1266,7 +1266,7 @@ GO
 --------------------------------------------------------------------------------
  USE [GrabAndGoDB]
   GO
-CREATE OR ALTER PROCEDURE [dbo].[SP_GenerateGateToken]
+CREATE OR ALTER PROCEDURE SP_GenerateGateToken
     @P_JSON_REQUEST  NVARCHAR(MAX),
     @P_JSON_RESPONSE NVARCHAR(MAX) OUTPUT
 AS
@@ -1296,7 +1296,7 @@ BEGIN
 
     -- 5. Calculate timestamps — 30 SECONDS not minutes, this is a gate token
     DECLARE @IssuedAt  DATETIME = GETDATE();
-    DECLARE @ExpiresAt DATETIME = DATEADD(SECOND, 30, @IssuedAt);
+    DECLARE @ExpiresAt DATETIME = DATEADD(SECOND, 90, @IssuedAt);
 
     BEGIN TRY
         -- 6. Insert — ConsumedAt omitted, lands as NULL

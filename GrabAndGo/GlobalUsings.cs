@@ -46,3 +46,5 @@ global using System.Text;
 global using System.Text.Json;
 global using GrabAndGo.Models.Requests.QrToken;
 global using GrabAndGo.Models.Responses.Gate;
+global using GrabAndGo.Api.Hubs.Implementations;
+global using GrabAndGo.Services.Core.HelperMethods;
