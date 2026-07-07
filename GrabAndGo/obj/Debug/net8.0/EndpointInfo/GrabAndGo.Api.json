@@ -1840,6 +1840,9 @@
           "sessionStatus": {
             "type": "string",
             "nullable": true
+          },
+          "isTracked": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false

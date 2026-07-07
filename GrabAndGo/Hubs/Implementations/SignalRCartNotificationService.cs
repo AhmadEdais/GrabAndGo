@@ -15,5 +15,11 @@
                 .Group($"Session_{cartDto.SessionId}")
                 .SendAsync("ReceiveCartUpdate", cartDto);
         }
+        public async Task BroadcastTrackBoundAsync(int sessionId)
+        {
+            await _hubContext.Clients
+                .Group($"Session_{sessionId}")
+                .SendAsync("TrackBound");
+        }
     }
 }

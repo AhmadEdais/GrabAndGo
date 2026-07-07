@@ -6,16 +6,18 @@ public class SessionService : ISessionService
     private readonly IGateRepository _gateRepository;
     private readonly IConfiguration _config;
     private readonly IGateQrTokenRefreshService _gateQrTokenRefreshService;
+    private readonly IBroadcastSessionToDemo _broadcastSessionToDemo;
 
     private readonly HelperMethods _helperMethods;
 
     public SessionService(ISessionRepository sessionRepository, IGateRepository gateRepository, IConfiguration config
-        ,HelperMethods helperMethods, IGateQrTokenRefreshService gateQrTokenRefreshService)
+        ,HelperMethods helperMethods, IGateQrTokenRefreshService gateQrTokenRefreshService, IBroadcastSessionToDemo broadcastSessionToDemo)
     {
         _sessionRepository = sessionRepository;
         _gateRepository = gateRepository;
         _config = config;
         _gateQrTokenRefreshService = gateQrTokenRefreshService;
+        _broadcastSessionToDemo = broadcastSessionToDemo;
         _helperMethods = helperMethods;
     }
 
@@ -111,6 +113,7 @@ public class SessionService : ISessionService
             ?? throw new UnauthorizedAccessException("Failed to process gate entry.");
         await _gateQrTokenRefreshService.RefreshQrTokenAsync(tokenRecord.StoreId);
         await _helperMethods.NotifyVisionSystemAsync(result.SessionId);
+        await _broadcastSessionToDemo.BroadcastSessionEnteredAsync(result.SessionId, tokenRecord.StoreId, DateTime.UtcNow);
         return result;
     }
 

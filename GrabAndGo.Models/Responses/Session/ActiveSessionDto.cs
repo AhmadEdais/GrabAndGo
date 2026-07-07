@@ -10,5 +10,6 @@ namespace GrabAndGo.Models.Responses.Session
         public int? CartId { get; set; }
         public int? CartVersion { get; set; }
         public string SessionStatus { get; set; } = null!;
+        public bool IsTracked { get; set; }
     }
 }

@@ -1095,26 +1095,29 @@ GO
   BEGIN
       SET NOCOUNT ON;
 
-      SELECT TOP 1
-          s.SessionId,
-          s.StoreId,
-          st.StoreCode,
-          st.Name           AS StoreName,
-          s.StartedAt,
-          c.CartId,
-          c.CartVersion,
-          ss.StatusName     AS SessionStatus
-      FROM dbo.Sessions s
-          INNER JOIN dbo.Stores st ON st.StoreId = s.StoreId
-          INNER JOIN dbo.SessionStatuses ss ON ss.SessionStatusId = s.SessionStatusId
-          LEFT  JOIN dbo.Carts c ON c.SessionId = s.SessionId
-      WHERE s.UserId = @UserId
-        AND s.EndedAt IS NULL
-        AND ss.StatusName = 'Active'
-      ORDER BY s.StartedAt DESC
-      FOR JSON PATH, WITHOUT_ARRAY_WRAPPER, INCLUDE_NULL_VALUES;
+        SELECT TOP 1
+            s.SessionId,
+            s.StoreId,
+            st.StoreCode,
+            st.Name AS StoreName,
+            s.StartedAt,
+            c.CartId,
+            c.CartVersion,
+            ss.StatusName AS SessionStatus,
+            CASE WHEN stb.SessionId IS NOT NULL THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT) END AS IsTracked
+        FROM dbo.Sessions s
+            INNER JOIN dbo.Stores st ON st.StoreId = s.StoreId
+            INNER JOIN dbo.SessionStatuses ss ON ss.SessionStatusId = s.SessionStatusId
+            LEFT JOIN dbo.Carts c ON c.SessionId = s.SessionId
+            LEFT JOIN dbo.SessionTrackBindings stb ON stb.SessionId = s.SessionId AND stb.IsCurrent = 1
+        WHERE s.UserId = @UserId
+            AND s.EndedAt IS NULL
+            AND ss.StatusName = 'Active'
+        ORDER BY s.StartedAt DESC
+        FOR JSON PATH, WITHOUT_ARRAY_WRAPPER, INCLUDE_NULL_VALUES;
   END
   GO
+
   
   CREATE OR ALTER PROCEDURE dbo.SP_GetProducts
       @PageNumber INT             = 1,
@@ -1408,5 +1411,13 @@ BEGIN
         IF @@TRANCOUNT > 0 ROLLBACK TRANSACTION;
         ;THROW;
     END CATCH
+END
+--------------------------------------------------------------------------------
+CREATE OR ALTER PROCEDURE dbo.SP_DoesStoreExist
+    @StoreId INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SELECT CASE WHEN EXISTS (SELECT 1 FROM Stores WHERE StoreId = @StoreId) THEN 1 ELSE 0 END;
 END
 --------------------------------------------------------------------------------

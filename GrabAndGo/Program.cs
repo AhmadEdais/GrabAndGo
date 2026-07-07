@@ -40,11 +40,15 @@ builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IGateService, GateService>();
 builder.Services.AddScoped<IGateRepository, GateRepository>();
 
+builder.Services.AddScoped<IStoreService, StoreService>();
+builder.Services.AddScoped<IStoreRepository, StoreRepository>();
+
 builder.Services.AddScoped<ICartNotificationService, SignalRCartNotificationService>();
 builder.Services.AddScoped<IGateNotificationService, GateNotificationService>();
 builder.Services.AddScoped<IInvoiceNotificationService, InvoiceNotificationService>();
 builder.Services.AddScoped<HelperMethods>();
 builder.Services.AddScoped<ILogger, Logger<Program>>();
+builder.Services.AddScoped<IGateQrTokenRefreshService, GateQrTokenRefreshService>();
 builder.Services.AddSignalR(options =>
 {
     options.MaximumReceiveMessageSize = 1048576; // 1 Megabytes, 6,990 distinct, unique items
@@ -151,7 +155,8 @@ builder.Services.AddCors(options =>
         policy
             .WithOrigins(
                 "http://127.0.0.1:5500",  // Live Server default
-                "http://localhost:5500"    // Live Server alternative
+                "http://localhost:5500",
+                "https://192.168.1.7:5500"
             )
             .AllowAnyMethod()
             .AllowAnyHeader()
@@ -175,5 +180,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 app.MapHub<CartHub>("/hubs/cart");
+app.MapHub<GateHub>("/hubs/gate");
 app.MapHub<InvoiceHub>("/hubs/invoice");
 app.Run();
