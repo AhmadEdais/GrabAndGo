@@ -49,6 +49,7 @@ builder.Services.AddScoped<IInvoiceNotificationService, InvoiceNotificationServi
 builder.Services.AddScoped<HelperMethods>();
 builder.Services.AddScoped<ILogger, Logger<Program>>();
 builder.Services.AddScoped<IGateQrTokenRefreshService, GateQrTokenRefreshService>();
+builder.Services.AddScoped<IBroadcastSessionToDemo, BroadcastSessionToDemo>();
 builder.Services.AddSignalR(options =>
 {
     options.MaximumReceiveMessageSize = 1048576; // 1 Megabytes, 6,990 distinct, unique items

@@ -16,5 +16,12 @@ namespace GrabAndGo.DataAccess.Repositories
                 new { PageNumber = pageNumber, PageSize = pageSize, Search = search }
             );
         }
+        public async Task<List<ProductsListDemoDto>?> GetDemoProductsAsync()
+        {
+            return await _executor.ExecuteReaderAsync<List<ProductsListDemoDto>>(
+                "SP_GetProductsDemo",
+                new { }
+            );
+        }
     }
 }

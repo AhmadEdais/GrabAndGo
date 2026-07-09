@@ -1421,3 +1421,16 @@ BEGIN
     SELECT CASE WHEN EXISTS (SELECT 1 FROM Stores WHERE StoreId = @StoreId) THEN 1 ELSE 0 END;
 END
 --------------------------------------------------------------------------------
+CREATE OR ALTER PROCEDURE dbo.SP_GetProductsDemo
+AS
+BEGIN 
+    SET NOCOUNT ON;
+            SELECT
+            p.Name AS ProductName,
+            p.ImageUrl,
+            pal.AiLabel AS ProductAiLabel 
+            FROM ProductAiLabels pal
+            INNER JOIN Products p ON p.ProductId = pal.ProductId
+            WHERE pal.IsPrimary = 1
+      FOR JSON PATH, INCLUDE_NULL_VALUES;
+END

@@ -1,4 +1,6 @@
-﻿namespace GrabAndGo.Api.BackgroundServices
+﻿using Microsoft.Extensions.Options;
+
+namespace GrabAndGo.Api.BackgroundServices
 {
     public class MqttVisionWorker : BackgroundService
     {
@@ -6,18 +8,21 @@
         private readonly MqttClientOptions _mqttOptions;
         private readonly IServiceScopeFactory _scopeFactory;
         private readonly ILogger<MqttVisionWorker> _logger;
-        public MqttVisionWorker(IServiceScopeFactory scopeFactory, ILogger<MqttVisionWorker> logger)
+        private readonly IConfiguration _config;
+        public MqttVisionWorker(IServiceScopeFactory scopeFactory, ILogger<MqttVisionWorker> logger, IConfiguration config)
         {
             _scopeFactory = scopeFactory;
             _logger = logger;
-
+            _config = config;
             var factory = new MqttFactory();
             _mqttClient = factory.CreateMqttClient();
 
             _mqttOptions = new MqttClientOptionsBuilder()
-                .WithClientId($"GrabAndGo_Backend_{Guid.NewGuid()}") // Unique ID per boot
-                .WithTcpServer("broker.hivemq.com", 1883)            // Public sandbox
-                .WithCleanSession(true)                              // Start fresh every time
+                .WithClientId($"GrabAndGo_Backend_{Guid.NewGuid()}") 
+                .WithTcpServer(_config["Broker:Host"], int.Parse(_config["Broker:Port"]))
+                .WithTlsOptions(o => o.UseTls())
+                .WithCredentials(_config["Broker:Username"], _config["Broker:Password"])
+                .WithCleanSession(true)                              
                 .Build();
             _mqttClient.ApplicationMessageReceivedAsync += OnMessageReceivedAsync;
         }

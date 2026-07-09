@@ -488,6 +488,35 @@
     ]
   },
   {
+    "ContainingType": "GrabAndGo.Api.Controllers.ProductsController",
+    "Method": "GetDemoProducts",
+    "RelativePath": "api/Products/demo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[GrabAndGo.Models.Responses.Product.ProductsListDemoDto, GrabAndGo.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 401
+      }
+    ]
+  },
+  {
     "ContainingType": "GrabAndGo.Api.Controllers.SessionsController",
     "Method": "GetActiveSession",
     "RelativePath": "api/Sessions/active",

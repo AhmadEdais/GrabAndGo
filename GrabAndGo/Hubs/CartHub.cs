@@ -1,6 +1,6 @@
 namespace GrabAndGo.Api.Hubs
 {
-    [Authorize]
+    
     public class CartHub : Hub
     {
         private readonly ISessionService _sessionService;
@@ -9,7 +9,7 @@ namespace GrabAndGo.Api.Hubs
         {
             _sessionService = sessionService;
         }
-
+        [Authorize]
         public async Task SubscribeToSession(int sessionId)
         {
             var userId =  GetVerifiedUserId();
@@ -21,7 +21,7 @@ namespace GrabAndGo.Api.Hubs
 
             await Groups.AddToGroupAsync(Context.ConnectionId, $"Session_{sessionId}");
         }
-
+        [Authorize]
         public async Task UnsubscribeFromSession(int sessionId)
         {
             var userId =  GetVerifiedUserId();

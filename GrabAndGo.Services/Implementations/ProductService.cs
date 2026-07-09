@@ -23,5 +23,11 @@ namespace GrabAndGo.Services.Implementations
             var result = await _productRepository.GetProductsAsync(pageNumber, pageSize, normalizedSearch);
             return result ?? new List<ProductListItemDto>();
         }
+        public async Task<List<ProductsListDemoDto>> GetDemoProductsAsync()
+        {
+            var result = await _productRepository.GetDemoProductsAsync();
+            return result ?? 
+                new List<ProductsListDemoDto>();
+        }
     }
 }
