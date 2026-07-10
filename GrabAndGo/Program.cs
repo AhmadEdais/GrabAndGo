@@ -111,6 +111,27 @@ builder.Services.AddSwaggerGen(options =>
         Array.Empty<string>()
         }
     });
+    options.AddSecurityDefinition("VisionApiKey", new OpenApiSecurityScheme
+    {
+        Type = SecuritySchemeType.ApiKey,
+        In = ParameterLocation.Header,
+        Name = "X-Api-Key",
+        Description = "Hardware Vision API Key"
+    });
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+             new OpenApiSecurityScheme
+                {
+                    Reference = new OpenApiReference
+                    {
+                        Type = ReferenceType.SecurityScheme,
+                        Id = "VisionApiKey"
+                    }
+        },
+        Array.Empty<string>()
+        }
+    });
 });
 // Read JWT settings from appsettings.json or Environment Variables
 var jwtKey = builder.Configuration["GRABANDGO_JWT_KEY"] ?? throw new InvalidOperationException("JWT Key is missing in configuration.");

@@ -8,5 +8,6 @@
         Task<ActiveSessionDto?> GetUserActiveSessionAsync(int userId);
         Task<bool> DoesUserOwnActiveSessionAsync(int userId, int sessionId);
         Task<GateEntryResponseDto?> EnterStoreAsync(int userId, string gateToken);
+        Task<List<ActiveSessionsDto>> GetAllActiveSessionsAsync();
     }
 }

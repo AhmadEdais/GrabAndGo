@@ -60,5 +60,11 @@
                 new { GateQrTokenId = gateQrTokenId, UserId = userId, StoreId = storeId }
             );
         }
+        public async Task<List<ActiveSessionsDto>> GetAllActiveSessionsAsync()
+        {
+            return await _executor.ExecuteReaderAsync < List<ActiveSessionsDto>>(
+                "SP_GetAllActiveSessions"
+            ) ?? [];
+        }
     }
 }

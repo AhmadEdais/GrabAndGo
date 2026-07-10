@@ -104,5 +104,18 @@ namespace GrabAndGo.Api.Controllers
                 return StatusCode(500, new { message = "An error occurred while processing entry.", details = ex.Message });
             }
         }
+        [AllowAnonymous]
+        [RequireApiKey("Vision")]
+        [HttpGet("all-active")]
+        [ProducesResponseType(typeof(List<ActiveSessionsDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+
+        public async Task<IActionResult> GetAllActiveSessions()
+        {
+            var activeSessions = await _sessionService.GetAllActiveSessionsAsync();
+            return Ok(activeSessions);
+        }
     }
 }

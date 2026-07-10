@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GrabAndGo.Models")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+255359aac3ce4d03dbe1b8627622016a91ac5b1d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7d3c357be3c59437fb5b5b5d5b6c8a95f4659957")]
 [assembly: System.Reflection.AssemblyProductAttribute("GrabAndGo.Models")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GrabAndGo.Models")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

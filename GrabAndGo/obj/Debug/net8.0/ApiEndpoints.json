@@ -552,6 +552,49 @@
   },
   {
     "ContainingType": "GrabAndGo.Api.Controllers.SessionsController",
+    "Method": "GetAllActiveSessions",
+    "RelativePath": "api/Sessions/all-active",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[GrabAndGo.Models.Responses.Session.ActiveSessionsDto, GrabAndGo.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ]
+  },
+  {
+    "ContainingType": "GrabAndGo.Api.Controllers.SessionsController",
     "Method": "EnterStore",
     "RelativePath": "api/Sessions/enter",
     "HttpMethod": "POST",

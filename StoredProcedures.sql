@@ -1341,6 +1341,8 @@ BEGIN
 END
 GO
 --------------------------------------------------------------------------------
+USE [GrabAndGoDB];
+GO
 CREATE OR ALTER PROCEDURE [dbo].[SP_EnterStoreViaGate]
     @P_JSON_REQUEST  NVARCHAR(MAX),
     @P_JSON_RESPONSE NVARCHAR(MAX) OUTPUT
@@ -1412,7 +1414,10 @@ BEGIN
         ;THROW;
     END CATCH
 END
+GO
 --------------------------------------------------------------------------------
+USE [GrabAndGoDB];
+GO
 CREATE OR ALTER PROCEDURE dbo.SP_DoesStoreExist
     @StoreId INT
 AS
@@ -1420,7 +1425,10 @@ BEGIN
     SET NOCOUNT ON;
     SELECT CASE WHEN EXISTS (SELECT 1 FROM Stores WHERE StoreId = @StoreId) THEN 1 ELSE 0 END;
 END
+GO
 --------------------------------------------------------------------------------
+USE [GrabAndGoDB];
+GO
 CREATE OR ALTER PROCEDURE dbo.SP_GetProductsDemo
 AS
 BEGIN 
@@ -1434,3 +1442,28 @@ BEGIN
             WHERE pal.IsPrimary = 1
       FOR JSON PATH, INCLUDE_NULL_VALUES;
 END
+GO
+--------------------------------------------------------------------------------
+USE [GrabAndGoDB];
+GO
+
+CREATE OR ALTER PROCEDURE [dbo].[SP_GetAllActiveSessions]
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT
+        s.SessionId,
+        s.StoreId,
+        s.StartedAt,
+        CASE WHEN stb.SessionId IS NOT NULL THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT) END AS IsTracked,
+        stb.TrackId
+    FROM dbo.Sessions s
+        LEFT JOIN dbo.SessionTrackBindings stb
+            ON stb.SessionId = s.SessionId AND stb.IsCurrent = 1
+    WHERE s.SessionStatusId = 1
+    ORDER BY s.StartedAt ASC
+    FOR JSON PATH, INCLUDE_NULL_VALUES;
+END
+GO
+--------------------------------------------------------------------------------

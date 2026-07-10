@@ -6,7 +6,7 @@ namespace GrabAndGo.Api.Controllers
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    //[RequireApiKey("Vision")]
+    [RequireApiKey("Vision")]
     public class VisionSystemController : ControllerBase
     {
         private readonly IVisionSystemService _visionSystemService;

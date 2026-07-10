@@ -126,4 +126,8 @@ public class SessionService : ISessionService
     {
         return await _sessionRepository.DoesUserOwnActiveSessionAsync(userId, sessionId);
     }
+    public async Task<List<ActiveSessionsDto>> GetAllActiveSessionsAsync()
+    {
+        return await _sessionRepository.GetAllActiveSessionsAsync();
+    }
 }
