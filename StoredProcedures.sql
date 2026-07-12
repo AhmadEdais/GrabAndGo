@@ -1299,7 +1299,7 @@ BEGIN
 
     -- 5. Calculate timestamps — 30 SECONDS not minutes, this is a gate token
     DECLARE @IssuedAt  DATETIME = GETDATE();
-    DECLARE @ExpiresAt DATETIME = DATEADD(SECOND, 90, @IssuedAt);
+    DECLARE @ExpiresAt DATETIME = DATEADD(SECOND, 30, @IssuedAt);
 
     BEGIN TRY
         -- 6. Insert — ConsumedAt omitted, lands as NULL
