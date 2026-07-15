@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("e323448a-0e03-480c-b5dc-321117fb33a2")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("GrabAndGo.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0207fa952031b0bdcef3e614d9f1c18d574c022d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+321a16b38c6592e9b521157c6372c838df7a7226")]
 [assembly: System.Reflection.AssemblyProductAttribute("GrabAndGo.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GrabAndGo.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
