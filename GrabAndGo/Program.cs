@@ -178,7 +178,8 @@ builder.Services.AddCors(options =>
             .WithOrigins(
                 "http://127.0.0.1:5500",  // Live Server default
                 "http://localhost:5500",
-                "https://192.168.1.7:5500"
+                "https://192.168.1.7:5500",
+                "http://192.168.1.7:5500"
             )
             .AllowAnyMethod()
             .AllowAnyHeader()
@@ -190,12 +191,12 @@ builder.Services.AddAuthorization();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
 
+//}
 app.UseHttpsRedirection();
 app.UseCors("FrontendPolicy");
 app.UseAuthentication();
@@ -204,4 +205,9 @@ app.MapControllers();
 app.MapHub<CartHub>("/hubs/cart");
 app.MapHub<GateHub>("/hubs/gate");
 app.MapHub<InvoiceHub>("/hubs/invoice");
+app.MapGet("/health", () => Results.Ok(new
+{
+    status = "healthy",
+    environment = app.Environment.EnvironmentName
+}));
 app.Run();
