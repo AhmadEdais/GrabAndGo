@@ -489,3 +489,4 @@ GrabAndGo/invoices/
 .env
 .env.*
 secrets.json
+docker-data/
