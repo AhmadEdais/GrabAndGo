@@ -78,7 +78,7 @@ GO
 --------------------------------------------------------------------------------------------------
 USE [GrabAndGoDB]
 GO
-CREATE OR ALTER PROCEDURE [dbo].[sp_GetUserByEmail_JSON]
+CREATE OR ALTER PROCEDURE [dbo].[SP_GetUserByEmail_JSON]
     @Email NVARCHAR(320)
 AS
 BEGIN
