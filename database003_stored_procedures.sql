@@ -1,4 +1,4 @@
-﻿USE [GrabAndGoDB]
+﻿
 GO
 
 CREATE OR ALTER PROCEDURE [dbo].[SP_InsertUser]
@@ -76,9 +76,9 @@ BEGIN
 END
 GO
 --------------------------------------------------------------------------------------------------
-USE [GrabAndGoDB]
+
 GO
-CREATE OR ALTER PROCEDURE [dbo].[SP_GetUserByEmail_JSON]
+CREATE OR ALTER PROCEDURE [dbo].[sp_GetUserByEmail_JSON]
     @Email NVARCHAR(320)
 AS
 BEGIN
@@ -652,7 +652,7 @@ END
 GO
 --------------------------------------------------------------------------------------------------
 GO
-USE [GrabAndGoDB]
+
 GO
 
 CREATE OR ALTER PROCEDURE [dbo].[SP_ProcessCheckout]
@@ -820,7 +820,7 @@ BEGIN
 END
 GO
 --------------------------------------------------------------------------------------------------
- USE [GrabAndGoDB]
+ 
   GO
 
   -- =============================================================================
@@ -991,7 +991,7 @@ GO
       FOR JSON PATH, INCLUDE_NULL_VALUES;
   END
   GO
-   USE [GrabAndGoDB];
+   ;
   GO
 
   CREATE OR ALTER PROCEDURE dbo.SP_GetUserTransactions
@@ -1056,7 +1056,7 @@ GO
       FOR JSON PATH, INCLUDE_NULL_VALUES;
   END
   GO
-   USE [GrabAndGoDB];
+   ;
   GO
 
   CREATE OR ALTER PROCEDURE dbo.SP_GetUserWalletLedger
@@ -1088,7 +1088,8 @@ GO
   END
   GO
 
-
+  DROP PROCEDURE IF EXISTS dbo.SP_GetUserActiveSession;
+GO
   CREATE OR ALTER PROCEDURE dbo.SP_GetUserActiveSession
       @UserId INT
   AS
@@ -1147,7 +1148,7 @@ GO
       FOR JSON PATH, INCLUDE_NULL_VALUES;
   END
   GO
-  USE [GrabAndGoDB];
+  ;
   GO
 
   CREATE OR ALTER PROCEDURE dbo.SP_DoesUserOwnActiveSession
@@ -1267,7 +1268,8 @@ BEGIN
 END
 GO
 --------------------------------------------------------------------------------
- USE [GrabAndGoDB]
+ DROP PROCEDURE IF EXISTS dbo.SP_GenerateGateToken;
+GO
   GO
 CREATE OR ALTER PROCEDURE SP_GenerateGateToken
     @P_JSON_REQUEST  NVARCHAR(MAX),
@@ -1320,7 +1322,7 @@ BEGIN
 END
 GO
 --------------------------------------------------------------------------------
- USE [GrabAndGoDB];
+ ;
 GO
 CREATE OR ALTER PROCEDURE [dbo].[SP_GetGateTokenForVerification]
     @GateQrTokenId INT
@@ -1341,7 +1343,7 @@ BEGIN
 END
 GO
 --------------------------------------------------------------------------------
-USE [GrabAndGoDB];
+;
 GO
 CREATE OR ALTER PROCEDURE [dbo].[SP_EnterStoreViaGate]
     @P_JSON_REQUEST  NVARCHAR(MAX),
@@ -1416,7 +1418,7 @@ BEGIN
 END
 GO
 --------------------------------------------------------------------------------
-USE [GrabAndGoDB];
+;
 GO
 CREATE OR ALTER PROCEDURE dbo.SP_DoesStoreExist
     @StoreId INT
@@ -1427,7 +1429,7 @@ BEGIN
 END
 GO
 --------------------------------------------------------------------------------
-USE [GrabAndGoDB];
+;
 GO
 CREATE OR ALTER PROCEDURE dbo.SP_GetProductsDemo
 AS
@@ -1444,7 +1446,7 @@ BEGIN
 END
 GO
 --------------------------------------------------------------------------------
-USE [GrabAndGoDB];
+;
 GO
 
 CREATE OR ALTER PROCEDURE [dbo].[SP_GetAllActiveSessions]
